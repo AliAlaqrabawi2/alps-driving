@@ -6,13 +6,14 @@ Vue.use(VueRouter)
 let routes = [
     {
         // will match everything
-        path: '/*',
+        path: '*',
         component: () => import('../views/404.vue'),
     },
     {
         path: '/',
         name: 'Home',
-        component: () => import( '../views/admin/AdminListing.vue'),    },
+        redirect: '/admin-listing',
+    },
 
     {
         path: '/admin-listing',
