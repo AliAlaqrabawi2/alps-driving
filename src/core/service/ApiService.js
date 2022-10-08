@@ -12,30 +12,21 @@ export const HTTP = axios.create({
 
 export const checkAuth = (statusCode)=>{
     if (statusCode===401){
-      store.dispatch("logout");
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: "session expired",
             icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            buttons: 'Yes, delete it!'
-        }).then(()=>{
-            router.push("/sign-in");
+            buttons: 'Ok'
         })
+      store.dispatch("logout");
 
 
     }
+
     else if (statusCode===403) {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: "You dont have permission to delete this",
             icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            buttons: 'Yes, delete it!'
+            buttons: 'Ok'
         })
 
     }

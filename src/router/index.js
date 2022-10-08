@@ -19,43 +19,53 @@ let routes = [
         path: '/admin-listing',
         name: 'admin-listing',
         layout: "dashboard",
-        component: () => import( '../views/admin/AdminListing.vue'),
+        component: () => import( '../views/admin/AdminListing.vue') ,
+        beforeEnter(to, from, next) {
+            const user = localStorage.getItem("user") ;
+            if (user===null){
+                next("/sign-in")
+            }
+            else {
+                next();
+            }
+        }
+
     },
     {
         path: '/admin-creating',
         name: 'admin-creating',
         layout: "dashboard",
         component: () => import( '../views/admin/AdminCreating.vue'),
+        beforeEnter(to, from, next) {
+            const user = localStorage.getItem("user") ;
+            if (user===null){
+                next("/sign-in")
+            }
+            else {
+                next();
+            }
+        }
     },
     {
         path: '/admin-editing/:id',
         name: 'admin-editing',
         layout: "dashboard",
         component: () => import('../views/admin/AdminEditing.vue'),
-    },
-    {
-        path: '/layout',
-        name: 'Layout',
-        layout: "dashboard",
-        component: () => import('../views/Layout.vue'),
-    },
-    {
-        path: '/tables',
-        name: 'Tables',
-        layout: "dashboard",
-        component: () => import('../views/Tables.vue'),
+        beforeEnter(to, from, next) {
+            const user = localStorage.getItem("user") ;
+            if (user===null){
+                next("/sign-in")
+            }
+            else {
+                next();
+            }
+        }
     },
 
 
-    {
-        path: '/Profile',
-        name: 'Profile',
-        layout: "dashboard",
-        meta: {
-            layoutClass: 'layout-profile',
-        },
-        component: () => import('../views/Profile.vue'),
-    },
+
+
+
     {
         path: '/sign-in',
         name: 'Sign-In',
