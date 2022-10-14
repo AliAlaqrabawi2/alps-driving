@@ -22,7 +22,7 @@
 
         <a-input
             type="email"
-            v-decorator="['email', { rules: [{ required: true, message: 'Please input your last email!' }] }]"
+            v-decorator="['email', { rules: [{type:'email' ,required: true , message: 'This is not valid email' }] }]"
         />
       </a-form-item>
       <a-form-item label="Password" >

@@ -45,14 +45,14 @@ export default {
                 commit("setError", err.response.data.msg);
             }
         },
-        async logout({ commit }, {email,password}) {
+        async logout({ commit },) {
             try {
                 const res = await HTTP.post("/api/auth/logout");
                 localStorage.removeItem(("user"))
                 commit("setUser", null);
                 commit("setError",null);
                 commit("destroyUser")
-                location.href="/sign-in";
+                window.location.href="/sign-in";
             } catch (err) {
                 commit("setError", err.response.data.msg);
             }

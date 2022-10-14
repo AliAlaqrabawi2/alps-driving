@@ -62,10 +62,144 @@ let routes = [
         }
     },
 
+    {
+        path: '/trainee-listing',
+        name: 'trainee-listing',
+        layout: "dashboard",
+        component: () => import( '../views/trainee/TraineeListing.vue') ,
+        beforeEnter(to, from, next) {
+            const user = localStorage.getItem("user") ;
+            if (user===null){
+                next("/sign-in")
+            }
+            else {
+                next();
+            }
+        }
 
+    },
+    {
+        path: '/trainee-creating',
+        name: 'trainee-creating',
+        layout: "dashboard",
+        component: () => import( '../views/trainee/TraineeCreating'),
+        beforeEnter(to, from, next) {
+            const user = localStorage.getItem("user") ;
+            if (user===null){
+                next("/sign-in")
+            }
+            else {
+                next();
+            }
+        }
+    },
+    {
+        path: '/trainee-editing/:id',
+        name: 'trainee-editing',
+        layout: "dashboard",
+        component: () => import('../views/trainee/TraineeEditing'),
+        beforeEnter(to, from, next) {
+            const user = localStorage.getItem("user") ;
+            if (user===null){
+                next("/sign-in")
+            }
+            else {
+                next();
+            }
+        }
+    },
+    {
+        path: '/instructor-listing',
+        name: 'instructor-listing',
+        layout: "dashboard",
+        component: () => import( '../views/instructor/InstructorListing') ,
+        beforeEnter(to, from, next) {
+            const user = localStorage.getItem("user") ;
+            if (user===null){
+                next("/sign-in")
+            }
+            else {
+                next();
+            }
+        }
 
+    },
+    {
+        path: '/instructor-creating',
+        name: 'instructor-creating',
+        layout: "dashboard",
+        component: () => import( '../views/instructor/InstructorCreating'),
+        beforeEnter(to, from, next) {
+            const user = localStorage.getItem("user") ;
+            if (user===null){
+                next("/sign-in")
+            }
+            else {
+                next();
+            }
+        }
+    },
+    {
+        path: '/instructor-editing/:id',
+        name: 'instructor-editing',
+        layout: "dashboard",
+        component: () => import('../views/instructor/InstructorEditing'),
+        beforeEnter(to, from, next) {
+            const user = localStorage.getItem("user") ;
+            if (user===null){
+                next("/sign-in")
+            }
+            else {
+                next();
+            }
+        }
+    },
+    {
+        path: '/employee-listing',
+        name: 'employee-listing',
+        layout: "dashboard",
+        component: () => import( '../views/employee/EmployeeListing') ,
+        beforeEnter(to, from, next) {
+            const user = localStorage.getItem("user") ;
+            if (user===null){
+                next("/sign-in")
+            }
+            else {
+                next();
+            }
+        }
 
-
+    },
+    {
+        path: '/employee-creating',
+        name: 'employee-creating',
+        layout: "dashboard",
+        component: () => import( '../views/employee/EmployeeCreating'),
+        beforeEnter(to, from, next) {
+            const user = localStorage.getItem("user") ;
+            if (user===null){
+                next("/sign-in")
+            }
+            else {
+                next();
+            }
+        }
+    },
+    {
+        path: '/employee-editing/:id',
+        name: 'employee-editing',
+        layout: "dashboard",
+        component: () => import('../views/employee/EmployeeEditing'),
+        beforeEnter(to, from, next) {
+            const user = localStorage.getItem("user") ;
+            if (user===null){
+                next("/sign-in")
+            }
+            else {
+                next();
+            }
+        }
+    },
     {
         path: '/sign-in',
         name: 'Sign-In',

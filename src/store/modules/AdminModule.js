@@ -32,9 +32,11 @@ export default {
     actions: {
         async getAllAdmin({commit }) {
             try {
+                commit("setError", null);
                 const res = await HTTP.get("/api/admin/all" ,{
                 });
-                commit("setAdmins",res.data);
+
+                commit("setAdmins",res.data.data);
             } catch (err) {
                 commit("setError", err.response.data.msg);
                 checkAuth(err.response.status);
@@ -43,6 +45,7 @@ export default {
         },
         async createNewAdmin ({commit} ,admin){
             try {
+                commit("setError", null);
                 await HTTP.post('/api/auth/register',{
                     firstName:admin.firstName ,
                     lastName:admin.lastName ,
@@ -59,8 +62,8 @@ export default {
         },
         async deleteAdmin({commit } ,id) {
             try {
-               await HTTP.delete(`/api/admin/${id}` ,{
-                });
+                commit("setError", null);
+               await HTTP.delete(`/api/admin/${id}`);
                location.reload()
 
             } catch (err) {
@@ -80,6 +83,21 @@ export default {
                 checkAuth(err.response.status);
 
             }
+        },
+
+        updateAdmin: async function ({commit},  admin) {
+                await HTTP.put(`/api/admin/${admin.id}`, {
+                    firstName:admin.firstName,
+                    lastName: admin.lastName,
+                    email:admin.email ,
+                    phoneNumber:admin.phoneNumber,
+                    isSupervisor:admin.isSupervisor
+
+                });
+            window.location.href="/"
+
+
+
         }
 
 

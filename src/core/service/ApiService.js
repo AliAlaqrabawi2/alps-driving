@@ -24,7 +24,7 @@ export const checkAuth = (statusCode)=>{
 
     else if (statusCode===403) {
         Swal.fire({
-            title: "You dont have permission to delete this",
+            title: "You dont have permission to do this Action",
             icon: 'warning',
             buttons: 'Ok'
         })

@@ -20,6 +20,12 @@ const MenuConfig = [
                 svgIcon: "/media/icons/duotune/technology/teh004.svg",
                 fontIcon: "bi-sticky",
             },
+            {
+                sectionTitle: "Instructor",
+                route: "/instructor-listing",
+                svgIcon: "/media/icons/duotune/technology/teh004.svg",
+                fontIcon: "bi-sticky",
+            },
         ],
     },
 ];
