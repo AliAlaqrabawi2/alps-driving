@@ -319,6 +319,9 @@ export default {
         lastName: [
           { required: true, message: 'Please input last name', trigger: 'blur' },
         ],
+        sirName: [
+          { required: true, message: 'Please input sir name', trigger: 'blur' },
+        ],
 
         email: [
           {
