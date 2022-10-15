@@ -10,35 +10,44 @@
         :form="form" :label-col="{ span:3 }" :wrapper-col="{ span: 10 }" @submit="handleSubmit">
       <a-form-item label="First Name" >
         <a-input
+            placeholder="First Name"
             v-decorator="['firstName', { rules: [{ required: true, message: 'Please input your first name!' }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Middle Name" >
+        <a-input
+            placeholder="Middle Name"
+            v-decorator="['middleName', { rules: [{ required: true, message: 'Please input your middle name!' }] }]"
         />
       </a-form-item>
       <a-form-item label="Last Name" >
         <a-input
+            placeholder="Last Name"
             v-decorator="['lastName', { rules: [{ required: true, message: 'Please input your last name!' }] }]"
         />
       </a-form-item>
-      <a-form-item label="Sir Name" >
-        <a-input
-            v-decorator="['sirName', { rules: [{ required: true, message: 'Please input your sir name!' }] }]"
-        />
-      </a-form-item>
+
       <a-form-item label="Email" >
 
         <a-input
+            placeholder="john@example.com"
+
             type="email"
             v-decorator="['email', { rules: [{ type:'email' , required: true, message: 'This is not valid email!' }] }]"
         />
       </a-form-item>
 
 
-      <a-form-item label="Phone Number" >
+      <a-form-item label="Telephone" >
         <a-input
-            v-decorator="['phoneNumber', { rules: [{ required: true, message:'Please input your phone number' }] }]"
+            placeholder="Telephone"
+            v-decorator="['telephone', { rules: [{ required: true, message:'Please input your phone number' }] }]"
         />
       </a-form-item>
       <a-form-item label="Gender">
         <a-select
+            placeholder="Gender"
+            type="Gender"
             v-decorator="[
           'gender',
           { rules: [{ required: true, message: 'Please select gender!' }] },
@@ -54,129 +63,176 @@
         </a-select>
       </a-form-item>
 
-      <a-form-item label="address" >
+      <a-form-item label="Address" >
         <a-input
-            placeholder='optional'
-            v-decorator="['address', { rules: [{ required: false}] }]"
-        />
-      </a-form-item>
-      <a-form-item label="country" >
-        <a-input
-            placeholder='optional'
-            v-decorator="['country', { rules: [{ required: false }] }]"
-        />
-      </a-form-item>
-      <a-form-item label="Street Name" >
-        <a-input
-            placeholder='optional'
-            v-decorator="['streetName', { rules: [{ required: false }] }]"
+            placeholder='Address'
+            v-decorator="['address', { rules: [{ required: true , message:'Please input Address'}] }]"
         />
       </a-form-item>
       <a-form-item label="Post code" >
         <a-input
             placeholder='Post code'
-            v-decorator="['Postcode', { rules: [{ required: false }] }]"
+            v-decorator="['Postcode', { rules: [{ required: true , message:'Please input Post code'}] }]"
         />
       </a-form-item>
-      <a-form-item label="driving Licences No" >
+
+      <a-form-item label="County" >
         <a-input
-            placeholder='driving LicencesNo'
-            v-decorator="['drivingLicencesNo', { rules: [{ required: false }] }]"
+            placeholder='County'
+            v-decorator="['county', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="city" >
+      <a-form-item label="Street Name" >
         <a-input
-            placeholder='city'
+            placeholder='Street Name'
+            v-decorator="['streetName', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+
+      <a-form-item label="City" >
+        <a-input
+            placeholder='City'
             v-decorator="['city', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Location Based" >
         <a-input
-            placeholder='location Based'
+            placeholder='Location Based'
             v-decorator="['locationBased', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Areas Covered" >
+      <a-form-item label="Areas " >
         <a-input
-            placeholder='areas Covered'
-            v-decorator="['areasCovered', { rules: [{ required: false }] }]"
+            placeholder='Areas '
+            v-decorator="['areas', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Trainer Experience" >
+
+      <a-form-item label="National Insurance " >
         <a-input
-            placeholder='trainer Experience'
-            v-decorator="['trainerExperience', { rules: [{ required: false }] }]"
+            placeholder='national Insurance Number'
+            v-decorator="['nationalInsuranceNo', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="trainer PassRate" >
+        <a-form-item label="Previous Experience " >
+          <a-input
+              placeholder='Previous Experience'
+              v-decorator="['previousExperience', { rules: [{ required: false }] }]"
+          />
+        </a-form-item>
+          <a-form-item label="Job Role " >
+            <a-input
+                placeholder='Job Role'
+                v-decorator="['jobRole', { rules: [{ required: false }] }]"
+            />
+          </a-form-item>
+
+      <a-form-item label="holiday Entitlement" >
         <a-input
-            placeholder='trainer PassRate'
-            v-decorator="['trainerPassRate', { rules: [{ required: false }] }]"
+            placeholder='holiday Entitlement'
+            v-decorator="['holidayEntitlement', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Private Notice" >
+      <a-form-item label="break Entitlement" >
         <a-input
-            placeholder='private Notice'
-            v-decorator="['privateNotice', { rules: [{ required: false }] }]"
+            placeholder='break Entitlement'
+            v-decorator="['breakEntitlement', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Points On License" >
+      <a-form-item label="Sick Days" >
         <a-input
-            placeholder='points On License'
-            v-decorator="['pointsOnLicense', { rules: [{ required: false }] }]"
+            placeholder='Sick Days'
+            v-decorator="['sickDays', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Contract Start Date" >
+      <a-form-item label="Cover Days" >
         <a-input
-            placeholder='contract Start Date'
-            v-decorator="['contractStartDate', { rules: [{ required: false }] }]"
+            placeholder='Cover Days'
+            v-decorator="['coverDays', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label=" Training Hours" >
+
+      <a-form-item label="Shift Rota" >
         <a-input
-            placeholder='standard Check Training Hours'
-            v-decorator="['standardCheckTrainingHours', { rules: [{ required: false }] }]"
+            placeholder='Shift Rota'
+            v-decorator="['shiftRota', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Check Passed Date" >
+      <a-form-item label="Referrals" >
         <a-input
-            placeholder='standard Check Passed Date'
-            v-decorator="['standardCheckPassedDate', { rules: [{ required: false }] }]"
-        />
-      </a-form-item>
-      <a-form-item label="Dbs Check Date" >
-        <a-input
-            placeholder='dbsCheckDate'
-            v-decorator="['dbsCheckDate', { rules: [{ required: false }] }]"
+            placeholder='Referrals'
+            v-decorator="['referrals', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Extra Qualification" >
         <a-input
-            placeholder='extraQualification'
+            placeholder='Extra Qualification'
             v-decorator="['extraQualification', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-
-      <a-form-item label="Language Spooking" >
+      <a-form-item label="Language Spoken" >
         <a-input
-            placeholder='language Spooking'
-            v-decorator="['languageSpooking', { rules: [{ required: false }] }]"
+            placeholder='Language Spoken'
+            v-decorator="['languageSpoken', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Gaps In" >
+      <a-form-item label="Complaints" >
         <a-input
-            placeholder='gaps In Between Lessons'
-            v-decorator="['gapsInBetweenLessons', { rules: [{ required: false }] }]"
-        />
-      </a-form-item>
-      <a-form-item label="date Of Birth" >
-        <a-input
-            placeholder='date Of Birth'
-            v-decorator="['dateOfBirth', { rules: [{ required: false }] }]"
+            placeholder='Complaints'
+            v-decorator="['complaints', { rules: [{ required: false }] }]"
         />
       </a-form-item>
 
 
+      <a-form-item label="Probation Period" >
+        <a-input
+            placeholder='Probation Period'
+            v-decorator="['probationPeriod', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Contract Start Date" >
+        <a-input
+            placeholder='Contract Start Date'
+            v-decorator="['contractStartDate', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Contract Expiry Date" >
+        <a-input
+            placeholder='Contract Expiry Date'
+            v-decorator="['contractExpiryDate', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Loans" >
+        <a-input
+            placeholder='Loans'
+            v-decorator="['Loans', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Start Payment Date" >
+        <a-input
+            placeholder='Start Payment Date'
+            v-decorator="['startPaymentDate', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="End Payment Date" >
+        <a-input
+            placeholder='End Payment Date'
+            v-decorator="['endPaymentDate', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Job Time" >
+        <a-input
+            placeholder='Job Time'
+            v-decorator="['jobTime', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Private Notice" >
+        <a-textarea
+            rows="5" cols="50"
+            placeholder='private Notice'
+            v-decorator="['privateNotice', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
 
 
       <a-divider >

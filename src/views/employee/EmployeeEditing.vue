@@ -23,6 +23,16 @@
         "
           />
         </a-form-model-item>
+        <a-form-model-item ref="middleName" label="Middle Name" prop="middleName">
+          <a-input
+              v-model="employee.middleName"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
         <a-form-model-item ref="lastName" label="Last name" prop="lastName">
           <a-input
               v-model="employee.lastName"
@@ -33,16 +43,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="sirName" label="sir Name" prop="sirName">
-          <a-input
-              v-model="employee.sirName"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-        </a-form-model-item>
+
 
         <a-form-model-item ref="email" label="Email" prop="email">
           <a-input
@@ -55,9 +56,9 @@
           />
         </a-form-model-item>
 
-        <a-form-model-item ref="phoneNumber" label="Phone Number"  >
+        <a-form-model-item ref="telephone" label="Telephone" prop="telephone"  >
           <a-input
-              placeholder="Optional"
+              placeholder="Telephone"
               v-model="employee.phoneNumber"
               @blur="
           () => {
@@ -66,9 +67,9 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="address" label="address"  >
+        <a-form-model-item ref="address" label="Address"  prop="address" >
           <a-input
-              placeholder="Optional"
+              placeholder="Address"
               v-model="employee.address"
               @blur="
           () => {
@@ -77,10 +78,10 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="country" label="country"  >
+        <a-form-model-item ref="county" label="County"  >
           <a-input
-              placeholder="Optional"
-              v-model="employee.country"
+              placeholder="County"
+              v-model="employee.county"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -88,9 +89,9 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="city" label="city"  >
+        <a-form-model-item ref="city" label="City"  >
           <a-input
-              placeholder="Optional"
+              placeholder="City"
               v-model="employee.city"
               @blur="
           () => {
@@ -99,9 +100,9 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="streetName" label="street Name"  >
+        <a-form-model-item ref="streetName" label="Street Name"  >
           <a-input
-              placeholder="Optional"
+              placeholder="Street Name"
               v-model="employee.streetName"
               @blur="
           () => {
@@ -110,9 +111,9 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="Postcode" label="Post code"  >
+        <a-form-model-item ref="Postcode" label="Post code" prop="postCode" >
           <a-input
-              placeholder="Optional"
+              placeholder="Post Code"
               v-model="employee.Postcode"
               @blur="
           () => {
@@ -121,10 +122,10 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="drivingLicencesNo" label="driving Licences No"  >
+        <a-form-model-item ref="nationalInsuranceNo" label="National Insurance "  >
           <a-input
-              placeholder="Optional"
-              v-model="employee.drivingLicencesNo"
+              placeholder="National Insurance No"
+              v-model="employee.nationalInsuranceNo"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -132,9 +133,22 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="locationBased" label="location Based"  >
+        <a-form-model-item ref="previousExperience" label="Previous Experience"  >
           <a-input
-              placeholder="Optional"
+              placeholder="Previous Experience"
+              v-model="employee.previousExperience"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+
+        </a-form-model-item>
+        <a-form-model-item ref="locationBased" label="Location Based"  >
+          <a-input
+              placeholder="Locaiton Based"
               v-model="employee.locationBased"
               @blur="
           () => {
@@ -143,10 +157,10 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="areasCovered" label="Areas Covered"  >
+        <a-form-model-item ref="areas" label="Areas "  >
           <a-input
-              placeholder="Optional"
-              v-model="employee.areasCovered"
+              placeholder="Areas"
+              v-model="employee.areas"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -154,10 +168,10 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="trainerExperience" label="trainer Experience"  >
+        <a-form-model-item ref="jobRole" label="Job Role"  >
           <a-input
-              placeholder="Optional"
-              v-model="employee.trainerExperience"
+              placeholder="Job Role"
+              v-model="employee.previousExperience"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -165,10 +179,10 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="trainerPassRate" label="trainer PassRate"  >
+        <a-form-model-item ref="holidayEntitlement" label="Holiday Entitlement"  >
           <a-input
-              placeholder="Optional"
-              v-model="employee.trainerPassRate"
+              placeholder="Holiday Entitlement"
+              v-model="employee.holidayEntitlement"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -176,10 +190,10 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="privateNotice" label="private Notice"  >
+        <a-form-model-item ref="breakEntitlement" label="Break Entitlement"  >
           <a-input
-              placeholder="Optional"
-              v-model="employee.privateNotice"
+              placeholder="breakEntitlement"
+              v-model="employee.breakEntitlement"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -187,10 +201,10 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="pointsOnLicense" label="points On License"  >
+        <a-form-model-item ref="sickDays" label="Sick Days"  >
           <a-input
-              placeholder="Optional"
-              v-model="employee.pointsOnLicense"
+              placeholder="Sick Days"
+              v-model="employee.sickDays"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -198,9 +212,54 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="contractStartDate" label="contract Start Date"  >
+        <a-form-model-item ref="coverDays" label="Cover Days"  >
           <a-input
-              placeholder="Optional"
+              placeholder="Sick Days"
+              v-model="employee.coverDays"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="shiftRota" label="Shift Rota"  >
+          <a-input
+              placeholder="Sick Days"
+              v-model="employee.shiftRota"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="referrals" label="Referrals"  >
+          <a-input
+              placeholder="Referrals"
+              v-model="employee.referrals"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="referrals" label="Referrals"  >
+          <a-input
+              placeholder="Referrals"
+              v-model="employee.referrals"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+
+        <a-form-model-item ref="contractStartDate" label="Contract Start Date"  >
+          <a-input
+              placeholder="Contract Start Date"
               v-model="employee.contractStartDate"
               @blur="
           () => {
@@ -209,10 +268,10 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="standardCheckTrainingHours" label="Training Hours"  >
+        <a-form-model-item ref="contractExpireDate" label="Contract Expire Date"  >
           <a-input
-              placeholder="Optional"
-              v-model="employee.standardCheckTrainingHours"
+              placeholder="Contract Expire Date"
+              v-model="employee.contractExpireDate"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -220,10 +279,10 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="standardCheckPassedDate" label="Check Passed Date"  >
+        <a-form-model-item ref="loans" label="Loans"  >
           <a-input
-              placeholder="Optional"
-              v-model="employee.standardCheckPassedDate"
+              placeholder="Loans"
+              v-model="employee.loans"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -231,20 +290,11 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="dbsCheckDate" label="Dbs Check Date"  >
-          <a-input
-              placeholder="Optional"
-              v-model="employee.dbsCheckDate"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-        </a-form-model-item>
+
+
         <a-form-model-item ref="extraQualification" label="Extra Qualification"  >
           <a-input
-              placeholder="Optional"
+              placeholder="Extra Qualification"
               v-model="employee.extraQualification"
               @blur="
           () => {
@@ -255,7 +305,7 @@
         </a-form-model-item>
         <a-form-model-item ref="languageSpooking" label="Language Spooking"  >
           <a-input
-              placeholder="Optional"
+              placeholder="Language Spooking"
               v-model="employee.languageSpooking"
               @blur="
           () => {
@@ -264,10 +314,10 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="gapsInBetweenLessons" label="Gaps In"  >
+        <a-form-model-item ref="startPaymentDate" label="Start Payment Date"  >
           <a-input
-              placeholder="Optional"
-              v-model="employee.gapsInBetweenLessons"
+              placeholder="Start Payment Date"
+              v-model="employee.startPaymentDate"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -275,10 +325,10 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="dateOfBirth" label="date Of Birth"  >
+        <a-form-model-item ref="endPaymentDate" label="End Payment Date"  >
           <a-input
-              placeholder="Optional"
-              v-model="employee.dateOfBirth"
+              placeholder="endPaymentDate"
+              v-model="employee.endPaymentDate"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -286,6 +336,30 @@
         "
           />
         </a-form-model-item>
+        <a-form-model-item ref="jobTime" label="Job Time"  >
+          <a-input
+              placeholder="Full time Or Part time "
+              v-model="employee.jobTime"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="privateNotice" label="Private Notice"  >
+          <a-textarea
+              rows="5" cols="50"
+              placeholder="Input you notice..."
+              v-model="employee.privateNotice"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+
 
 
 
@@ -318,9 +392,19 @@ export default {
         lastName: [
           { required: true, message: 'Please input last name', trigger: 'blur' },
         ],
-        sirName: [
-          { required: true, message: 'Please input sir name', trigger: 'blur' },
+        middleName: [
+          { required: true, message: 'Please input middle name', trigger: 'blur' },
         ],
+        postCode: [
+          { required: true, message: 'Please input postCode', trigger: 'blur' },
+        ],
+        telephone: [
+          { required: true, message: 'Please input telephone', trigger: 'blur' },
+        ],
+        address: [
+          { required: true, message: 'Please input address', trigger: 'blur' },
+        ],
+
 
         email: [
           {

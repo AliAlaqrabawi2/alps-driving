@@ -23,6 +23,16 @@
         "
           />
         </a-form-model-item>
+        <a-form-model-item ref="middleName" label="Middle Name" prop="middleName">
+          <a-input
+              v-model="trainee.middleName"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
         <a-form-model-item ref="lastName" label="Last name" prop="lastName">
           <a-input
               v-model="trainee.lastName"
@@ -33,16 +43,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="sirName" label="sir Name" prop="sirName">
-          <a-input
-              v-model="trainee.sirName"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-        </a-form-model-item>
+
 
         <a-form-model-item ref="email" label="Email" prop="email">
           <a-input
@@ -55,7 +56,7 @@
           />
         </a-form-model-item>
 
-        <a-form-model-item ref="phoneNumber" label="Phone Number"  >
+        <a-form-model-item ref="phoneNumber" label="Telephone"  >
           <a-input
               placeholder="Optional"
               v-model="trainee.phoneNumber"
@@ -66,9 +67,9 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="address" label="address"  >
+        <a-form-model-item ref="address" label="Address" prop="address" >
           <a-input
-              placeholder="Optional"
+              placeholder="Address"
               v-model="trainee.address"
               @blur="
           () => {
@@ -77,10 +78,10 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="country" label="country"  >
+        <a-form-model-item ref="county" label="County"  >
           <a-input
               placeholder="Optional"
-              v-model="trainee.country"
+              v-model="trainee.county"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -88,7 +89,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="city" label="city"  >
+        <a-form-model-item ref="city" label="City"  >
           <a-input
               placeholder="Optional"
               v-model="trainee.city"
@@ -99,7 +100,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="streetName" label="street Name"  >
+        <a-form-model-item ref="streetName" label="Street Name"  >
           <a-input
               placeholder="Optional"
               v-model="trainee.streetName"
@@ -110,9 +111,9 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="Postcode" label="Post code"  >
+        <a-form-model-item ref="Postcode" label="Post code" prop="postCode"  >
           <a-input
-              placeholder="Optional"
+              placeholder="Post Code"
               v-model="trainee.Postcode"
               @blur="
           () => {
@@ -121,7 +122,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="drivingLicencesNo" label="driving Licences No"  >
+        <a-form-model-item ref="drivingLicencesNo" label="Driving Licences No"  >
           <a-input
               placeholder="Optional"
               v-model="trainee.drivingLicencesNo"
@@ -132,7 +133,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="locationBased" label="location Based"  >
+        <a-form-model-item ref="locationBased" label="Location Based"  >
           <a-input
               placeholder="Optional"
               v-model="trainee.locationBased"
@@ -154,7 +155,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="trainerExperience" label="trainer Experience"  >
+        <a-form-model-item ref="trainerExperience" label="Trainer Experience"  >
           <a-input
               placeholder="Optional"
               v-model="trainee.trainerExperience"
@@ -165,7 +166,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="trainerPassRate" label="trainer PassRate"  >
+        <a-form-model-item ref="trainerPassRate" label="Trainer PassRate"  >
           <a-input
               placeholder="Optional"
               v-model="trainee.trainerPassRate"
@@ -176,18 +177,8 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="privateNotice" label="private Notice"  >
-          <a-input
-              placeholder="Optional"
-              v-model="trainee.privateNotice"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-        </a-form-model-item>
-        <a-form-model-item ref="pointsOnLicense" label="points On License"  >
+
+        <a-form-model-item ref="pointsOnLicense" label="Points On License"  >
           <a-input
               placeholder="Optional"
               v-model="trainee.pointsOnLicense"
@@ -198,7 +189,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="contractStartDate" label="contract Start Date"  >
+        <a-form-model-item ref="contractStartDate" label="Contract Start Date"  >
           <a-input
               placeholder="Optional"
               v-model="trainee.contractStartDate"
@@ -275,7 +266,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="dateOfBirth" label="date Of Birth"  >
+        <a-form-model-item ref="dateOfBirth" label="Date Of Birth"  >
           <a-input
               placeholder="Optional"
               v-model="trainee.dateOfBirth"
@@ -286,6 +277,23 @@
         "
           />
         </a-form-model-item>
+
+        <a-form-item label="Private Notice" >
+          <a-textarea
+              v-model="trainee.privateNotice"
+              rows="5" cols="50"
+              placeholder='Private Notice'
+              v-decorator="['privateNotice', { rules: [{ required: false }] }]"
+          />
+        </a-form-item>
+        <a-form-item label="App Progress" >
+          <a-textarea
+              v-model="trainee.appProgress"
+              rows="7" cols="50"
+              placeholder='App Progress '
+              v-decorator="['appProgress', { rules: [{ required: false }] }]"
+          />
+        </a-form-item>
 
 
 
@@ -319,8 +327,14 @@ export default {
         lastName: [
           { required: true, message: 'Please input last name', trigger: 'blur' },
         ],
-        sirName: [
-          { required: true, message: 'Please input sir name', trigger: 'blur' },
+        middleName: [
+          { required: true, message: 'Please input middle name', trigger: 'blur' },
+        ],
+        postCode: [
+          { required: true, message: 'Please input post Code', trigger: 'blur' },
+        ],
+        address: [
+          { required: true, message: 'Please input address', trigger: 'blur' },
         ],
 
         email: [

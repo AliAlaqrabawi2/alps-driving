@@ -33,9 +33,9 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="sirName" label="sir Name" prop="sirName">
+        <a-form-model-item ref="middleName" label="Middle Name" prop="middleName">
           <a-input
-              v-model="instructor.sirName"
+              v-model="instructor.middleName"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -55,7 +55,7 @@
           />
         </a-form-model-item>
 
-        <a-form-model-item ref="phoneNumber" label="Phone Number"  >
+        <a-form-model-item ref="phoneNumber" label="Telephone"  >
           <a-input
               placeholder="Optional"
               v-model="instructor.phoneNumber"
@@ -66,7 +66,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="address" label="address"  >
+        <a-form-model-item ref="address" label="Address"  >
           <a-input
               placeholder="Optional"
               v-model="instructor.address"
@@ -77,10 +77,10 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="country" label="country"  >
+        <a-form-model-item ref="county" label="County"  >
           <a-input
               placeholder="Optional"
-              v-model="instructor.country"
+              v-model="instructor.county"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -88,7 +88,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="city" label="city"  >
+        <a-form-model-item ref="city" label="City"  >
           <a-input
               placeholder="Optional"
               v-model="instructor.city"
@@ -99,7 +99,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="streetName" label="street Name"  >
+        <a-form-model-item ref="streetName" label="Street Name"  >
           <a-input
               placeholder="Optional"
               v-model="instructor.streetName"
@@ -110,9 +110,9 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="Postcode" label="Post code"  >
+        <a-form-model-item ref="Postcode" label="Post code"  prop="postCode" >
           <a-input
-              placeholder="Optional"
+              placeholder="Post Code"
               v-model="instructor.Postcode"
               @blur="
           () => {
@@ -121,7 +121,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="drivingLicencesNo" label="driving Licences No"  >
+        <a-form-model-item ref="drivingLicencesNo" label="Driving Licences No"  >
           <a-input
               placeholder="Optional"
               v-model="instructor.drivingLicencesNo"
@@ -132,7 +132,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="locationBased" label="location Based"  >
+        <a-form-model-item ref="locationBased" label="Location Based"  >
           <a-input
               placeholder="Optional"
               v-model="instructor.locationBased"
@@ -154,7 +154,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="trainerExperience" label="trainer Experience"  >
+        <a-form-model-item ref="trainerExperience" label="Trainer Experience"  >
           <a-input
               placeholder="Optional"
               v-model="instructor.trainerExperience"
@@ -165,7 +165,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="trainerPassRate" label="trainer PassRate"  >
+        <a-form-model-item ref="trainerPassRate" label="Trainer PassRate"  >
           <a-input
               placeholder="Optional"
               v-model="instructor.trainerPassRate"
@@ -177,7 +177,8 @@
           />
         </a-form-model-item>
         <a-form-model-item ref="privateNotice" label="private Notice"  >
-          <a-input
+          <a-textarea
+              rows="5" cols="50"
               placeholder="Optional"
               v-model="instructor.privateNotice"
               @blur="
@@ -187,7 +188,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="pointsOnLicense" label="points On License"  >
+        <a-form-model-item ref="pointsOnLicense" label="Points On License"  >
           <a-input
               placeholder="Optional"
               v-model="instructor.pointsOnLicense"
@@ -198,7 +199,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="contractStartDate" label="contract Start Date"  >
+        <a-form-model-item ref="contractStartDate" label="Contract Start Date"  >
           <a-input
               placeholder="Optional"
               v-model="instructor.contractStartDate"
@@ -275,7 +276,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="dateOfBirth" label="date Of Birth"  >
+        <a-form-model-item ref="dateOfBirth" label="Date Of Birth"  >
           <a-input
               placeholder="Optional"
               v-model="instructor.dateOfBirth"
@@ -318,8 +319,11 @@ export default {
         lastName: [
           { required: true, message: 'Please input last name', trigger: 'blur' },
         ],
-        sirName: [
-          { required: true, message: 'Please input sir name', trigger: 'blur' },
+        middleName: [
+          { required: true, message: 'Please input middle name', trigger: 'blur' },
+        ],
+        postCode: [
+          { required: true, message: 'Please input post code ', trigger: 'blur' },
         ],
 
         email: [

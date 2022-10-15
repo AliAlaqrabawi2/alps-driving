@@ -32,9 +32,9 @@
           </div>
         </div>
       </template>
-      <template slot="sirName" slot-scope="sirName">
+      <template slot="lastName" slot-scope="lastName">
         <div class="author-info">
-          <h6 class="m-0">{{ sirName }}</h6>
+          <h6 class="m-0">{{ lastName }}</h6>
         </div>
       </template>
 
@@ -80,9 +80,9 @@ const tableHeader = [
     scopedSlots: { customRender: "firstName" },
   },
   {
-    title: "SIRNAME",
-    dataIndex: "sirName",
-    scopedSlots: { customRender: "sirName" },
+    title: "LASTNAME",
+    dataIndex: "lastName",
+    scopedSlots: { customRender: "lastName" },
   },
   {
     title: "EMAIL",

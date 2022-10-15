@@ -1,6 +1,5 @@
 <template>
 <div>
- <div>
    <div>
      <h3 class="font-semibold title-creating">Edit Admin</h3>
 
@@ -45,9 +44,9 @@
        />
      </a-form-model-item>
 
-     <a-form-model-item ref="phoneNumber" label="Phone Number"  >
+     <a-form-model-item ref="phoneNumber" label="Telephone"  >
        <a-input
-           placeholder="Optional"
+           placeholder="Phone Number"
            v-model="admin.phoneNumber"
            @blur="
           () => {
@@ -83,40 +82,9 @@
      </a-divider>
    </a-form-model>
  </div>
-  <div>
-    <div>
-      <h3 class="font-semibold title-creating">Change Password</h3>
-
-    </div>
-    <a-form-model
-        ref="ruleForm"
-        :model="admin"
-        :rules="rules"
-        :label-col="labelCol"
-        :wrapper-col="wrapperCol"
-    >
 
 
 
-      <a-form-model-item ref="email" label="Password" prop="email">
-        <a-input
-            @blur="
-          () => {
-            $refs.email.onFieldBlur();
-          }
-        "
-        />
-      </a-form-model-item>
-
-      <a-divider >
-
-        <a-button  type="primary" html-type="submit" style="margin-left:15px">
-          Submit
-        </a-button>
-
-      </a-divider>
-    </a-form-model>
-  </div>
 </div>
 </template>
 <script>

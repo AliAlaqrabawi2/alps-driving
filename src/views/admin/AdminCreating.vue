@@ -10,11 +10,13 @@
         :form="form" :label-col="{ span:3 }" :wrapper-col="{ span: 10 }" @submit="handleSubmit">
       <a-form-item label="First Name" >
         <a-input
+            placeholder="First Name"
             v-decorator="['firstName', { rules: [{ required: true, message: 'Please input your first name!' }] }]"
         />
       </a-form-item>
       <a-form-item label="Last Name" >
         <a-input
+            placeholder="Last Name"
             v-decorator="['lastName', { rules: [{ required: true, message: 'Please input your last name!' }] }]"
         />
       </a-form-item>
@@ -22,20 +24,22 @@
 
         <a-input
             type="email"
+            placeholder="Email"
             v-decorator="['email', { rules: [{type:'email' ,required: true , message: 'This is not valid email' }] }]"
         />
       </a-form-item>
       <a-form-item label="Password" >
         <a-input
+            placeholder="Password"
             type="password"
             v-decorator="['pass', { rules: [{ required: true, message: 'Please input your password!' }] }]"
         />
       </a-form-item>
 
-      <a-form-item label="Phone Number" >
+      <a-form-item label="Telephone" >
         <a-input
-            placeholder='optional'
-            v-decorator="['phoneNumber', { rules: [{ required: false, }] }]"
+            placeholder='Telephone'
+            v-decorator="['phoneNumber', { rules: [{ required: true, message:'Please input Telephone' }] }]"
         />
       </a-form-item>
 
