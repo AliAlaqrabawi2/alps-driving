@@ -173,7 +173,7 @@ export default {
       this.$refs.ruleForm.resetFields();
     },
     goBack(){
-      this.$router.push({name:"enquirie-listing"})
+      this.$router.push({name:"enquiries-listing"})
     } ,
   },
   async created() {
