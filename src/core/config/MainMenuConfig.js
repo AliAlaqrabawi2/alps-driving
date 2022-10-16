@@ -26,6 +26,12 @@ const MenuConfig = [
                 svgIcon: "/media/icons/duotune/technology/teh004.svg",
                 fontIcon: "bi-sticky",
             },
+            {
+                sectionTitle: "Enquiries",
+                route: "/enquiries-listing",
+                svgIcon: "/media/icons/duotune/technology/teh004.svg",
+                fontIcon: "bi-sticky",
+            },
         ],
     },
 ];

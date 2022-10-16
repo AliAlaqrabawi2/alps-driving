@@ -75,6 +75,12 @@
             v-decorator="['Postcode', { rules: [{ required: true , message:'Please input Post code'}] }]"
         />
       </a-form-item>
+      <a-form-item label="Date Of Birth" >
+        <a-input
+            placeholder='Date Of Birth'
+            v-decorator="['dateOfBirth', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
 
       <a-form-item label="County" >
         <a-input
@@ -164,6 +170,12 @@
             v-decorator="['referrals', { rules: [{ required: false }] }]"
         />
       </a-form-item>
+      <a-form-item label="Curriculum Vitae" >
+        <a-input
+            placeholder='Curriculum Vitae'
+            v-decorator="['curriculumVitae', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
       <a-form-item label="Extra Qualification" >
         <a-input
             placeholder='Extra Qualification'
@@ -202,9 +214,9 @@
             v-decorator="['contractExpiryDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Loans" >
+      <a-form-item label="Loan's" >
         <a-input
-            placeholder='Loans'
+            placeholder="Loans"
             v-decorator="['Loans', { rules: [{ required: false }] }]"
         />
       </a-form-item>

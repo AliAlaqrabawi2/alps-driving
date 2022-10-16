@@ -15,6 +15,7 @@
       >
         <a-form-model-item ref="firstName" label="First name" prop="firstName">
           <a-input
+              placeholder="First Name"
               v-model="employee.firstName"
               @blur="
           () => {
@@ -25,6 +26,8 @@
         </a-form-model-item>
         <a-form-model-item ref="middleName" label="Middle Name" prop="middleName">
           <a-input
+              placeholder="Middle Name"
+
               v-model="employee.middleName"
               @blur="
           () => {
@@ -35,6 +38,8 @@
         </a-form-model-item>
         <a-form-model-item ref="lastName" label="Last name" prop="lastName">
           <a-input
+              placeholder="Last Name"
+
               v-model="employee.lastName"
               @blur="
           () => {
@@ -47,6 +52,8 @@
 
         <a-form-model-item ref="email" label="Email" prop="email">
           <a-input
+              placeholder="Email"
+
               v-model="employee.email"
               @blur="
           () => {
@@ -192,7 +199,7 @@
         </a-form-model-item>
         <a-form-model-item ref="breakEntitlement" label="Break Entitlement"  >
           <a-input
-              placeholder="breakEntitlement"
+              placeholder="break Entitlement"
               v-model="employee.breakEntitlement"
               @blur="
           () => {
@@ -214,7 +221,7 @@
         </a-form-model-item>
         <a-form-model-item ref="coverDays" label="Cover Days"  >
           <a-input
-              placeholder="Sick Days"
+              placeholder="Cover Days"
               v-model="employee.coverDays"
               @blur="
           () => {
@@ -225,7 +232,7 @@
         </a-form-model-item>
         <a-form-model-item ref="shiftRota" label="Shift Rota"  >
           <a-input
-              placeholder="Sick Days"
+              placeholder="Shift Rota"
               v-model="employee.shiftRota"
               @blur="
           () => {
@@ -245,17 +252,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="referrals" label="Referrals"  >
-          <a-input
-              placeholder="Referrals"
-              v-model="employee.referrals"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-        </a-form-model-item>
+
 
         <a-form-model-item ref="contractStartDate" label="Contract Start Date"  >
           <a-input
@@ -279,9 +276,9 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="loans" label="Loans"  >
+        <a-form-model-item ref="loan's" label="Loans"  >
           <a-input
-              placeholder="Loans"
+              placeholder="Loan's"
               v-model="employee.loans"
               @blur="
           () => {
@@ -314,6 +311,17 @@
         "
           />
         </a-form-model-item>
+        <a-form-model-item ref="Complaints" label="Complaintsc"  >
+          <a-input
+              placeholder="Complaints"
+              v-model="employee.complaints"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
         <a-form-model-item ref="startPaymentDate" label="Start Payment Date"  >
           <a-input
               placeholder="Start Payment Date"
@@ -327,7 +335,7 @@
         </a-form-model-item>
         <a-form-model-item ref="endPaymentDate" label="End Payment Date"  >
           <a-input
-              placeholder="endPaymentDate"
+              placeholder="end Payment Date"
               v-model="employee.endPaymentDate"
               @blur="
           () => {

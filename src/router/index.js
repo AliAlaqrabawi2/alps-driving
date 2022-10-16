@@ -200,6 +200,54 @@ let routes = [
             }
         }
     },
+
+    {
+        path: '/enquiries-listing',
+        name: 'enquiries-listing',
+        layout: "dashboard",
+        component: () => import( '../views/enquirie/EnquirieListing') ,
+        beforeEnter(to, from, next) {
+            const user = localStorage.getItem("user") ;
+            if (user===null){
+                next("/sign-in")
+            }
+            else {
+                next();
+            }
+        }
+
+    },
+    {
+        path: '/enquiries-creating',
+        name: 'enquiries-creating',
+        layout: "dashboard",
+        component: () => import( '../views/enquirie/EnquirieCreating'),
+        beforeEnter(to, from, next) {
+            const user = localStorage.getItem("user") ;
+            if (user===null){
+                next("/sign-in")
+            }
+            else {
+                next();
+            }
+        }
+    },
+    {
+        path: '/enquiries-editing/:id',
+        name: 'enquiries-editing',
+        layout: "dashboard",
+        component: () => import('../views/enquirie/EnquirieEditing'),
+        beforeEnter(to, from, next) {
+            const user = localStorage.getItem("user") ;
+            if (user===null){
+                next("/sign-in")
+            }
+            else {
+                next();
+            }
+        }
+    },
+
     {
         path: '/sign-in',
         name: 'Sign-In',
