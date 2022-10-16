@@ -41,6 +41,12 @@
             v-decorator="['phoneNumber', { rules: [{ required: true, message:'Please input Telephone' }] }]"
         />
       </a-form-item>
+      <a-form-item label="Job Role" >
+        <a-input
+            placeholder='Job Role'
+            v-decorator="['jobRole', { rules: [{ required: true, message:'Please input job role' }] }]"
+        />
+      </a-form-item>
 
       <a-form-item label="Rank">
         <a-select

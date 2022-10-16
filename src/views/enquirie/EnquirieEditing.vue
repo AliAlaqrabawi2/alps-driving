@@ -70,6 +70,17 @@
         "
         />
       </a-form-model-item>
+      <a-form-model-item ref="jobRole" label="Job Role" prop="jobRole"  >
+        <a-input
+            placeholder="Job Role"
+            v-model="enquirie.jobRole"
+            @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+        />
+      </a-form-model-item>
 
       <a-form-item label="Rank" prop="rank">
         <a-select
@@ -124,6 +135,9 @@ export default {
         ],
         telephone: [
           { required: true, message: 'Please input telephone', trigger: 'blur' },
+        ],
+        jobRole: [
+          { required: true, message: 'Please input Job Role', trigger: 'blur' },
         ],
         rank: [
           { required: true, message: 'Please select rank', trigger: 'blur' },
