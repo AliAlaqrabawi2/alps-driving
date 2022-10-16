@@ -17,7 +17,7 @@
     :style="{ backgroundColor: 'transparent' }"
   >
     <div class="brand">
-      <img src="images/logo-ct-black.png" alt="" /> <span>Alps Dashboard</span>
+      <img src="/images/logo.png" alt="" /> <span>Alps Dashboard</span>
     </div>
     <hr />
 

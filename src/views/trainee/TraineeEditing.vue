@@ -43,6 +43,17 @@
         "
           />
         </a-form-model-item>
+        <a-form-model-item ref="dateOfBirth" label="Date Of Birth"  >
+          <a-input
+              placeholder="Optional"
+              v-model="trainee.dateOfBirth"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
 
 
         <a-form-model-item ref="email" label="Email" prop="email">
@@ -89,17 +100,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="city" label="City"  >
-          <a-input
-              placeholder="Optional"
-              v-model="trainee.city"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-        </a-form-model-item>
+
         <a-form-model-item ref="streetName" label="Street Name"  >
           <a-input
               placeholder="Optional"
@@ -126,6 +127,17 @@
           <a-input
               placeholder="Optional"
               v-model="trainee.drivingLicencesNo"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="city" label="City"  >
+          <a-input
+              placeholder="Optional"
+              v-model="trainee.city"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -180,7 +192,7 @@
 
         <a-form-model-item ref="pointsOnLicense" label="Points On License"  >
           <a-input
-              placeholder="Optional"
+              placeholder="Any Points on Licenser ?"
               v-model="trainee.pointsOnLicense"
               @blur="
           () => {
@@ -193,6 +205,171 @@
           <a-input
               placeholder="Optional"
               v-model="trainee.contractStartDate"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="contractExpireDate" label="Contract Expire Date"  >
+          <a-input
+              placeholder="Optional"
+              v-model="trainee.contractExpireDate"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="complaints" label="Complaints"  >
+          <a-input
+              placeholder="Optional"
+              v-model="trainee.complaints"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="probation Period" label="Probation Period"  >
+          <a-input
+              placeholder="Optional"
+              v-model="trainee.probationPeriod"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="referrals" label="Referrals"  >
+          <a-input
+              placeholder="Optional"
+              v-model="trainee.referrals"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+          <a-form-model-item ref="ADILicensesStartingDate" label="ADI Licenses ... "  >
+            <a-input
+                placeholder="Optional"
+                v-model="trainee.ADILicensesStartingDate"
+                @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+            />
+        </a-form-model-item>
+          <a-form-model-item ref="orbitPassedDate" label="Orbit Passed ..."  >
+            <a-input
+                placeholder="Orbit Passed Date"
+                v-model="trainee.orbitPassedDate"
+                @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+            />
+          </a-form-model-item>
+          <a-form-model-item ref="orbitTrainingHours" label="Orbit Training ... "  >
+            <a-input
+                placeholder="Orbit Training Hours"
+                v-model="trainee.orbitTrainingHours"
+                @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+            />
+          </a-form-model-item>
+          <a-form-model-item ref="orbitLicensesStartingDate" label="Orbit Licenses .... "  >
+            <a-input
+                placeholder="Orbit Licenses Starting Date "
+                v-model="trainee.orbitLicensesStartingDate"
+                @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+            />
+          </a-form-model-item>
+          <a-form-model-item ref="orbitLicensesExpireDate" label="Orbit Licenses ..."  >
+            <a-input
+                placeholder="Orbit Licenses Expire Date "
+                v-model="trainee.orbitLicensesExpireDate"
+                @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+            />
+          </a-form-model-item>
+          <a-form-model-item ref="jobTime" label="Job Time"  >
+            <a-input
+                placeholder="Full time Or Part Time"
+                v-model="trainee.jobTime"
+                @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+            />
+          </a-form-model-item>
+          <a-form-model-item ref="dualControls" label="Dual Controls"  >
+            <a-input
+                placeholder="Optional"
+                v-model="trainee.dualControls"
+                @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+            />
+          </a-form-model-item>
+          <a-form-model-item ref="carWrapping" label="Car Wrapping"  >
+            <a-input
+                placeholder="Optional"
+                v-model="trainee.carWrapping"
+                @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+            />
+          </a-form-model-item>
+          <a-form-model-item ref="loans" label="Loans"  >
+            <a-input
+                placeholder="Optional"
+                v-model="trainee.loans"
+                @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+            />
+          </a-form-model-item>
+          <a-form-model-item ref="startPaymentDate" label="Start Payment Date"  >
+            <a-input
+                placeholder="Optional"
+                v-model="trainee.startPaymentDate"
+                @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+            />
+          </a-form-model-item>
+        <a-form-model-item ref="endPaymentDate" label="End Payment Date"  >
+          <a-input
+              placeholder="Optional"
+              v-model="trainee.endPaymentDate"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -266,17 +443,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="dateOfBirth" label="Date Of Birth"  >
-          <a-input
-              placeholder="Optional"
-              v-model="trainee.dateOfBirth"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-        </a-form-model-item>
+
 
         <a-form-item label="Private Notice" >
           <a-textarea

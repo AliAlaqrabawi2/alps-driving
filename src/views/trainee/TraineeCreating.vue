@@ -121,9 +121,9 @@
             v-decorator="['trainerExperience', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Trainer PassRate" >
+      <a-form-item label="Trainer Pass Rate" >
         <a-input
-            placeholder='Trainer PassRate'
+            placeholder='Trainer Pass Rate'
             v-decorator="['trainerPassRate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
@@ -131,7 +131,7 @@
 
       <a-form-item label="Points On License" >
         <a-input
-            placeholder='Points On License'
+            placeholder='Any Points On License ?'
             v-decorator="['pointsOnLicense', { rules: [{ required: false }] }]"
         />
       </a-form-item>
@@ -141,6 +141,98 @@
             v-decorator="['contractStartDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
+      <a-form-item label="Conract Expire Date" >
+        <a-input
+            placeholder='Contract Expire Date '
+            v-decorator="['contractExpireDate', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Complaints" >
+        <a-input
+            placeholder='Complaints'
+            v-decorator="['complaints', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Probation Period" >
+        <a-input
+            placeholder='Probation Period'
+            v-decorator="['probationPeriod', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Referrals " >
+        <a-input
+            placeholder='Referrals '
+            v-decorator="['referrals', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      </a-form-item>
+      <a-form-item label="ADI Licenses ... " >
+        <a-input
+            placeholder='ADI Licenses Starting Date '
+            v-decorator="['ADILicensesStartingDate', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Orbit Passed ..." >
+        <a-input
+            placeholder='Orbit Passed Date '
+            v-decorator="['orbitPassedDate', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Orbit Training ... " >
+        <a-input
+            placeholder='Orbit Training Hours '
+            v-decorator="['orbitTrainingHours', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Orbit Licenses .... " >
+        <a-input
+            placeholder='Orbit Licenses Starting Date '
+            v-decorator="['orbitLicensesStartingDate', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Orbit Licenses ..." >
+        <a-input
+            placeholder='Orbit Licenses Expire Date '
+            v-decorator="['orbitLicensesExpireDate', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Job Time" >
+        <a-input
+            placeholder='Job Time'
+            v-decorator="['jobTime', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Dual Controls" >
+        <a-input
+            placeholder='Dual Controls'
+            v-decorator="['dualControls', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Car Wrapping" >
+        <a-input
+            placeholder='Car Wrapping'
+            v-decorator="['carWrapping', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Loans" >
+        <a-input
+            placeholder='Loans'
+            v-decorator="['loans', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Start Payment Date" >
+        <a-input
+            placeholder='Start Payment Date'
+            v-decorator="['startPaymentDate', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="End Payment Date" >
+        <a-input
+            placeholder='End Payment Date'
+            v-decorator="['endPaymentDate', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+
       <a-form-item label=" Training Hours" >
         <a-input
             placeholder='Standard Check Training Hours'
@@ -265,3 +357,5 @@ export default {
 
 
 </style>
+
+
