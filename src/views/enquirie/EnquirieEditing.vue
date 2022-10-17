@@ -59,7 +59,7 @@
         />
       </a-form-model-item>
 
-      <a-form-model-item ref="phoneNumber" label="Telephone" prop="telephone"  >
+      <a-form-model-item ref="phoneNumber" label="Telephone" prop="phoneNumber"  >
         <a-input
             placeholder="Telephone"
             v-model="enquirie.phoneNumber"
@@ -133,7 +133,7 @@ export default {
         lastName: [
           { required: true, message: 'Please input last name', trigger: 'blur' },
         ],
-        telephone: [
+        phoneNumber: [
           { required: true, message: 'Please input telephone', trigger: 'blur' },
         ],
         jobRole: [

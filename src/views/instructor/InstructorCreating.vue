@@ -67,6 +67,13 @@
           </a-select-option>
         </a-select>
       </a-form-item>
+      <a-form-item label="date Of Birth" >
+        <a-input
+            placeholder='Date Of Birth'
+            v-decorator="['dateOfBirth', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+
       <a-form-item label="City" >
         <a-input
             placeholder='City'
@@ -91,6 +98,18 @@
             v-decorator="['ADINo', { rules: [{ required: false }] }]"
         />
       </a-form-item>
+      <a-form-item label="ADI Licences Start..." >
+        <a-input
+            placeholder='ADI Licences Starting Date'
+            v-decorator="['ADILicencesStartingDate', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="ADI Licences Expiry..." >
+        <a-input
+            placeholder='ADI Licences Expiry Date'
+            v-decorator="['ADILicencesExpiryDate', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
       <a-form-item label="Location Based" >
         <a-input
             placeholder='Location Based'
@@ -103,24 +122,7 @@
             v-decorator="['areasCovered', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="hear About Us" >
-        <a-input
-            placeholder='How did you hear about Alps driving school ?'
-            v-decorator="['hearAboutUs', { rules: [{ required: false }] }]"
-        />
-      </a-form-item>
-      <a-form-item label="Any points on license?" >
-        <a-input
-            placeholder='Any points on license?'
-            v-decorator="['pointsOnLicense', { rules: [{ required: false }] }]"
-        />
-      </a-form-item>
-      <a-form-item label="How long you held the uk license?" >
-        <a-input
-            placeholder='How long you held the uk license?'
-            v-decorator="['heldUkLicense', { rules: [{ required: false }] }]"
-        />
-      </a-form-item>
+
       <a-form-item label="Contract Start Date" >
         <a-input
             placeholder='Contract Start Date'
@@ -169,45 +171,45 @@
             v-decorator="['DBSCheckDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="p1 Pass Date" >
+      <a-form-item label="Part1 Pass Date" >
         <a-input
             placeholder='Part 1 Pass date'
             v-decorator="['p1PassDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="p2 Pass Date" >
+      <a-form-item label="Part2 Pass Date" >
         <a-input
             placeholder='Part 2 Pass date'
             v-decorator="['p2PassDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="p3 Pass Date" >
+      <a-form-item label="Part3 Pass Date" >
         <a-input
             placeholder='Part 3 Pass date'
             v-decorator="['p3PassDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="P2 Training Hours" >
+      <a-form-item label="Part3 Training Hours" >
         <a-input
             placeholder='Part2 Training Hours'
             v-decorator="['p2TrainingHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="P3 Training Hours" >
+      <a-form-item label="Part3 Training Hours" >
         <a-input
             placeholder='Part3 Training Hours'
             v-decorator="['p3TrainingHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Training Hours" >
+      <a-form-item label="Standard Check Train..." >
         <a-input
             placeholder='Standard Check Training Hours'
             v-decorator="['standardCheckTrainingHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Passed Date" >
+      <a-form-item label="Standard Check Pass..." >
         <a-input
-            placeholder='StandardCheck Passed Date'
+            placeholder='Standard Check Passed Date'
             v-decorator="['standardCheckPassedDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
@@ -247,9 +249,9 @@
             v-decorator="['carWrapping', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Loans" >
+      <a-form-item label="Loan's" >
         <a-input
-            placeholder='Loans'
+            placeholder="Loan's"
             v-decorator="['loans', { rules: [{ required: false }] }]"
         />
       </a-form-item>
@@ -265,8 +267,6 @@
             v-decorator="['endPaymentDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-
-
       <a-form-item label="Private Notice" >
         <a-textarea
             rows="5"
@@ -275,8 +275,24 @@
         />
       </a-form-item>
 
-
-
+      <a-form-item label="hear About Us" >
+        <a-input
+            placeholder='How did you hear about Alps driving school ?'
+            v-decorator="['hearAboutUs', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Any points on ...?" >
+        <a-input
+            placeholder='Any points on license?'
+            v-decorator="['pointsOnLicense', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="How long you held the uk license?" >
+        <a-input
+            placeholder='How long you held the uk license?'
+            v-decorator="['heldUkLicense', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
 
       <a-divider >
         <a-button @click="goBack()"  type="default" html-type="button" >

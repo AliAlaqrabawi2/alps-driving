@@ -68,10 +68,10 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="Postcode" label="Post code" prop="postCode"  >
+        <a-form-model-item ref="postCode" label="Post code" prop="postCode"  >
           <a-input
               placeholder="Post Code"
-              v-model="trainee.Postcode"
+              v-model="trainee.postCode"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();

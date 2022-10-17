@@ -84,6 +84,7 @@ export default {
         updateEnquirie: async function ({commit},  enquirie) {
             const {id , ...data} =enquirie
             await HTTP.put(`/api/enquirie/${id}`,{enquirie:data});
+            window.location.href="/enquiries-listing"
 
 
 
