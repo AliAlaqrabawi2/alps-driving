@@ -102,6 +102,7 @@ export default {
     return {
       tableData:[],tableHeader ,
       loading:false,
+      user:{}
     };
 
   },
@@ -111,6 +112,7 @@ export default {
     await this.$store.dispatch("getAllAdmin");
     this.tableData =this.$store.getters.getAdmins
     this.loading=false;
+    this.user = this.$store.getters.currentUser;
 
   }  ,
   methods:{
@@ -125,7 +127,10 @@ export default {
         buttons: 'Yes, delete it!'
       }).then(async(result) => {
         if (result.isConfirmed) {
-          console.log("run");
+          // if (this.user._id===id){
+          //   this.$store.dispatch("logout");
+          // }
+          // else
         await  this.$store.dispatch("deleteAdmin",id);
           const error = this.$store.getters.getError;
           if (!error) {

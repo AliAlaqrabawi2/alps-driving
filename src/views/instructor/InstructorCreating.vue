@@ -73,11 +73,23 @@
             v-decorator="['dateOfBirth', { rules: [{ required: false }] }]"
         />
       </a-form-item>
+      <a-form-item label="Address" >
+        <a-input
+            placeholder='Address'
+            v-decorator="['address', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
 
       <a-form-item label="City" >
         <a-input
             placeholder='City'
             v-decorator="['city', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Street Name" >
+        <a-input
+            placeholder='Street Name'
+            v-decorator="['streetName', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="County" >
@@ -147,6 +159,18 @@
             v-decorator="['traineeLicencesExpireDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
+      <a-form-item label="Trainer Experience" >
+        <a-input
+            placeholder='Trainer Experience'
+            v-decorator="['trainerExperience', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Trainer PassRate" >
+        <a-input
+            placeholder='Trainer passRate'
+            v-decorator="['trainerPassRate', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
       <a-form-item label="Complaints" >
         <a-input
             placeholder='Complaints'
@@ -189,7 +213,7 @@
             v-decorator="['p3PassDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Part3 Training Hours" >
+      <a-form-item label="Part2 Training Hours" >
         <a-input
             placeholder='Part2 Training Hours'
             v-decorator="['p2TrainingHours', { rules: [{ required: false }] }]"
@@ -231,12 +255,13 @@
             v-decorator="['jobTime', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Gaps " >
+      <a-form-item label="Gaps In Between " >
         <a-input
             placeholder='Gaps Between Lessons'
-            v-decorator="['gapsBetweenLessons', { rules: [{ required: false }] }]"
+            v-decorator="['gapsInBetweenLessons', { rules: [{ required: false }] }]"
         />
       </a-form-item>
+
       <a-form-item label="Dual Controls " >
         <a-input
             placeholder='Dual Controls'
@@ -257,7 +282,7 @@
       </a-form-item>
       <a-form-item label="start Payment Date" >
         <a-input
-            placeholder='Start Paymen tDate'
+            placeholder='Start Payment Date'
             v-decorator="['startPaymentDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
