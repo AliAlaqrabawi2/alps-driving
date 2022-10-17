@@ -71,7 +71,7 @@
       <a-form-item label="Post code" >
         <a-input
             placeholder='Post code'
-            v-decorator="['Postcode', { rules: [{ required: true,message:'Please input post code' }] }]"
+            v-decorator="['postCode', { rules: [{ required: true,message:'Please input post code' }] }]"
         />
       </a-form-item>
       <a-form-item label="Date Of Birth" >
