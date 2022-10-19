@@ -208,16 +208,16 @@
             v-decorator="['contractStartDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Contract Expiry Date" >
+      <a-form-item label="Contract Expire Date" >
         <a-input
-            placeholder='Contract Expiry Date'
-            v-decorator="['contractExpiryDate', { rules: [{ required: false }] }]"
+            placeholder='Contract Expire Date'
+            v-decorator="['contractExpireDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Loan's" >
         <a-input
             placeholder="Loans"
-            v-decorator="['Loans', { rules: [{ required: false }] }]"
+            v-decorator="['oans', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Start Payment Date" >
