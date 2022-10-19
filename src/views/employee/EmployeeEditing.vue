@@ -66,7 +66,7 @@
         <a-form-model-item ref="telephone" label="Telephone" prop="telephone"  >
           <a-input
               placeholder="Telephone"
-              v-model="employee.phoneNumber"
+              v-model="employee.telephone"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -303,7 +303,7 @@
         <a-form-model-item ref="languageSpooking" label="Language Spooking"  >
           <a-input
               placeholder="Language Spooking"
-              v-model="employee.languageSpooking"
+              v-model="employee.languageSpoken"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
