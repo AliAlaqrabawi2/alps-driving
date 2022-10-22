@@ -262,7 +262,7 @@
           Discard
         </a-button>
         <a-button :loading="loading" type="primary" html-type="submit" style="margin-left:15px">
-          {{ loading ? 'Loading' : 'Submit' }}it
+          {{ loading ? 'Loading' : 'Submit' }}
         </a-button>
 
       </a-divider>
@@ -278,7 +278,9 @@ export default {
     return {
       form: this.$form.createForm(this, { name: 'coordinated' }),
       fileList: [],
+      fileListClone:[],
       curriculumList:[],
+      curriculumListClone:[],
       loading:false,    };
   },
   methods: {
@@ -299,37 +301,35 @@ export default {
     },
     beforeUpload(file) {
       this.fileList = [...this.fileList,file]; 
-      console.log(this.fileList)
       return false;
     },
    
     beforeUploadCirculum(file) {
       this.curriculumList = [...this.curriculumList,file]; 
-      console.log(this.curriculumList);
       return false;
     },
 
     handleSubmit(e) {
       e.preventDefault();
-     
-
       this.form.validateFields(async(err, values) => {
         if (!err) {
           this.loading=true;
-      this.uploading = true;
     
       if (this.fileList.length>0){
-        await  uploadMultiToStorage("employee" , this.fileList).then(urls=>{
-          values.contractCopyImg = urls;
+        await  uploadMultiToStorage("employee/contract" , this.fileList).then(urls=>{
+          this.fileListClone= urls;
       
      })
       }
       if (this.curriculumList.length>0){
-       await uploadMultiToStorage("employee" , this.curriculumList).then(urls=>{
-          values.curriculumValueImg = urls;
+       await uploadMultiToStorage("employee/curriculum" , this.curriculumList).then(urls=>{
+        this.curriculumListClone = urls;
       
      })
       } 
+      values.contractCopyImg=this.fileListClone;
+      values.curriculumValueImg=this.curriculumListClone;
+    
      
      await this.createEmployee(values); 
     
@@ -354,6 +354,8 @@ export default {
           }
           else {
             this.loading=false;
+            this.fileList=[];
+            this.curriculumList=[];
           
             Swal.fire(
                 'SomeThing Wrong',

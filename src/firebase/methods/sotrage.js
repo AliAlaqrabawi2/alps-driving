@@ -2,7 +2,7 @@ import {
   getDownloadURL,
   getStorage,
   ref,
-  uploadBytes,
+  deleteObject,
   uploadBytesResumable,
 } from "firebase/storage";
 import { storage } from "../index";
@@ -42,5 +42,19 @@ export const uploadMultiToStorage = (filePlace, files) => {
         }
       );
     });
+    urls = [];
+  });
+};
+
+export const DeleteImgFromStorage = (photo) => {
+  return new Promise((resolve, reject) => {
+    const storageRef = ref(storage, photo);
+    deleteObject(storageRef)
+      .then(() => {
+        console.log("File deleted successfully");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   });
 };

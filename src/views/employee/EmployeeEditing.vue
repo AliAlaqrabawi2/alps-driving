@@ -277,6 +277,11 @@
         "
           />
         </a-form-model-item>
+        <div style="padding:15px 0">
+      <a-upload  :file-list="fileList" :remove="handleRemove" :multiple="true" :before-upload="beforeUpload" >
+      <a-button> <a-icon type="upload" />Upload Contract copy </a-button>
+    </a-upload>
+    </div>
         <a-form-model-item ref="loan's" label="Loans"  >
           <a-input
               placeholder="Loan's"
@@ -355,6 +360,7 @@
           }
         "
           />
+          
         </a-form-model-item>
         <a-form-model-item ref="privateNotice" label="Private Notice"  >
           <a-textarea
@@ -368,8 +374,33 @@
         "
           />
         </a-form-model-item>
+        <a-upload style="padding-top:10px" :circulum-list="curriculumList" :remove="handleRemoveCirculum" :multiple="true" :before-upload="beforeUploadCirculum" >
+      <a-button> <a-icon type="upload" />Upload curriculum Value  </a-button>
+    </a-upload>
+
+        <div  class="gallary" >
+      <div  style="padding:20px 0" v-if="employee.contractCopyImg"> 
+        <div class="title">
+          <h6>Contract Copy Image</h6>
+          <p> {{employee.contractCopyImg.length>0 ? "":"no image to show"}}</p>
+          
+        </div>
+        <gallery method="deleteEmployeeImage"  v-for="urlImg in employee.contractCopyImg" :key="urlImg[250]" :urlImg="urlImg" ></gallery>
+
+      </div>
+      <hr/>
+      <div  style="padding:20px 0" v-if="employee.curriculumValueImg"> 
+        <div class="title">
+          <h6 >curriculum Value Image</h6>
+          <p> {{employee.curriculumValueImg.length>0 ? "":"No image to show"}}</p>
+
+        </div>
+        <gallery method="deleteEmployeeImage" v-for="urlImg in employee.curriculumValueImg" :key="urlImg[250]" :urlImg="urlImg"></gallery>
 
 
+
+      </div>
+     </div>
 
 
 
@@ -384,23 +415,7 @@
         </a-divider>
       </a-form-model>
       
-     <div v-if="employee.contractCopyImg" class="gallary">
-      <div  style="padding:20px 0"> 
-        <div class="title">
-          <h6>Contract Copy Image</h6>
-        </div>
-        <gallery v-for="urlImg in employee.contractCopyImg" :key="urlImg" :urlImg="urlImg"></gallery>
-
-      </div>
-      <hr/>
-      <div  style="padding:20px 0"> 
-        <div class="title">
-          <h6>curriculum Value Image</h6>
-        </div>
-        <gallery v-for="urlImg in employee.contractCopyImg" :key="urlImg" :urlImg="urlImg"></gallery>
-
-      </div>
-     </div>
+   
 
     </div>
 
@@ -408,12 +423,19 @@
 </template>
 <script>
 import gallery from "../../components/gallary.vue"
+import Swal from "sweetalert2";
+import {uploadMultiToStorage} from "../../firebase/methods/sotrage"
+
 export default {
   components:{
     gallery
   } ,
   data() {
     return {
+      fileList: [],
+      fileListClone:[],
+      curriculumList:[],
+      curriculumListClone:[],
       loading:false,
       labelCol: { span: 14},
       wrapperCol: { span: 14 },
@@ -454,21 +476,89 @@ export default {
     };
   },
   methods: {
-    onSubmit(e) {
+    handleRemove(file) {
+      const index = this.fileList.indexOf(file);
+      const newFileList = this.fileList.slice();
+      newFileList.splice(index, 1);
+      this.fileList = newFileList;
+    },
+    handleRemoveCirculum(file) {
+      const index = this.fileList.indexOf(file);
+      const newFileList = this.curriculumList.slice();
+      newFileList.splice(index, 1);
+      this.curriculumList = newFileList;
+    },
+    beforeUpload(file) {
       
+      this.fileList = [...this.fileList,file]; 
+      return false;
+    },
+    beforeUploadCirculum(file) {
+      this.curriculumList = [...this.curriculumList,file]; 
+      return false;
+    },
+    
+   async onSubmit(e) {
       e.preventDefault();
-      this.$refs.ruleForm.validate(async valid => {
-        if (valid) {
-          this.employee.id = this.$route.params.id;
+          this.loading=true;
+      if (this.fileList.length>0){
+        await  uploadMultiToStorage("employee/contract" , this.fileList).then(urls=>{
+          urls.map(url=>{
+            this.employee.contractCopyImg.push(url);
+          })
+      
+     })
+      }
+      if (this.curriculumList.length>0){
+       await uploadMultiToStorage("employee/curriculum" , this.curriculumList).then(urls=>{
+        urls.map(url=>{
+            this.employee.curriculumValueImg.push(url);
+          })
+      
+     })
+      }     
+
+   
+     
+      
+     await this.updateEmployee(); 
+    
+
+
+    },
+
+ 
+   async updateEmployee(){
+      this.employee.id = this.$route.params.id;
           await this.$store.dispatch("updateEmployee",this.employee);
-        } else {
-          return false;
-        }
-      });
+          const error = this.$store.getters.getError;
+          if (!error) {
+            Swal.fire(
+                'successfully updated!',
+                'You updated  an employee',
+                'success'
+            ).then(()=>{
+              this.loading=false;
+              window.location.reload();
+              
+              
+            })
+          }
+          else {
+            this.loading=false;
+            this.fileList=[];
+            this.curriculumList=[];
+          
+            Swal.fire(
+                'SomeThing Wrong',
+                error,
+                'error'
+            )
+
+          }
+
     },
-    resetForm() {
-      this.$refs.ruleForm.resetFields();
-    },
+   
     goBack(){
       this.$router.push({name:"employee-listing"})
     } ,

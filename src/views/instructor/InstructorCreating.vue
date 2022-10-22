@@ -318,27 +318,33 @@
             v-decorator="['heldUkLicense', { rules: [{ required: false }] }]"
         />
       </a-form-item>
+      <a-upload style="padding-top:10px" :file-list="fileList" :remove="handleRemove" :multiple="true" :before-upload="beforeUpload" >
+      <a-button> <a-icon type="upload" />Upload  PDI  </a-button>
+    </a-upload>
 
       <a-divider >
         <a-button @click="goBack()"  type="default" html-type="button" >
           Discard
         </a-button>
-        <a-button  type="primary" html-type="submit" style="margin-left:15px">
-          Submit
+        <a-button :loading="loading" type="primary" html-type="submit" style="margin-left:15px">
+          {{ loading ? 'Loading' : 'Submit' }}
         </a-button>
 
       </a-divider>
     </a-form>
   </div>
 </template>
-import Swal from "sweetalert2";
 <script>
 import Swal from "sweetalert2";
+import {uploadMultiToStorage} from "../../firebase/methods/sotrage"
+
 
 export default {
   data() {
     return {
-      formLayout: 'horizontal',
+      fileList: [],
+      fileListClone:[],
+      loading:false,
       form: this.$form.createForm(this, { name: 'coordinated' }),
     };
   },
@@ -346,24 +352,57 @@ export default {
     goBack(){
       this.$router.push("instructor-listing")
     } ,
+    handleRemove(file) {
+      const index = this.fileList.indexOf(file);
+      const newFileList = this.fileList.slice();
+      newFileList.splice(index, 1);
+      this.fileList = newFileList;
+    },
+    beforeUpload(file) {
+      this.fileList = [...this.fileList,file]; 
+      console.log(this.fileList)
+      return false;
+    },
     handleSubmit(e) {
       e.preventDefault();
       this.form.validateFields(async(err, values) => {
         if (!err) {
-          console.log('Received values of form: ', values);
-          await this.$store.dispatch("createNewInstructor", values);
+          this.loading=true;
+    
+      if (this.fileList.length>0){
+        await  uploadMultiToStorage("instrcutor" , this.fileList).then(urls=>{
+          this.fileListClone= urls;
+      
+     })
+      }
+    
+      values.PDIimage=this.fileListClone;
+     
+     await this.createInstructor(values); 
+    
+    }
+
+      });
+    },
+
+
+    async createInstructor(values){
+     await this.$store.dispatch('createNewInstructor' ,values  );
           const error = this.$store.getters.getError;
-          console.log(error);
           if (!error) {
             Swal.fire(
                 'successfully created!',
                 'You create  a new Instructor',
                 'success'
             ).then(()=>{
+              this.loading=false;
               this.$router.push("instructor-listing");
             })
           }
           else {
+            this.loading=false;
+            this.fileList=[];
+          
             Swal.fire(
                 'SomeThing Wrong',
                 error,
@@ -371,13 +410,8 @@ export default {
             )
 
           }
+    }
 
-        }
-
-
-
-      });
-    },
 
   },
 };

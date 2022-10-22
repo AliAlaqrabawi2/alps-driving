@@ -499,7 +499,19 @@
               v-decorator="['appProgress', { rules: [{ required: false }] }]"
           />
         </a-form-item>
+        <div  class="gallary" >
+      <div  style="padding:20px 0" v-if="trainee.ADIimage"> 
+        <div class="title">
+          <h6>ADI Image</h6>
+          <p> {{trainee.ADIimage.length>0 ? "":"no image to show"}}</p>
+          
+        </div>
+        <gallery  v-for="urlImg in trainee.ADIimage" :key="urlImg" :urlImg="urlImg" ></gallery>
 
+      </div>
+      <hr/>
+    
+     </div>
 
 
 

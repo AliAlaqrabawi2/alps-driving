@@ -524,6 +524,20 @@
         "
         />
       </a-form-model-item>
+      <div  class="gallary" >
+      <div  style="padding:20px 0" v-if="instructor.PDIimage"> 
+        <div class="title">
+          <h6>PGI Image</h6>
+          <p> {{instructor.PDIimage.length>0 ? "":"no image to show"}}</p>
+          
+        </div>
+        <gallery  v-for="urlImg in instructor.PDIimage" :key="urlImg" :urlImg="urlImg" ></gallery>
+
+      </div>
+      <hr/>
+     
+     </div>
+
 
 
       <a-divider >
