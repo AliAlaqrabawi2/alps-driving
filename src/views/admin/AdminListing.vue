@@ -5,6 +5,7 @@
 
         <div class="header" style="display: flex;justify-content: space-between;align-items: center">
           <h4 class="font-semibold title-creating">Admin Table</h4>
+          <input v-model="searchInput" @keyup="searchAdmin(searchInput)" type="text" placeholder="Search on Admin" class="search-input" />
           <a-button type="link" ghost>
             <router-link to="/admin-creating">
               Add New Admin
@@ -16,16 +17,18 @@
 
       <a-table :columns="tableHeader" :data-source="tableData" :pagination="false" >
 
-    <template slot="firstName" slot-scope="firstName">
-      <div class="author-info">
-        <a-avatar  src="public/images/profilepic.png" />
-        <h6 class="m-0">{{ firstName }} </h6>
+    <template slot="imgUrl" slot-scope="imgUrl">
+      <div class="table-avatar-info">
+        <div class="table-avatar-info">
+          <a-avatar  :src="imgUrl" v-if="imgUrl" class="userImg" />
+
+            <a-avatar shape="square" src="images/profilepic.png" v-else />
+          </div>
 
       </div>
     </template>
         <template slot="firstName" slot-scope="firstName">
           <div class="table-avatar-info">
-            <a-avatar shape="square" src="images/profilepic.png" />
             <div class="avatar-info">
               <h6>{{ firstName}}</h6>
 
@@ -70,6 +73,11 @@
 <script>
 
 const tableHeader = [
+{
+    title: "",
+    dataIndex: "imgUrl",
+    scopedSlots: { customRender: "imgUrl" },
+  },
   {
     title: "FIRSTNAME",
     dataIndex: "firstName",
@@ -102,7 +110,8 @@ export default {
     return {
       tableData:[],tableHeader ,
       loading:false,
-      user:{}
+      user:{},
+      searchInput :'',
     };
 
   },
@@ -116,6 +125,17 @@ export default {
 
   }  ,
   methods:{
+
+    searchAdmin( input) {
+      const cloneList = this.$store.getters.getAdmins
+      if (input === "") {
+        return (this.tableData = cloneList);
+      }
+      this.tableData= this.tableData.filter((admin) => {
+        return admin.firstName.toLowerCase().includes(input.toLowerCase())
+      });
+    },
+    
     deleteAdmin (id){
       Swal.fire({
         title: 'Are you sure?',
@@ -155,3 +175,24 @@ export default {
   }
 };
 </script>
+
+<style >
+
+.userImg{
+  border:1px solid #ccc
+}
+.search-input{
+  border:none;
+  outline:none;
+  width:70%;
+  border:1px solid #ccc;
+  border-radius: 10px;
+  padding:10px;
+}
+.title-creating{
+  margin-top:10px;
+}
+.header {
+  align-items: center;
+}
+</style>

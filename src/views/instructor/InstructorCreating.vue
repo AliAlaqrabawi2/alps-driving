@@ -6,8 +6,8 @@
     </div>
     <a-form
 
-        class="header-solid  form"
-        :form="form" :label-col="{ span:3 }" :wrapper-col="{ span: 10 }" @submit="handleSubmit">
+        class="header-solid  form  ant-form ant-form-vertical"
+        :form="form" :label-col="{ span:14 }" :wrapper-col="{ span: 14 }" @submit="handleSubmit">
       <a-form-item label="First Name" >
         <a-input
             placeholder="First Name"

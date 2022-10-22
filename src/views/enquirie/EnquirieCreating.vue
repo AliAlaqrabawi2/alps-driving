@@ -6,8 +6,8 @@
     </div>
     <a-form
 
-        class="header-solid  form"
-        :form="form" :label-col="{ span:3 }" :wrapper-col="{ span: 10 }" @submit="handleSubmit">
+        class="header-solid  form  ant-form ant-form-vertical"
+        :form="form" :label-col="{ span:14 }" :wrapper-col="{ span: 14 }" @submit="handleSubmit">
       <a-form-item label="First Name" >
         <a-input
             placeholder="First Name"
@@ -72,8 +72,8 @@
         <a-button @click="goBack()"  type="default" html-type="button" >
           Discard
         </a-button>
-        <a-button  type="primary" html-type="submit" style="margin-left:15px">
-          Submit
+        <a-button :loading="loading"  type="primary" html-type="submit" style="margin-left:15px">
+          {{ loading ? 'Loading' : 'Submit' }}
         </a-button>
 
       </a-divider>
@@ -88,6 +88,7 @@ export default {
   data() {
     return {
       formLayout: 'horizontal',
+      loading:false,
       form: this.$form.createForm(this, { name: 'coordinated' }),
     };
   },

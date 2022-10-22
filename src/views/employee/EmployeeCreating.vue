@@ -6,8 +6,8 @@
     </div>
     <a-form
 
-        class="header-solid  form"
-        :form="form" :label-col="{ span:3 }" :wrapper-col="{ span: 10 }" @submit="handleSubmit">
+        class="header-solid  form  ant-form ant-form-vertical"
+        :form="form" :label-col="{ span:14 }" :wrapper-col="{ span: 14 }" @submit="handleSubmit">
       <a-form-item label="First Name" >
         <a-input
             placeholder="First Name"
@@ -214,6 +214,11 @@
             v-decorator="['contractExpireDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
+     <div style="padding:15px 0">
+      <a-upload  :file-list="fileList" :remove="handleRemove" :multiple="true" :before-upload="beforeUpload" >
+      <a-button> <a-icon type="upload" />Upload Contract copy </a-button>
+    </a-upload>
+     </div>
       <a-form-item label="Loan's" >
         <a-input
             placeholder="Loans"
@@ -245,14 +250,19 @@
             v-decorator="['privateNotice', { rules: [{ required: false }] }]"
         />
       </a-form-item>
+     
+    <a-upload style="padding-top:10px" :circulum-list="curriculumList" :remove="handleRemoveCirculum" :multiple="true" :before-upload="beforeUploadCirculum" >
+      <a-button> <a-icon type="upload" />Upload curriculum Value  </a-button>
+    </a-upload>
+   
 
 
       <a-divider >
         <a-button @click="goBack()"  type="default" html-type="button" >
           Discard
         </a-button>
-        <a-button  type="primary" html-type="submit" style="margin-left:15px">
-          Submit
+        <a-button :loading="loading" type="primary" html-type="submit" style="margin-left:15px">
+          {{ loading ? 'Loading' : 'Submit' }}it
         </a-button>
 
       </a-divider>
@@ -261,35 +271,90 @@
 </template>
 <script>
 import Swal from "sweetalert2";
+import {uploadMultiToStorage} from "../../firebase/methods/sotrage"
 
 export default {
   data() {
     return {
-      formLayout: 'horizontal',
       form: this.$form.createForm(this, { name: 'coordinated' }),
-    };
+      fileList: [],
+      curriculumList:[],
+      loading:false,    };
   },
   methods: {
     goBack(){
       this.$router.push("employee-listing")
     } ,
+    handleRemove(file) {
+      const index = this.fileList.indexOf(file);
+      const newFileList = this.fileList.slice();
+      newFileList.splice(index, 1);
+      this.fileList = newFileList;
+    },
+    handleRemoveCirculum(file) {
+      const index = this.fileList.indexOf(file);
+      const newFileList = this.curriculumList.slice();
+      newFileList.splice(index, 1);
+      this.curriculumList = newFileList;
+    },
+    beforeUpload(file) {
+      this.fileList = [...this.fileList,file]; 
+      console.log(this.fileList)
+      return false;
+    },
+   
+    beforeUploadCirculum(file) {
+      this.curriculumList = [...this.curriculumList,file]; 
+      console.log(this.curriculumList);
+      return false;
+    },
+
     handleSubmit(e) {
       e.preventDefault();
+     
+
       this.form.validateFields(async(err, values) => {
         if (!err) {
-          await this.$store.dispatch("createNewEmployee", values);
+          this.loading=true;
+      this.uploading = true;
+    
+      if (this.fileList.length>0){
+        await  uploadMultiToStorage("employee" , this.fileList).then(urls=>{
+          values.contractCopyImg = urls;
+      
+     })
+      }
+      if (this.curriculumList.length>0){
+       await uploadMultiToStorage("employee" , this.curriculumList).then(urls=>{
+          values.curriculumValueImg = urls;
+      
+     })
+      } 
+     
+     await this.createEmployee(values); 
+    
+    }
+
+
+      });
+    },
+
+    async createEmployee(values){
+     await this.$store.dispatch('createNewEmployee' ,values  );
           const error = this.$store.getters.getError;
-          console.log(error);
           if (!error) {
             Swal.fire(
                 'successfully created!',
                 'You create  a new Employee',
                 'success'
             ).then(()=>{
+              this.loading=false;
               this.$router.push("employee-listing");
             })
           }
           else {
+            this.loading=false;
+          
             Swal.fire(
                 'SomeThing Wrong',
                 error,
@@ -297,13 +362,7 @@ export default {
             )
 
           }
-
-        }
-
-
-
-      });
-    },
+    }
 
   },
 };

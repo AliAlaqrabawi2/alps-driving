@@ -5,6 +5,8 @@
 
       <div class="header" style="display: flex;justify-content: space-between;align-items: center">
         <h4 class="font-semibold title-creating">Instructor Table</h4>
+        <input v-model="searchInput" @keyup="searchEnquiries(searchInput)" type="text" placeholder="Search on Enquirie" class="search-input" />
+
         <a-button type="link" ghost>
           <router-link to="/instructor-creating">
             Add New Instructor
@@ -91,6 +93,7 @@ export default {
     return {
       tableData:[],tableHeader ,
       loading:false,
+      searchInput:''
     };
 
   },
@@ -103,6 +106,15 @@ export default {
 
   }  ,
   methods:{
+    searchInstructor( input) {
+      const cloneList = this.$store.getters.getInstructors
+      if (input === "") {
+        return (this.tableData = cloneList);
+      }
+      this.tableData= this.tableData.filter((instructor) => {
+        return instructor.firstName.toLowerCase().includes(input.toLowerCase())
+      });
+    },
     deleteInstructor (id){
       Swal.fire({
         title: 'Are you sure?',
@@ -139,3 +151,22 @@ export default {
   }
 };
 </script>
+
+
+<style scoped>
+.search-input{
+  border:none;
+  outline:none;
+  width:70%;
+  border:1px solid #ccc;
+  border-radius: 10px;
+  padding:10px;
+}
+.title-creating{
+  margin-top:10px;
+}
+.header {
+  align-items: center;
+}
+
+</style>

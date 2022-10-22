@@ -1,9 +1,11 @@
 <template>
 <div>
-   <div>
-     <h3 class="font-semibold title-creating">Edit Admin</h3>
+<div class="header-title ">
+  <h3 class="font-semibold title-creating">Edit Admin</h3>
+  <img :src="admin.imgUrl" v-if="admin.imgUrl" />
 
-   </div>
+</div>
+   
    <a-form-model
        ref="ruleForm"
        :model="admin"
@@ -11,6 +13,7 @@
        :label-col="labelCol"
        :wrapper-col="wrapperCol"
        @submit="onSubmit"
+       class="ant-form ant-form-vertical"
    >
      <a-form-model-item ref="firstName" label="First name" prop="firstName">
        <a-input
@@ -69,32 +72,39 @@
            SuperVisor
          </a-select-option>
        </a-select>
-     </a-form-item>
+     </a-form-item> 
+
+     <a-upload class="upload" :file-list="fileList" :remove="handleRemove" :before-upload="beforeUpload">
+      <a-button> <a-icon type="upload" /> Select File </a-button>
+    </a-upload>
 
      <a-divider >
        <a-button @click="goBack()"  type="default" html-type="button" >
          Discard
        </a-button>
-       <a-button  type="primary" html-type="submit" style="margin-left:15px">
-         Submit
+       <a-button :loading="loading"  type="primary" html-type="submit" style="margin-left:15px">
+        {{ loading ? 'Loading' : 'Submit' }}
        </a-button>
 
      </a-divider>
    </a-form-model>
- </div>
 
 
 
 </div>
 </template>
 <script>
+import {uploadToStorage} from "../../firebase/methods/sotrage"
+
 export default {
   data() {
     return {
-      labelCol: { span: 3},
-      wrapperCol: { span: 10 },
+      labelCol: { span: 14},
+      wrapperCol: { span: 14 },
       admin: {},
       permission:null,
+      loading:false,
+      fileList: [],
       rules: {
         firstName: [
           { required: true, message: 'Please input first name', trigger: 'blur' },
@@ -118,20 +128,74 @@ export default {
     };
   },
   methods: {
+    handleRemove(file) {
+      const index = this.fileList.indexOf(file);
+      const newFileList = this.fileList.slice();
+      newFileList.splice(index, 1);
+      this.fileList = newFileList;
+    },
+    beforeUpload(file) {
+      this.fileList = [ file];
+      return false;
+    },
+
+
     onSubmit(e) {
       e.preventDefault();
+      this.loading=true;
       this.$refs.ruleForm.validate(async valid => {
         if (valid) {
-          this.admin.id = this.$route.params.id;
+        
+          const { fileList } = this;
+      const file = fileList[0]
+      this.uploading = true;
+    
+      if (fileList.length>0){
+        uploadToStorage("admin" , file).then(url=>{
+          this.admin.imgUrl = url;
+          this.editAdmin();
+      
+     })
+      }
+      else {
+        this.editAdmin();
+
+      }         
+        }
+        })
+
+    },
+
+   async editAdmin(){
+    this.admin.id = this.$route.params.id;
             if (this.permission==="false" ||this.permission==="true"){
               this.admin.isSupervisor =this.permission;
             }
-          await this.$store.dispatch("updateAdmin",this.admin);
-        } else {
-          return false;
-        }
-      });
-    },
+      await this.$store.dispatch("updateAdmin",this.admin); 
+
+const error = this.$store.getters.getError;
+if (!error) {
+Swal.fire(
+    'successfully Updated!',
+    'You update  an Admin',
+    'success'
+).then(()=>{
+  this.loading=false;
+  this.$router.push("admin-listing");
+})
+}
+else {
+this.loading=false;
+
+Swal.fire(
+    'SomeThing Wrong',
+    error,
+    'error'
+)
+
+}
+
+    } ,
     resetForm() {
       this.$refs.ruleForm.resetFields();
     },
@@ -149,3 +213,23 @@ export default {
 
 };
 </script>
+
+
+<style >
+.upload{
+  margin-left:70px;
+}
+.header-title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom:20px;
+}
+.header-title img {
+  border:1px solid #ccc;
+  border-radius: 10px;
+  width:100%;
+  max-width: 800px;
+  object-fit: cover;
+}
+</style>

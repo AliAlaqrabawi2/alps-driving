@@ -37,8 +37,8 @@
           </a-form-item>
 
           <a-form-item>
-            <a-button type="primary" block html-type="submit" class="login-form-button">
-              SIGN IN
+            <a-button  :loading="loading"  type="primary" block html-type="submit" class="login-form-button">
+              {{ loading ? 'Loading' : 'SIGN IN' }}
             </a-button>
           </a-form-item>
         </a-form>
@@ -67,6 +67,7 @@ export default ({
     return {
 
       rememberMe: true,
+      loading:false,
     }
   },
   beforeCreate() {

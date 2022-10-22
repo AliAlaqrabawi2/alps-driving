@@ -1,10 +1,10 @@
 <template>
   <div>
     <div>
-      <div>
-        <h3 class="font-semibold title-creating">Edit Employee</h3>
+      <div class="header-title ">
+  <h3 class="font-semibold title-creating">Edit Employee</h3>
 
-      </div>
+</div>
       <a-form-model
           ref="ruleForm"
           :model="employee"
@@ -12,6 +12,7 @@
           :label-col="labelCol"
           :wrapper-col="wrapperCol"
           @submit="onSubmit"
+          class="ant-form ant-form-vertical"
       >
         <a-form-model-item ref="firstName" label="First name" prop="firstName">
           <a-input
@@ -376,22 +377,46 @@
           <a-button @click="goBack()"  type="default" html-type="button" >
             Discard
           </a-button>
-          <a-button  type="primary" html-type="submit" style="margin-left:15px">
-            Submit
+          <a-button :loading="loading"  type="primary" html-type="submit" style="margin-left:15px">
+            {{ loading ? 'Loading' : 'Submit' }}
           </a-button>
 
         </a-divider>
       </a-form-model>
+      
+     <div v-if="employee.contractCopyImg" class="gallary">
+      <div  style="padding:20px 0"> 
+        <div class="title">
+          <h6>Contract Copy Image</h6>
+        </div>
+        <gallery v-for="urlImg in employee.contractCopyImg" :key="urlImg" :urlImg="urlImg"></gallery>
+
+      </div>
+      <hr/>
+      <div  style="padding:20px 0"> 
+        <div class="title">
+          <h6>curriculum Value Image</h6>
+        </div>
+        <gallery v-for="urlImg in employee.contractCopyImg" :key="urlImg" :urlImg="urlImg"></gallery>
+
+      </div>
+     </div>
+
     </div>
 
   </div>
 </template>
 <script>
+import gallery from "../../components/gallary.vue"
 export default {
+  components:{
+    gallery
+  } ,
   data() {
     return {
-      labelCol: { span: 3},
-      wrapperCol: { span: 10 },
+      loading:false,
+      labelCol: { span: 14},
+      wrapperCol: { span: 14 },
       employee: {},
       rules: {
         firstName: [
@@ -430,6 +455,7 @@ export default {
   },
   methods: {
     onSubmit(e) {
+      
       e.preventDefault();
       this.$refs.ruleForm.validate(async valid => {
         if (valid) {
@@ -456,3 +482,26 @@ export default {
 
 };
 </script>
+
+
+<style scoped>
+.header-title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom:20px;
+}
+.header-title img {
+  border:1px solid #ccc;
+  border-radius: 10px;
+  width:100%;
+  max-width: 400px;
+  object-fit: cover;
+  max-height: 200px;
+  height: 100%;
+}
+.gallary{
+  display: flex;
+  flex-direction: column;
+}
+</style>

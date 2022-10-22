@@ -5,6 +5,8 @@
 
       <div class="header" style="display: flex;justify-content: space-between;align-items: center">
         <h4 class="font-semibold title-creating">Trainee Table</h4>
+        <input v-model="searchInput" @keyup="searchTrainee(searchInput)" type="text" placeholder="Search on Enquirie" class="search-input" />
+
         <a-button type="link" ghost>
           <router-link to="/trainee-creating">
             Add New Trainee
@@ -112,6 +114,8 @@ export default {
     return {
       tableData:[],tableHeader ,
       loading:false,
+      searchInput:''
+
     };
 
   },
@@ -124,6 +128,16 @@ export default {
 
   }  ,
   methods:{
+
+    searchTrainee( input) {
+      const cloneList = this.$store.getters.getTrainees
+      if (input === "") {
+        return (this.tableData = cloneList);
+      }
+      this.tableData= this.tableData.filter((trainee) => {
+        return trainee.firstName.toLowerCase().includes(input.toLowerCase())
+      });
+    },
     deleteTrainee (id){
       Swal.fire({
         title: 'Are you sure?',
@@ -160,3 +174,22 @@ export default {
   }
 };
 </script>
+
+
+<style scoped>
+.search-input{
+  border:none;
+  outline:none;
+  width:70%;
+  border:1px solid #ccc;
+  border-radius: 10px;
+  padding:10px;
+}
+.title-creating{
+  margin-top:10px;
+}
+.header {
+  align-items: center;
+}
+
+</style>

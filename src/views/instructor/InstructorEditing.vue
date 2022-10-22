@@ -11,6 +11,7 @@
         :label-col="labelCol"
         :wrapper-col="wrapperCol"
         @submit="onSubmit"
+        class="ant-form ant-form-vertical"
     >
       <a-form-model-item ref="firstName" label="First name" prop="firstName">
         <a-input
@@ -545,8 +546,8 @@
 export default {
   data() {
     return {
-      labelCol: { span: 3},
-      wrapperCol: { span: 10 },
+      labelCol: { span: 14},
+      wrapperCol: { span: 14 },
       instructor: {},
       rules: {
         firstName: [
