@@ -178,7 +178,7 @@
         />
       </a-form-item>
       <a-form-item label="Probation Period" >
-        <a-input
+        <a-textarea rows="5"
             placeholder='Probation Period'
             v-decorator="['probationPeriod', { rules: [{ required: false }] }]"
         />
@@ -202,31 +202,35 @@
         />
       </a-form-item>
       <a-form-item label="Part2 Pass Date" >
-        <a-input
+        <a-textarea
+        rows="5"
             placeholder='Part 2 Pass date'
             v-decorator="['p2PassDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Part3 Pass Date" >
-        <a-input
+        <a-textarea
+        rows="5"
             placeholder='Part 3 Pass date'
             v-decorator="['p3PassDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Part2 Training Hours" >
-        <a-input
+        <a-textarea 
+        rows="5"
             placeholder='Part2 Training Hours'
             v-decorator="['p2TrainingHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Part3 Training Hours" >
-        <a-input
+        <a-textarea 
+        rows="5"
             placeholder='Part3 Training Hours'
             v-decorator="['p3TrainingHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Standard Check Train..." >
-        <a-input
+        <a-textarea row="5"
             placeholder='Standard Check Training Hours'
             v-decorator="['standardCheckTrainingHours', { rules: [{ required: false }] }]"
         />
@@ -238,7 +242,8 @@
         />
       </a-form-item>
       <a-form-item label="Extra Qualification" >
-        <a-input
+        <a-textarea 
+        rows="5"
             placeholder='Extra Qualification'
             v-decorator="['extraQualification', { rules: [{ required: false }] }]"
         />
@@ -269,14 +274,14 @@
         />
       </a-form-item>
       <a-form-item label="Car Wrapping" >
-        <a-input
+        <a-textarea rows="5"
             placeholder='Car Wrapping'
             v-decorator="['carWrapping', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Loan's" >
+      <a-form-item label="Loans" >
         <a-input
-            placeholder="Loan's"
+            placeholder="Loans"
             v-decorator="['loans', { rules: [{ required: false }] }]"
         />
       </a-form-item>
@@ -318,7 +323,7 @@
             v-decorator="['heldUkLicense', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-upload style="padding-top:10px" :file-list="fileList" :remove="handleRemove" :multiple="true" :before-upload="beforeUpload" >
+      <a-upload style="padding-top:10px" :file-list="fileList" :remove="handleRemove" :multiple="false" :before-upload="beforeUpload" >
       <a-button> <a-icon type="upload" />Upload  PDI  </a-button>
     </a-upload>
 
@@ -336,7 +341,7 @@
 </template>
 <script>
 import Swal from "sweetalert2";
-import {uploadMultiToStorage} from "../../firebase/methods/sotrage"
+import {uploadToStorage} from "../../firebase/methods/sotrage"
 
 
 export default {
@@ -370,13 +375,13 @@ export default {
           this.loading=true;
     
       if (this.fileList.length>0){
-        await  uploadMultiToStorage("instrcutor" , this.fileList).then(urls=>{
-          this.fileListClone= urls;
+        await  uploadToStorage("instructor" , this.fileList[0]).then(url=>{
+      values.PDIimage=url;
+
       
      })
       }
     
-      values.PDIimage=this.fileListClone;
      
      await this.createInstructor(values); 
     

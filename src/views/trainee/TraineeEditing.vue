@@ -262,7 +262,7 @@
           />
         </a-form-model-item>
         <a-form-model-item ref="probation Period" label="Probation Period"  >
-          <a-input
+          <a-textarea rows="5"
               placeholder="Probation Period"
               v-model="trainee.probationPeriod"
               @blur="
@@ -372,7 +372,7 @@
             />
           </a-form-model-item>
           <a-form-model-item ref="carWrapping" label="Car Wrapping"  >
-            <a-input
+            <a-textarea rows="5"
                 placeholder="Car Wrapping"
                 v-model="trainee.carWrapping"
                 @blur="
@@ -382,9 +382,9 @@
         "
             />
           </a-form-model-item>
-          <a-form-model-item ref="loans" label="Loan's"  >
+          <a-form-model-item ref="loans" label="Loans"  >
             <a-input
-                placeholder="Loan's"
+                placeholder="Loans"
                 v-model="trainee.loans"
                 @blur="
           () => {
@@ -416,7 +416,8 @@
           />
         </a-form-model-item>
         <a-form-model-item ref="standardCheckTrainingHours" label="Standard Check Train ..."  >
-          <a-input
+          <a-textarea 
+          rows="5"
               placeholder="Standard Check Training Hours"
               v-model="trainee.standardCheckTrainingHours"
               @blur="
@@ -449,7 +450,7 @@
           />
         </a-form-model-item>
         <a-form-model-item ref="extraQualification" label="Extra Qualification"  >
-          <a-input
+          <a-textarea row="5"
               placeholder="Extra Qualification"
               v-model="trainee.extraQualification"
               @blur="
@@ -499,6 +500,9 @@
               v-decorator="['appProgress', { rules: [{ required: false }] }]"
           />
         </a-form-item>
+        <a-upload style="padding-top:10px" :file-list="fileList" :remove="handleRemove" :multiple="false" :before-upload="beforeUpload" >
+      <a-button> <a-icon type="upload" />Upload ADI image  </a-button>
+    </a-upload>
         <div  class="gallary" >
       <div  style="padding:20px 0" v-if="trainee.ADIimage"> 
         <div class="title">
@@ -506,12 +510,13 @@
           <p> {{trainee.ADIimage.length>0 ? "":"no image to show"}}</p>
           
         </div>
-        <gallery  v-for="urlImg in trainee.ADIimage" :key="urlImg" :urlImg="urlImg" ></gallery>
+        <gallery  method="deleteTraineeImage" v-for="urlImg in trainee.ADIimage" :key="urlImg" :urlImg="urlImg" ></gallery>
 
       </div>
       <hr/>
     
      </div>
+    
 
 
 
@@ -519,8 +524,8 @@
           <a-button @click="goBack()"  type="default" html-type="button" >
             Discard
           </a-button>
-          <a-button  type="primary" html-type="submit" style="margin-left:15px">
-            Submit
+          <a-button :loading="loading"  type="primary" html-type="submit" style="margin-left:15px">
+            {{ loading ? 'Loading' : 'Submit' }}
           </a-button>
 
         </a-divider>
@@ -530,13 +535,21 @@
   </div>
 </template>
 <script>
+import gallery from "../../components/gallary.vue"
+import Swal from "sweetalert2";
+import {uploadToStorage} from "../../firebase/methods/sotrage"
 export default {
+  components:{
+    gallery
+  } ,
   data() {
     return {
       labelCol: { span: 14},
       wrapperCol: { span: 14 },
       trainee: {},
-      permission:null,
+      fileList: [],
+      fileListClone:[],
+      loading:false,
       rules: {
         firstName: [
           { required: true, message: 'Please input first name', trigger: 'blur' },
@@ -569,20 +582,66 @@ export default {
     };
   },
   methods: {
-    onSubmit(e) {
+
+    handleRemove(file) {
+      const index = this.fileList.indexOf(file);
+      const newFileList = this.fileList.slice();
+      newFileList.splice(index, 1);
+      this.fileList = newFileList;
+    },
+    beforeUpload(file) {
+      
+      this.fileList = [...this.fileList,file]; 
+      return false;
+    },
+    async onSubmit(e) {
       e.preventDefault();
-      this.$refs.ruleForm.validate(async valid => {
-        if (valid) {
-          this.trainee.id = this.$route.params.id;
+          this.loading=true;
+      if (this.fileList.length>0){
+        await  uploadToStorage("trainee" , this.fileList[0]).then(url=>{
+            this.trainee.ADIimage.push(url);
+      
+     })
+      }
+     await this.updateTrainee(); 
+    
+
+
+    },
+
+
+    async updateTrainee(){
+      this.trainee.id = this.$route.params.id;
           await this.$store.dispatch("updateTrainee",this.trainee);
-        } else {
-          return false;
-        }
-      });
+          const error = this.$store.getters.getError;
+          if (!error) {
+            Swal.fire(
+                'successfully updated!',
+                'You updated  a Trainee',
+                'success'
+            ).then(()=>{
+              this.loading=false;
+              window.location.reload();
+              
+              
+            })
+          }
+          else {
+            this.loading=false;
+            this.fileList=[];
+            this.curriculumList=[];
+          
+            Swal.fire(
+                'SomeThing Wrong',
+                error,
+                'error'
+            )
+
+          }
+
     },
-    resetForm() {
-      this.$refs.ruleForm.resetFields();
-    },
+
+  
     goBack(){
       this.$router.push({name:"trainee-listing"})
     } ,
@@ -596,3 +655,27 @@ export default {
 
 };
 </script>
+
+
+
+<style scoped>
+.header-title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom:20px;
+}
+.header-title img {
+  border:1px solid #ccc;
+  border-radius: 10px;
+  width:100%;
+  max-width: 400px;
+  object-fit: cover;
+  max-height: 200px;
+  height: 100%;
+}
+.gallary{
+  display: flex;
+  flex-direction: column;
+}
+</style>

@@ -271,7 +271,7 @@
         />
       </a-form-model-item>
       <a-form-model-item ref="probationPeriod" label="Probation Period "  >
-        <a-input
+        <a-textarea rows="5"
             placeholder="Probation Period"
             v-model="instructor.probationPeriod"
             @blur="
@@ -359,7 +359,8 @@
         />
       </a-form-model-item>
       <a-form-model-item ref="standardCheckTrainingHours" label="Standard Check Train ..."  >
-        <a-input
+        <a-textarea 
+        rows="5"
             placeholder="Standard Check Training Hours"
             v-model="instructor.standardCheckTrainingHours"
             @blur="
@@ -381,7 +382,7 @@
         />
       </a-form-model-item>
       <a-form-model-item ref="extraQualification" label="Extra Qualification"  >
-        <a-input
+        <a-textarea row="5"
             placeholder="Extra Qualification"
             v-model="instructor.extraQualification"
             @blur="
@@ -436,7 +437,7 @@
         />
       </a-form-model-item>
       <a-form-model-item ref="carWrapping" label="Car Wrapping"  >
-        <a-input
+        <a-textarea rows='5'
             placeholder="Car Wrapping"
             v-model="instructor.carWrapping"
             @blur="
@@ -446,9 +447,9 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="Loan's" label="Loan's"  >
+      <a-form-model-item ref="Loans" label="Loans"  >
         <a-input
-            placeholder="Loan's"
+            placeholder="Loans"
             v-model="instructor.loans"
             @blur="
           () => {
@@ -497,7 +498,7 @@
             v-model="instructor.hearAboutUs"
             @blur="
           () => {
-            $refs.lastName.onFieldBlur();
+            $refs.hearAboutUs.onFieldBlur();
           }
         "
         />
@@ -508,7 +509,7 @@
             v-model="instructor.pointsOnLicense"
             @blur="
           () => {
-            $refs.lastName.onFieldBlur();
+            $refs.pointsOnLicense.onFieldBlur();
           }
         "
         />
@@ -519,22 +520,24 @@
             v-model="instructor.heldUkLicense"
             @blur="
           () => {
-            $refs.lastName.onFieldBlur();
+            $refs.heldUkLicense.onFieldBlur();
           }
         "
         />
       </a-form-model-item>
+      <a-upload style="padding-top:10px" :file-list="fileList" :remove="handleRemove" :multiple="false" :before-upload="beforeUpload" >
+      <a-button> <a-icon type="upload" />Upload PDI image  </a-button>
+    </a-upload>
       <div  class="gallary" >
       <div  style="padding:20px 0" v-if="instructor.PDIimage"> 
         <div class="title">
-          <h6>PGI Image</h6>
+          <h6>PDI Image</h6>
           <p> {{instructor.PDIimage.length>0 ? "":"no image to show"}}</p>
           
         </div>
-        <gallery  v-for="urlImg in instructor.PDIimage" :key="urlImg" :urlImg="urlImg" ></gallery>
+        <gallery  method="deleteInstructorImage" v-for="urlImg in instructor.PDIimage" :key="urlImg" :urlImg="urlImg" ></gallery>
 
       </div>
-      <hr/>
      
      </div>
 
@@ -544,25 +547,32 @@
         <a-button @click="goBack()"  type="default" html-type="button" >
           Discard
         </a-button>
-        <a-button  type="primary" html-type="submit" style="margin-left:15px">
-          Submit
-        </a-button>
+        <a-button :loading="loading"  type="primary" html-type="submit" style="margin-left:15px">
+            {{ loading ? 'Loading' : 'Submit' }}
+          </a-button>
 
       </a-divider>
     </a-form-model>
-  </div>
-
-
 
   </div>
 </template>
 <script>
+import gallery from "../../components/gallary.vue"
+import Swal from "sweetalert2";
+import {uploadToStorage} from "../../firebase/methods/sotrage"
+
 export default {
+  components:{
+    gallery
+  } ,
   data() {
     return {
       labelCol: { span: 14},
       wrapperCol: { span: 14 },
+      fileList: [],
+      fileListClone:[],
       instructor: {},
+      loading:false,
       rules: {
         firstName: [
           { required: true, message: 'Please input first name', trigger: 'blur' },
@@ -592,21 +602,64 @@ export default {
     };
   },
   methods: {
-    onSubmit(e) {
+    handleRemove(file) {
+      const index = this.fileList.indexOf(file);
+      const newFileList = this.fileList.slice();
+      newFileList.splice(index, 1);
+      this.fileList = newFileList;
+    },
+    beforeUpload(file) {
+      
+      this.fileList = [...this.fileList,file]; 
+      return false;
+    },
+    async onSubmit(e) {
       e.preventDefault();
-      this.$refs.ruleForm.validate(async valid => {
-        if (valid) {
-          this.instructor.id = this.$route.params.id;
+          this.loading=true;
+      if (this.fileList.length>0){
+        await  uploadToStorage("instructor" , this.fileList[0]).then(url=>{
+            this.instructor.PDIimage.push(url);
+      
+     })
+      }
+     await this.updateInstructor(); 
+    
 
+
+    },
+
+    async updateInstructor(){
+      this.instructor.id = this.$route.params.id;
           await this.$store.dispatch("updateInstructor",this.instructor);
-        } else {
-          return false;
-        }
-      });
+          const error = this.$store.getters.getError;
+          if (!error) {
+            Swal.fire(
+                'successfully updated!',
+                'You updated  an instructor',
+                'success'
+            ).then(()=>{
+              this.loading=false;
+              window.location.reload();
+              
+              
+            })
+          }
+          else {
+            this.loading=false;
+            this.fileList=[];
+            this.curriculumList=[];
+          
+            Swal.fire(
+                'SomeThing Wrong',
+                error,
+                'error'
+            )
+
+          }
+
     },
-    resetForm() {
-      this.$refs.ruleForm.resetFields();
-    },
+
+   
     goBack(){
       this.$router.push({name:"instructor-listing"})
     } ,

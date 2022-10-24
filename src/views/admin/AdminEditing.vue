@@ -2,7 +2,7 @@
 <div>
 <div class="header-title ">
   <h3 class="font-semibold title-creating">Edit Admin</h3>
-  <img :src="admin.imgUrl" v-if="admin.imgUrl" />
+  <img :src="admin.imgUrl" v-if="admin.imgUrl"  class="profile-img"/>
 
 </div>
    
@@ -226,10 +226,11 @@ Swal.fire(
   padding-bottom:20px;
 }
 .header-title img {
-  border:1px solid #ccc;
-  border-radius: 10px;
-  width:100%;
-  max-width: 800px;
+  border:2px solid #ccc;
+  width:70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-left:10px;
   object-fit: cover;
 }
 </style>

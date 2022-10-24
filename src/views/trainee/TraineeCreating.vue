@@ -157,7 +157,7 @@
         />
       </a-form-item>
       <a-form-item label="Probation Period" >
-        <a-input
+        <a-textarea rows="5"
             placeholder='Probation Period'
             v-decorator="['probationPeriod', { rules: [{ required: false }] }]"
         />
@@ -218,14 +218,14 @@
         />
       </a-form-item>
       <a-form-item label="Car Wrapping" >
-        <a-input
+        <a-textarea rows="5"
             placeholder='Car Wrapping'
             v-decorator="['carWrapping', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Loan's" >
+      <a-form-item label="Loans" >
         <a-input
-            placeholder="Loan's"
+            placeholder="Loans"
             v-decorator="['loans', { rules: [{ required: false }] }]"
         />
       </a-form-item>
@@ -242,8 +242,8 @@
         />
       </a-form-item>
 
-      <a-form-item label=" Standard Check Train ... ">
-        <a-input
+      <a-form-item label=" Standard Check Training Hours">
+        <a-textarea
             placeholder='Standard Check Training Hours'
             v-decorator="['standardCheckTrainingHours', { rules: [{ required: false }] }]"
         />
@@ -261,7 +261,8 @@
         />
       </a-form-item>
       <a-form-item label="Extra Qualification" >
-        <a-input
+        <a-textarea 
+        rows="5"
             placeholder='Extra Qualification'
             v-decorator="['extraQualification', { rules: [{ required: false }] }]"
         />
@@ -293,7 +294,7 @@
             v-decorator="['appProgress', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-upload style="padding-top:10px" :file-list="fileList" :remove="handleRemove" :multiple="true" :before-upload="beforeUpload" >
+      <a-upload style="padding-top:10px" :file-list="fileList" :remove="handleRemove" :multiple="false" :before-upload="beforeUpload" >
       <a-button> <a-icon type="upload" />Upload  ADI  </a-button>
     </a-upload>
       
@@ -302,16 +303,16 @@
         <a-button @click="goBack()"  type="default" html-type="button" >
           Discard
         </a-button>
-        <a-button  type="primary" html-type="submit" style="margin-left:15px">
-          Submit
+        <a-button :loading="loading" type="primary" html-type="submit" style="margin-left:15px">
+          {{ loading ? 'Loading' : 'Submit' }}
         </a-button>
-
       </a-divider>
     </a-form>
   </div>
 </template>
 <script>
 import Swal from "sweetalert2";
+import {uploadToStorage} from "../../firebase/methods/sotrage"
 
 export default {
   data() {
@@ -343,13 +344,13 @@ export default {
           this.loading=true;
     
       if (this.fileList.length>0){
-        await  uploadMultiToStorage("trainee" , this.fileList).then(urls=>{
-          this.fileListClone= urls;
+        await  uploadToStorage("trainee" , this.fileList[0]).then(url=>{
+      values.ADIimage=url;
+
       
      })
       }
     
-      values.ADIimage=this.fileListClone;
      
      await this.createTrainee(values); 
     

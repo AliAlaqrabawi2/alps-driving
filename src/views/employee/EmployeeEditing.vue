@@ -282,9 +282,9 @@
       <a-button> <a-icon type="upload" />Upload Contract copy </a-button>
     </a-upload>
     </div>
-        <a-form-model-item ref="loan's" label="Loans"  >
+        <a-form-model-item ref="Loans" label="Loans"  >
           <a-input
-              placeholder="Loan's"
+              placeholder="Loans"
               v-model="employee.loans"
               @blur="
           () => {
@@ -296,7 +296,7 @@
 
 
         <a-form-model-item ref="extraQualification" label="Extra Qualification"  >
-          <a-input
+          <a-textarea row="5"
               placeholder="Extra Qualification"
               v-model="employee.extraQualification"
               @blur="
@@ -374,7 +374,7 @@
         "
           />
         </a-form-model-item>
-        <a-upload style="padding-top:10px" :circulum-list="curriculumList" :remove="handleRemoveCirculum" :multiple="true" :before-upload="beforeUploadCirculum" >
+        <a-upload style="padding-top:10px" :circulum-list="curriculumList" :remove="handleRemoveCirculum" :multiple="false" :before-upload="beforeUploadCirculum" >
       <a-button> <a-icon type="upload" />Upload curriculum Value  </a-button>
     </a-upload>
 
@@ -424,7 +424,7 @@
 <script>
 import gallery from "../../components/gallary.vue"
 import Swal from "sweetalert2";
-import {uploadMultiToStorage} from "../../firebase/methods/sotrage"
+import {uploadToStorage} from "../../firebase/methods/sotrage"
 
 export default {
   components:{
@@ -502,22 +502,17 @@ export default {
       e.preventDefault();
           this.loading=true;
       if (this.fileList.length>0){
-        await  uploadMultiToStorage("employee/contract" , this.fileList).then(urls=>{
-          urls.map(url=>{
+        await  uploadToStorage("employee/contract" , this.fileList[0]).then(url=>{
             this.employee.contractCopyImg.push(url);
-          })
       
      })
       }
       if (this.curriculumList.length>0){
-       await uploadMultiToStorage("employee/curriculum" , this.curriculumList).then(urls=>{
-        urls.map(url=>{
-            this.employee.curriculumValueImg.push(url);
-          })
+       await uploadToStorage("employee/curriculum" , this.curriculumList[0]).then(url=>{      
+          this.employee.curriculumValueImg.push(url);
       
      })
       }     
-
    
      
       

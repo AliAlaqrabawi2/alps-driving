@@ -165,7 +165,7 @@
         />
       </a-form-item>
       <a-form-item label="Referrals" >
-        <a-input
+        <a-textarea  rows="5" cols="50"
             placeholder='Referrals'
             v-decorator="['referrals', { rules: [{ required: false }] }]"
         />
@@ -177,7 +177,8 @@
         />
       </a-form-item>
       <a-form-item label="Extra Qualification" >
-        <a-input
+        <a-textarea 
+        rows="5"
             placeholder='Extra Qualification'
             v-decorator="['extraQualification', { rules: [{ required: false }] }]"
         />
@@ -197,7 +198,7 @@
 
 
       <a-form-item label="Probation Period" >
-        <a-input
+        <a-textarea rows="5"
             placeholder='Probation Period'
             v-decorator="['probationPeriod', { rules: [{ required: false }] }]"
         />
@@ -219,7 +220,7 @@
       <a-button> <a-icon type="upload" />Upload Contract copy </a-button>
     </a-upload>
      </div>
-      <a-form-item label="Loan's" >
+      <a-form-item label="Loans" >
         <a-input
             placeholder="Loans"
             v-decorator="['oans', { rules: [{ required: false }] }]"
@@ -301,29 +302,38 @@ export default {
     },
     beforeUpload(file) {
       this.fileList = [...this.fileList,file]; 
+      console.log(this.fileList)
       return false;
     },
    
     beforeUploadCirculum(file) {
       this.curriculumList = [...this.curriculumList,file]; 
+      console.log(this.curriculumList);
       return false;
     },
 
     handleSubmit(e) {
       e.preventDefault();
+    
+     
+
       this.form.validateFields(async(err, values) => {
         if (!err) {
           this.loading=true;
+      this.uploading = true;
+      console.log(this.fileList)
+      console.log(this.curriculumList);
     
       if (this.fileList.length>0){
-        await  uploadMultiToStorage("employee/contract" , this.fileList).then(urls=>{
-          this.fileListClone= urls;
+        await  uploadMultiToStorage("employee/contract" , this.fileList).then(url=>{ 
+          console.log(url);
+          this.fileListClone= url;
       
      })
       }
       if (this.curriculumList.length>0){
-       await uploadMultiToStorage("employee/curriculum" , this.curriculumList).then(urls=>{
-        this.curriculumListClone = urls;
+       await uploadMultiToStorage("employee/curriculum" , this.curriculumList).then(url=>{
+        this.curriculumListClone = url;
       
      })
       } 

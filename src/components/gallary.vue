@@ -21,7 +21,7 @@ export default {
     props:['method','urlImg'] , 
     methods:{
         deleteImage(){
-          console.log(this.urlImg);
+         
             Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",

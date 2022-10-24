@@ -4,8 +4,8 @@
     <template #title>
 
       <div class="header" style="display: flex;justify-content: space-between;align-items: center">
-        <h4 class="font-semibold title-creating">Trainee Table</h4>
-        <input v-model="searchInput" @keyup="searchTrainee(searchInput)" type="text" placeholder="Search on Enquirie" class="search-input" />
+        <h4 class="font-semibold title-creating">Trainer Table</h4>
+        <input v-model="searchInput" @keyup="searchTrainee(searchInput)" type="text" placeholder="Search on trainees" class="search-input" />
 
         <a-button type="link" ghost>
           <router-link to="/trainee-creating">
@@ -73,6 +73,9 @@
 
   </a-card>
 </template>
+
+
+
 <script>
 
 const tableHeader = [
@@ -123,14 +126,14 @@ export default {
   async created() {
     this.loading=true;
     await this.$store.dispatch("getAllTrainee");
-    this.tableData =this.$store.getters.getTrainees
+    this.tableData =this.$store.getters.getTrainers
     this.loading=false;
 
   }  ,
   methods:{
 
     searchTrainee( input) {
-      const cloneList = this.$store.getters.getTrainees
+      const cloneList = this.$store.getters.getTrainers
       if (input === "") {
         return (this.tableData = cloneList);
       }

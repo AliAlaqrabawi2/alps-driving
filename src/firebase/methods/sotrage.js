@@ -37,7 +37,7 @@ export const uploadMultiToStorage = (filePlace, files) => {
         () => {
           getDownloadURL(uploadImage.snapshot.ref).then((url) => {
             urls.push(url);
-            resolve(urls);
+            return url;
           });
         }
       );

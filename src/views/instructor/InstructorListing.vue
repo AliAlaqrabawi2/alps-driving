@@ -5,7 +5,7 @@
 
       <div class="header" style="display: flex;justify-content: space-between;align-items: center">
         <h4 class="font-semibold title-creating">Instructor Table</h4>
-        <input v-model="searchInput" @keyup="searchEnquiries(searchInput)" type="text" placeholder="Search on Enquirie" class="search-input" />
+        <input v-model="searchInput" @keyup="searchInstructor(searchInput)" type="text" placeholder="Search on Instructor" class="search-input" />
 
         <a-button type="link" ghost>
           <router-link to="/instructor-creating">
