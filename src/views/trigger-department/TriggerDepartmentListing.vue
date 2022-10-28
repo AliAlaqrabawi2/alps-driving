@@ -8,8 +8,8 @@
         <input v-model="searchInput" @keyup="searchDepartment(searchInput)" type="text" placeholder="Search on department" class="search-input" />
 
         <a-button type="link" ghost>
-          <router-link to="/trigger-department-creating">
-            Add New Trigger Department
+          <router-link to="/training-department-creating">
+            Add New Training Department
           </router-link>
         </a-button>
       </div>
@@ -36,7 +36,7 @@
 
 
       <template slot="action" slot-scope="_id">
-        <router-link :to="`trigger-department-editing/${_id}`" tag="span">
+        <router-link :to="`training-department-editing/${_id}`" tag="span">
           <a-icon type="edit" theme="outlined" style="margin-right:10px; font-size:18px ;cursor:pointer;" />
         </router-link>
         <a-icon type="delete"  @click="deleteDepartment(_id)" theme="outlined" style="font-size:18px ;cursor:pointer;" />

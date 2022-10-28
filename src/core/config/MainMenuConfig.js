@@ -33,8 +33,8 @@ const MenuConfig = [
         fontIcon: "bi-sticky",
       },
       {
-        sectionTitle: "Trigger Department",
-        route: "/trigger-department-listing",
+        sectionTitle: "Training Department ",
+        route: "/training-department-listing",
         svgIcon: "/media/icons/duotune/technology/teh004.svg",
         fontIcon: "bi-sticky",
       },

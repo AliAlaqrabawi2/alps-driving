@@ -228,8 +228,8 @@ let routes = [
     },
   },
   {
-    path: "/trigger-department-listing",
-    name: "trigger-department-listing",
+    path: "/training-department-listing",
+    name: "training-department-listing",
     layout: "dashboard",
     component: () =>
       import("../views/trigger-department/TriggerDepartmentListing.vue"),
@@ -243,8 +243,8 @@ let routes = [
     },
   },
   {
-    path: "/trigger-department-creating",
-    name: "trigger-department-creating",
+    path: "/training-department-creating",
+    name: "training-department-creating",
     layout: "dashboard",
     component: () =>
       import("../views/trigger-department/TriggerDepartmentCreating"),
@@ -258,8 +258,8 @@ let routes = [
     },
   },
   {
-    path: "/trigger-department-editing/:id",
-    name: "trigger-department-editing",
+    path: "/training-department-editing/:id",
+    name: "training-department-editing",
     layout: "dashboard",
     component: () =>
       import("../views/trigger-department/TriggerDepartmentEditing"),

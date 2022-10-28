@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="header-title ">
-  <h3 class="font-semibold title-creating">Edit Trigger Department</h3>
+  <h3 class="font-semibold title-creating">Edit Training Department</h3>
 
 </div>
    
@@ -98,7 +98,7 @@ Swal.fire(
     'success'
 ).then(()=>{
   this.loading=false;
-  this.$router.push({name:"trigger-department-listing"});
+  this.$router.push({name:"training-department-listing"});
 })
 }
 else {
@@ -119,7 +119,7 @@ Swal.fire(
   
 
     goBack(){
-      this.$router.push({name:"trigger-department-listing"})
+      this.$router.push({name:"training-department-listing"})
     } ,
   },
  async created() {

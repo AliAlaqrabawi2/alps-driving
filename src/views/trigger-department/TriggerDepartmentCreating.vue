@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <h3 class="font-semibold title-creating">Create New Trigger Department</h3>
+      <h3 class="font-semibold title-creating">Create New training Department</h3>
 
     </div>
     <a-form layout="vertical"
@@ -33,7 +33,6 @@
     </a-form>
   </div>
 </template>
-import Swal from "sweetalert2";
 <script>
 import Swal from "sweetalert2";
 
@@ -48,7 +47,7 @@ export default {
   },
   methods: {
     goBack(){
-      this.$router.push("trigger-department-listing")
+      this.$router.push("training-department-listing")
     } ,
  
 
@@ -68,7 +67,7 @@ export default {
                 'success'
             ).then(()=>{
               this.loading=false;
-              this.$router.push("trigger-department-listing");
+              this.$router.push("training-department-listing");
             })
           }
           else {
