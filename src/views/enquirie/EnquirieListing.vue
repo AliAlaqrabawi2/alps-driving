@@ -70,6 +70,9 @@
         <router-link :to="`enquiries-editing/${_id}`" tag="span">
           <a-icon type="edit" theme="outlined" style="margin-right:10px; font-size:18px ;cursor:pointer;" />
         </router-link>
+        <router-link :to="`enquiries-overview/${_id}`" tag="span">
+          <a-icon type="search" theme="outlined" style="margin-right:10px; font-size:18px ;cursor:pointer;" />
+        </router-link>
         <a-icon type="delete"  @click="deleteEnquirie(_id)" theme="outlined" style="font-size:18px ;cursor:pointer;" />
       </template>
 

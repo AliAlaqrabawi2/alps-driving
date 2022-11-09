@@ -117,7 +117,29 @@
           }
         "
           />
+          </a-form-model-item>
+          <a-form-model-item ref="city" label="City"  >
+          <a-input
+              placeholder="City"
+              v-model="trainee.city"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
         </a-form-model-item>
+        <a-form-model-item ref="streetName" label="Street Name"  >
+          <a-input
+              placeholder="Street Name"
+              v-model="trainee.streetName"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+          </a-form-model-item>
         <a-form-item label="Gender">
           <a-select
               v-model="trainee.gender"
@@ -161,16 +183,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="city" label="City"  >
-          <a-input
-              placeholder="City"
-              v-model="trainee.city"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
+       
         </a-form-model-item>
         <a-form-model-item ref="locationBased" label="Location Based"  >
           <a-input
@@ -217,7 +230,7 @@
           />
         </a-form-model-item>
 
-        <a-form-model-item ref="pointsOnLicense" label="Any Points On ..."  >
+        <a-form-model-item ref="pointsOnLicense" label="Any Points On License?"  >
           <a-input
               placeholder="Any Points on License?"
               v-model="trainee.pointsOnLicense"
@@ -283,7 +296,7 @@
         "
           />
         </a-form-model-item>
-          <a-form-model-item ref="ADILicensesStartingDate" label="ADI Licenses ... "  >
+          <a-form-model-item ref="ADILicensesStartingDate" label="ADI Licenses Starting Date "  >
             <a-input
                 placeholder="ADI Licenses Starting Date"
                 v-model="trainee.ADILicensesStartingDate"
@@ -305,7 +318,7 @@
         "
           />
         </a-form-model-item>
-          <a-form-model-item ref="orbitPassedDate" label="Orbit Passed ..."  >
+          <a-form-model-item ref="orbitPassedDate" label="Orbit Passed Date"  >
             <a-input
                 placeholder="Orbit Passed Date"
                 v-model="trainee.orbitPassedDate"
@@ -316,7 +329,7 @@
         "
             />
           </a-form-model-item>
-          <a-form-model-item ref="orbitTrainingHours" label="Orbit Training ... "  >
+          <a-form-model-item ref="orbitTrainingHours" label="Orbit Training Hours "  >
             <a-input
                 placeholder="Orbit Training Hours"
                 v-model="trainee.orbitTrainingHours"
@@ -327,7 +340,7 @@
         "
             />
           </a-form-model-item>
-          <a-form-model-item ref="orbitLicensesStartingDate" label="Orbit Licenses .... "  >
+          <a-form-model-item ref="orbitLicensesStartingDate" label="Orbit Licenses Starting Date "  >
             <a-input
                 placeholder="Orbit Licenses Starting Date "
                 v-model="trainee.orbitLicensesStartingDate"
@@ -338,7 +351,7 @@
         "
             />
           </a-form-model-item>
-          <a-form-model-item ref="orbitLicensesExpireDate" label="Orbit Licenses ..."  >
+          <a-form-model-item ref="orbitLicensesExpireDate" label="Orbit Licenses Expire Date"  >
             <a-input
                 placeholder="Orbit Licenses Expire Date "
                 v-model="trainee.orbitLicensesExpireDate"
@@ -415,7 +428,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="standardCheckTrainingHours" label="Standard Check Train ..."  >
+        <a-form-model-item ref="standardCheckTrainingHours" label="Standard Check Training Hours "  >
           <a-textarea 
           rows="5"
               placeholder="Standard Check Training Hours"
@@ -427,7 +440,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="standardCheckPassedDate" label="Standard Check Pass ..."  >
+        <a-form-model-item ref="standardCheckPassedDate" label="Standard Check Passed Date"  >
           <a-input
               placeholder="Standard Check Passed Date"
               v-model="trainee.standardCheckPassedDate"

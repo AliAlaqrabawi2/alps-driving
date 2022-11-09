@@ -64,6 +64,9 @@
         <router-link :to="`trainee-editing/${_id}`" tag="span">
           <a-icon type="edit" theme="outlined" style="margin-right:10px; font-size:18px ;cursor:pointer;" />
         </router-link>
+        <router-link :to="`trainee-overview/${_id}`" tag="span">
+          <a-icon type="search" theme="outlined" style="margin-right:10px; font-size:18px ;cursor:pointer;" />
+        </router-link>
         <a-icon type="delete"  @click="deleteTrainee(_id)" theme="outlined" style="font-size:18px ;cursor:pointer;" />
       </template>
 

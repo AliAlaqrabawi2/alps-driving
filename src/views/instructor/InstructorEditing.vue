@@ -149,7 +149,7 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="ADILicencesStartingDate" label="ADI Licences Start..."  >
+      <a-form-model-item ref="ADILicencesStartingDate" label="ADI Licences Starting Date"  >
         <a-input
             placeholder="ADI Licences Starting Date"
             v-model="instructor.ADILicencesStartingDate"
@@ -160,7 +160,7 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="ADILicencesExpiryDate" label="ADI Licences Expiry..."  >
+      <a-form-model-item ref="ADILicencesExpiryDate" label="ADI Licences Expiry Date"  >
         <a-input
             placeholder="ADI Licences Expiry Date"
             v-model="instructor.ADILicencesExpiryDate"
@@ -193,7 +193,7 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="contractStartDate" label="Contract Start..."  >
+      <a-form-model-item ref="contractStartDate" label="Contract Start Date"  >
         <a-input
             placeholder="Contract Start Date"
             v-model="instructor.contractStartDate"
@@ -204,7 +204,7 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="contractExpireDate" label="Contract Expire..."  >
+      <a-form-model-item ref="contractExpireDate" label="Contract Expire Date"  >
         <a-input
             placeholder="Contract Expire Date"
             v-model="instructor.contractExpireDate"
@@ -215,7 +215,7 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="traineeLicencesStartingDate" label="Trainee Licences Start ..."  >
+      <a-form-model-item ref="traineeLicencesStartingDate" label="Trainee Licences Starting Date"  >
         <a-input
             placeholder="Trainee Licences Starting Date"
             v-model="instructor.traineeLicencesStartingDate"
@@ -226,7 +226,7 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="traineeLicencesExpireDate" label="Trainee Licences Expire ..."  >
+      <a-form-model-item ref="traineeLicencesExpireDate" label="Trainee Licences Expire Date"  >
         <a-input
             placeholder="Trainee Licences Expire Date"
             v-model="instructor.traineeLicencesExpireDate"
@@ -358,7 +358,7 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="standardCheckTrainingHours" label="Standard Check Train ..."  >
+      <a-form-model-item ref="standardCheckTrainingHours" label="Standard Check Training Hours"  >
         <a-textarea 
         rows="5"
             placeholder="Standard Check Training Hours"
@@ -370,7 +370,7 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="standardCheckPassedDate" label="Standard Check pass ..."  >
+      <a-form-model-item ref="standardCheckPassedDate" label="Standard Check pass Date"  >
         <a-input
             placeholder="Standard Check Passed Date"
             v-model="instructor.standardCheckPassedDate"
@@ -503,7 +503,7 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="pointsOnLicense" label="Any points on ...?"  >
+      <a-form-model-item ref="pointsOnLicense" label="Any points on license?"  >
         <a-input
             placeholder="Any points on license?"
             v-model="instructor.pointsOnLicense"
@@ -514,7 +514,7 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="heldUkLicense" label="How long you ..."  >
+      <a-form-model-item ref="heldUkLicense" label="How long you held the uk license?"  >
         <a-input
             placeholder="How long you held the uk license?"
             v-model="instructor.heldUkLicense"

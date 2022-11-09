@@ -44,6 +44,20 @@ let routes = [
     },
   },
   {
+    path: "/admin-overview/:id",
+    name: "admin-overview",
+    layout: "dashboard",
+    component: () => import("../views/admin/AdminOverview.vue"),
+    beforeEnter(to, from, next) {
+      const user = localStorage.getItem("user");
+      if (user === null) {
+        next("/sign-in");
+      } else {
+        next();
+      }
+    },
+  },
+  {
     path: "/admin-editing/:id",
     name: "admin-editing",
     layout: "dashboard",
@@ -101,6 +115,20 @@ let routes = [
     },
   },
   {
+    path: "/trainee-overview/:id",
+    name: "trainee-overview",
+    layout: "dashboard",
+    component: () => import("../views/trainee/TraineeOverview"),
+    beforeEnter(to, from, next) {
+      const user = localStorage.getItem("user");
+      if (user === null) {
+        next("/sign-in");
+      } else {
+        next();
+      }
+    },
+  },
+  {
     path: "/instructor-listing",
     name: "instructor-listing",
     layout: "dashboard",
@@ -133,6 +161,20 @@ let routes = [
     name: "instructor-editing",
     layout: "dashboard",
     component: () => import("../views/instructor/InstructorEditing"),
+    beforeEnter(to, from, next) {
+      const user = localStorage.getItem("user");
+      if (user === null) {
+        next("/sign-in");
+      } else {
+        next();
+      }
+    },
+  },
+  {
+    path: "/instructor-overView/:id",
+    name: "instructor-overView",
+    layout: "dashboard",
+    component: () => import("../views/instructor/InstructorOverview"),
     beforeEnter(to, from, next) {
       const user = localStorage.getItem("user");
       if (user === null) {
@@ -186,6 +228,21 @@ let routes = [
   },
 
   {
+    path: "/employee-overview/:id",
+    name: "employee-overview",
+    layout: "dashboard",
+    component: () => import("../views/employee/EmployeeOverview"),
+    beforeEnter(to, from, next) {
+      const user = localStorage.getItem("user");
+      if (user === null) {
+        next("/sign-in");
+      } else {
+        next();
+      }
+    },
+  },
+
+  {
     path: "/enquiries-listing",
     name: "enquiries-listing",
     layout: "dashboard",
@@ -218,6 +275,20 @@ let routes = [
     name: "enquiries-editing",
     layout: "dashboard",
     component: () => import("../views/enquirie/EnquirieEditing"),
+    beforeEnter(to, from, next) {
+      const user = localStorage.getItem("user");
+      if (user === null) {
+        next("/sign-in");
+      } else {
+        next();
+      }
+    },
+  },
+  {
+    path: "/enquiries-overview/:id",
+    name: "enquiries-overview",
+    layout: "dashboard",
+    component: () => import("../views/enquirie/EnquireOverview"),
     beforeEnter(to, from, next) {
       const user = localStorage.getItem("user");
       if (user === null) {
@@ -263,6 +334,22 @@ let routes = [
     layout: "dashboard",
     component: () =>
       import("../views/trigger-department/TriggerDepartmentEditing"),
+    beforeEnter(to, from, next) {
+      const user = localStorage.getItem("user");
+      if (user === null) {
+        next("/sign-in");
+      } else {
+        next();
+      }
+    },
+  },
+
+  {
+    path: "/training-department-overview/:id",
+    name: "training-department-overview",
+    layout: "dashboard",
+    component: () =>
+      import("../views/trigger-department/TriggerDepartmentOverview"),
     beforeEnter(to, from, next) {
       const user = localStorage.getItem("user");
       if (user === null) {

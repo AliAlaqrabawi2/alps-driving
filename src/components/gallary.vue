@@ -4,7 +4,7 @@
   <a target="_blank" :href="urlImg" class="img-container" >
     <img :src="urlImg" width="600" height="400">
   </a>
-  <a-button @click="deleteImage" class="btn" type="danger" danger>delete Image</a-button>
+  <a-button v-if="route!=='overview'" @click="deleteImage" class="btn" type="danger" danger>delete Image</a-button>
 
   
 </div>
@@ -18,7 +18,7 @@ import Swal from "sweetalert2";
 import {DeleteImgFromStorage} from "../firebase/methods/sotrage"
 
 export default {
-    props:['method','urlImg'] , 
+    props:['method','urlImg','route'] , 
     methods:{
         deleteImage(){
          

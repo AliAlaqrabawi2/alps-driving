@@ -2,7 +2,7 @@
   <!-- Layout Header ( Navbar ) -->
   <a-layout-header>
     <div class="header-col header-brand">
-      <h6>Albs Dashboard</h6>
+      <h6>Alps Dashboard</h6>
 
     </div>
 

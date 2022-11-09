@@ -132,7 +132,7 @@
       </a-form-item>
 
 
-      <a-form-item label="Any Points On ..." >
+      <a-form-item label="Any Points On License?" >
         <a-input
             placeholder='Any Points On License ?'
             v-decorator="['pointsOnLicense', { rules: [{ required: false }] }]"
@@ -169,7 +169,7 @@
         />
       </a-form-item>
       </a-form-item>
-      <a-form-item label="ADI Licenses ... " >
+      <a-form-item label="ADI Licenses Starting Date " >
         <a-input
             placeholder='ADI Licenses Starting Date '
             v-decorator="['ADILicensesStartingDate', { rules: [{ required: false }] }]"
@@ -181,25 +181,25 @@
             v-decorator="['ADINO', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Orbit Passed ..." >
+      <a-form-item label="Orbit Passed Date" >
         <a-input
             placeholder='Orbit Passed Date '
             v-decorator="['orbitPassedDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Orbit Training ... " >
+      <a-form-item label="Orbit Training Hours" >
         <a-input
             placeholder='Orbit Training Hours '
             v-decorator="['orbitTrainingHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Orbit Licenses .... " >
+      <a-form-item label="Orbit Licenses Starting Date " >
         <a-input
             placeholder='Orbit Licenses Starting Date '
             v-decorator="['orbitLicensesStartingDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Orbit Licenses ..." >
+      <a-form-item label="Orbit Licenses Expire Date" >
         <a-input
             placeholder='Orbit Licenses Expire Date '
             v-decorator="['orbitLicensesExpireDate', { rules: [{ required: false }] }]"
@@ -248,7 +248,7 @@
             v-decorator="['standardCheckTrainingHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Standard Check Pass ..." >
+      <a-form-item label="Standard Check Passed Date" >
         <a-input
             placeholder='Standard Check Passed Date'
             v-decorator="['standardCheckPassedDate', { rules: [{ required: false }] }]"

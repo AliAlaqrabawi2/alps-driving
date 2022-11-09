@@ -110,13 +110,13 @@
             v-decorator="['ADINo', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="ADI Licences Start..." >
+      <a-form-item label="ADI Licences Starting Date" >
         <a-input
             placeholder='ADI Licences Starting Date'
             v-decorator="['ADILicencesStartingDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="ADI Licences Expiry..." >
+      <a-form-item label="ADI Licences Expiry Date" >
         <a-input
             placeholder='ADI Licences Expiry Date'
             v-decorator="['ADILicencesExpiryDate', { rules: [{ required: false }] }]"
@@ -229,13 +229,13 @@
             v-decorator="['p3TrainingHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Standard Check Train..." >
+      <a-form-item label="Standard Check Training Hours " >
         <a-textarea row="5"
             placeholder='Standard Check Training Hours'
             v-decorator="['standardCheckTrainingHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Standard Check Pass..." >
+      <a-form-item label="Standard Check Passed Date" >
         <a-input
             placeholder='Standard Check Passed Date'
             v-decorator="['standardCheckPassedDate', { rules: [{ required: false }] }]"
@@ -311,7 +311,7 @@
             v-decorator="['hearAboutUs', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Any points on ...?" >
+      <a-form-item label="Any points on license?" >
         <a-input
             placeholder='Any points on license?'
             v-decorator="['pointsOnLicense', { rules: [{ required: false }] }]"
