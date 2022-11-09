@@ -181,27 +181,27 @@
             v-decorator="['ADINO', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Orbit Passed Date" >
+      <a-form-item label="Ordit Passed Date" >
         <a-input
-            placeholder='Orbit Passed Date '
+            placeholder='Ordit Passed Date '
             v-decorator="['orbitPassedDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Orbit Training Hours" >
+      <a-form-item label="Ordit Training Hours" >
         <a-input
-            placeholder='Orbit Training Hours '
+            placeholder='Ordit Training Hours '
             v-decorator="['orbitTrainingHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Orbit Licenses Starting Date " >
+      <a-form-item label="Ordit Licenses Starting Date " >
         <a-input
-            placeholder='Orbit Licenses Starting Date '
+            placeholder='Ordit Licenses Starting Date '
             v-decorator="['orbitLicensesStartingDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Orbit Licenses Expire Date" >
+      <a-form-item label="Ordit Licenses Expire Date" >
         <a-input
-            placeholder='Orbit Licenses Expire Date '
+            placeholder='Ordit Licenses Expire Date '
             v-decorator="['orbitLicensesExpireDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>

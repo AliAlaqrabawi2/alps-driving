@@ -320,7 +320,7 @@
         </a-form-model-item>
           <a-form-model-item ref="orbitPassedDate" label="Orbit Passed Date"  >
             <a-input
-                placeholder="Orbit Passed Date"
+                placeholder="Ordit Passed Date"
                 v-model="trainee.orbitPassedDate"
                 @blur="
           () => {
@@ -329,9 +329,9 @@
         "
             />
           </a-form-model-item>
-          <a-form-model-item ref="orbitTrainingHours" label="Orbit Training Hours "  >
+          <a-form-model-item ref="orbitTrainingHours" label="Ordit Training Hours "  >
             <a-input
-                placeholder="Orbit Training Hours"
+                placeholder="Ordit Training Hours"
                 v-model="trainee.orbitTrainingHours"
                 @blur="
           () => {
@@ -340,9 +340,9 @@
         "
             />
           </a-form-model-item>
-          <a-form-model-item ref="orbitLicensesStartingDate" label="Orbit Licenses Starting Date "  >
+          <a-form-model-item ref="orbitLicensesStartingDate" label="Ordit Licenses Starting Date "  >
             <a-input
-                placeholder="Orbit Licenses Starting Date "
+                placeholder="Ordit Licenses Starting Date "
                 v-model="trainee.orbitLicensesStartingDate"
                 @blur="
           () => {
@@ -351,9 +351,9 @@
         "
             />
           </a-form-model-item>
-          <a-form-model-item ref="orbitLicensesExpireDate" label="Orbit Licenses Expire Date"  >
+          <a-form-model-item ref="orbitLicensesExpireDate" label="Ordit Licenses Expire Date"  >
             <a-input
-                placeholder="Orbit Licenses Expire Date "
+                placeholder="Ordit Licenses Expire Date "
                 v-model="trainee.orbitLicensesExpireDate"
                 @blur="
           () => {
