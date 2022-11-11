@@ -43,20 +43,7 @@ let routes = [
       }
     },
   },
-  {
-    path: "/admin-overview/:id",
-    name: "admin-overview",
-    layout: "dashboard",
-    component: () => import("../views/admin/AdminOverview.vue"),
-    beforeEnter(to, from, next) {
-      const user = localStorage.getItem("user");
-      if (user === null) {
-        next("/sign-in");
-      } else {
-        next();
-      }
-    },
-  },
+
   {
     path: "/admin-editing/:id",
     name: "admin-editing",
@@ -71,7 +58,20 @@ let routes = [
       }
     },
   },
-
+  {
+    path: "/admin-overview/:id",
+    name: "admin-overview",
+    layout: "dashboard",
+    component: () => import("../views/admin/AdminOverview.vue"),
+    beforeEnter(to, from, next) {
+      const user = localStorage.getItem("user");
+      if (user === null) {
+        next("/sign-in");
+      } else {
+        next();
+      }
+    },
+  },
   {
     path: "/trainee-listing",
     name: "trainee-listing",
