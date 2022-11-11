@@ -62,7 +62,7 @@ let routes = [
     path: "/admin-overview/:id",
     name: "admin-overview",
     layout: "dashboard",
-    component: () => import("../views/admin/AdminOverview.vue"),
+    component: () => import("../views/admin/AdminOverView.vue"),
     beforeEnter(to, from, next) {
       const user = localStorage.getItem("user");
       if (user === null) {
