@@ -1,7 +1,7 @@
 <template>
     <div>
       <div>
-        <h3 class="font-semibold title-creating">Edit Enquirie</h3>
+        <h3 class="font-semibold title-creating"> Enquirie Overview</h3>
   
       </div>
       <a-form-model

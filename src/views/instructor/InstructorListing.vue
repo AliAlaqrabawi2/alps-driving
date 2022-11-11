@@ -18,22 +18,20 @@
 
     <a-table :columns="tableHeader" :data-source="tableData" :pagination="false" >
 
+      <template slot="imgUrl" slot-scope="imgUrl">
+        <div class="table-avatar-info" style="cursor: pointer"  @click="$refs.overViewBtn.click()">
+          <a-avatar shape="square" src="images/profilepic.png" />
+        </div>
+
+      </template>
+
       <template slot="firstName" slot-scope="firstName">
         <div class="author-info">
-          <a-avatar  src="public/images/profilepic.png" />
           <h6 class="m-0">{{ firstName }} </h6>
 
         </div>
       </template>
-      <template slot="firstName" slot-scope="firstName">
-        <div class="table-avatar-info">
-          <a-avatar shape="square" src="images/profilepic.png" />
-          <div class="avatar-info">
-            <h6>{{ firstName}}</h6>
 
-          </div>
-        </div>
-      </template>
       <template slot="lastName" slot-scope="lastName">
         <div class="author-info">
           <h6 class="m-0">{{ lastName }}</h6>
@@ -53,9 +51,9 @@
         <router-link :to="`instructor-editing/${_id}`" tag="span">
           <a-icon type="edit" theme="outlined" style="margin-right:10px; font-size:18px ;cursor:pointer;" />
         </router-link>
-        <router-link :to="`instructor-overview/${_id}`" tag="span">
+        <a :href="`instructor-overview/${_id}`" ref="overViewBtn" v-show="false">
           <a-icon type="search" theme="outlined" style="margin-right:10px; font-size:18px ;cursor:pointer;" />
-        </router-link>
+        </a>
         <a-icon type="delete"  @click="deleteInstructor(_id)" theme="outlined" style="font-size:18px ;cursor:pointer;" />
       </template>
 
@@ -68,6 +66,12 @@
 <script>
 
 const tableHeader = [
+
+  {
+    title: "",
+    dataIndex: "imgUrl",
+    scopedSlots: { customRender: "imgUrl" },
+  },
   {
     title: "FIRSTNAME",
     dataIndex: "firstName",

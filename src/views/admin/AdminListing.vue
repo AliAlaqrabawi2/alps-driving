@@ -15,17 +15,15 @@
       </template>
       <h3 class="font-regular" v-if="loading">Loading...</h3>
 
-      <a-table :columns="tableHeader" :data-source="tableData" :pagination="false" >
+      <a-table :columns="tableHeader" :data-source="tableData" :pagination="false"  >
+
 
     <template slot="imgUrl" slot-scope="imgUrl">
-      <div class="table-avatar-info">
-        <div class="table-avatar-info">
+        <div class="table-avatar-info" style="cursor: pointer"  @click="$refs.overViewBtn.click()">
           <a-avatar  :src="imgUrl" v-if="imgUrl" class="userImg" />
-
             <a-avatar shape="square" src="images/profilepic.png" v-else />
           </div>
 
-      </div>
     </template>
         <template slot="firstName" slot-scope="firstName">
           <div class="table-avatar-info">
@@ -61,9 +59,10 @@
         <router-link :to="`admin-editing/${_id}`" tag="span">
           <a-icon type="edit" theme="outlined" style="margin-right:10px; font-size:18px ;cursor:pointer;" />
         </router-link>
-        <router-link :to="`admin-overview/${_id}`" tag="span">
+
+        <a :href="`admin-overview/${_id}`"   ref="overViewBtn" v-show="false" >
           <a-icon type="search" theme="outlined" style="margin-right:10px; font-size:18px ;cursor:pointer;" />
-        </router-link>
+        </a>
           <a-icon type="delete"  @click="deleteAdmin(_id)" theme="outlined" style="font-size:18px ;cursor:pointer;" />
         </template>
 
@@ -128,6 +127,9 @@ export default {
 
   }  ,
   methods:{
+    overviewPage(){
+      console.log(this.$refs.overViewBtn)
+    } ,
 
     searchAdmin( input) {
       const cloneList = this.$store.getters.getAdmins

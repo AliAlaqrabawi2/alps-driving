@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header-title ">
-      <h3 class="font-semibold title-creating">Edit Admin</h3>
+      <h3 class="font-semibold title-creating"> Admin Overview</h3>
       <img :src="admin.imgUrl" v-if="admin.imgUrl"  class="profile-img"/>
 
     </div>

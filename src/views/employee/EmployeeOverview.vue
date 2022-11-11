@@ -2,7 +2,7 @@
     <div>
       <div>
         <div class="header-title ">
-    <h3 class="font-semibold title-creating">Edit Employee</h3>
+    <h3 class="font-semibold title-creating"> Employee Overview</h3>
   
   </div>
         <a-form-model
@@ -75,9 +75,9 @@
           "
             />
           </a-form-model-item>
-          <a-form-model-item ref="address" label="Address"  prop="address" >
+          <a-form-model-item ref="address" label="Address /street name"  prop="address" >
             <a-input disabled
-                placeholder="Address"
+                placeholder="Address /street name"
                 v-model="employee.address"
                 @blur="
             () => {
@@ -108,17 +108,7 @@
           "
             />
           </a-form-model-item>
-          <a-form-model-item ref="streetName" label="Street Name"  >
-            <a-input disabled
-                placeholder="Street Name"
-                v-model="employee.streetName"
-                @blur="
-            () => {
-              $refs.lastName.onFieldBlur();
-            }
-          "
-            />
-          </a-form-model-item>
+
           <a-form-model-item ref="postCode" label="Post code" prop="postCode" >
             <a-input disabled
                 placeholder="Post Code"

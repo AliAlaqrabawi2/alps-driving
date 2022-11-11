@@ -43,12 +43,7 @@
             v-decorator="['phoneNumber', { rules: [{ required: true, message:'Please input telephone' }] }]"
         />
       </a-form-item>
-      <a-form-item label="Post Code" >
-        <a-input
-            placeholder='Post Code'
-            v-decorator="['postCode', { rules: [{ required: true, message:'Please input post code' }] }]"
-        />
-      </a-form-item>
+
       <a-form-item label="Gender">
         <a-select
             placeholder="Gender"
@@ -67,16 +62,24 @@
           </a-select-option>
         </a-select>
       </a-form-item>
-      <a-form-item label="date Of Birth" >
+
+      <a-form-item label="Driving Licences Number" >
         <a-input
-            placeholder='Date Of Birth'
-            v-decorator="['dateOfBirth', { rules: [{ required: false }] }]"
+            placeholder='Driving Licences Number'
+            v-decorator="['drivingLicencesNo', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Address" >
+
+      <a-form-item label="Address /street name" >
         <a-input
-            placeholder='Address'
+            placeholder='Address /street name'
             v-decorator="['address', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="County" >
+        <a-input
+            placeholder='County'
+            v-decorator="['county', { rules: [{ required: false }] }]"
         />
       </a-form-item>
 
@@ -86,24 +89,21 @@
             v-decorator="['city', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Street Name" >
+
+      <a-form-item label="Post Code" >
         <a-input
-            placeholder='Street Name'
-            v-decorator="['streetName', { rules: [{ required: false }] }]"
+            placeholder='Post Code'
+            v-decorator="['postCode', { rules: [{ required: true, message:'Please input post code' }] }]"
         />
       </a-form-item>
-      <a-form-item label="County" >
+
+      <a-form-item label="date Of Birth" >
         <a-input
-            placeholder='County'
-            v-decorator="['county', { rules: [{ required: false }] }]"
+            placeholder='Date Of Birth'
+            v-decorator="['dateOfBirth', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Driving Licences" >
-        <a-input
-            placeholder='Driving Licences Number'
-            v-decorator="['drivingLicencesNo', { rules: [{ required: false }] }]"
-        />
-      </a-form-item>
+
       <a-form-item label="ADI Number" >
         <a-input
             placeholder='ADI Number'

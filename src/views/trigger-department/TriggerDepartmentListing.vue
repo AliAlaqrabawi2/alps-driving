@@ -18,8 +18,13 @@
 
     <a-table :columns="tableHeader" :data-source="tableData" :pagination="false" >
 
-    
-     
+
+      <template slot="imgUrl" slot-scope="imgUrl">
+        <div class="table-avatar-info" style="cursor: pointer"  @click="$refs.overViewBtn.click()">
+          <a-avatar shape="square" src="images/profilepic.png" />
+        </div>
+
+      </template>
 
       <template slot="description" slot-scope="description">
         <div class="author-info">
@@ -39,9 +44,9 @@
         <router-link :to="`training-department-editing/${_id}`" tag="span">
           <a-icon type="edit" theme="outlined" style="margin-right:10px; font-size:18px ;cursor:pointer;" />
         </router-link>
-        <router-link :to="`training-department-overview/${_id}`" tag="span">
+        <a :href="`training-department-overview/${_id}`" ref="overViewBtn" v-show="false">
           <a-icon type="search" theme="outlined" style="margin-right:10px; font-size:18px ;cursor:pointer;" />
-        </router-link>
+        </a>
         <a-icon type="delete"  @click="deleteDepartment(_id)" theme="outlined" style="font-size:18px ;cursor:pointer;" />
       </template>
 
@@ -57,6 +62,12 @@
 <script>
 
 const tableHeader = [
+
+  {
+    title: "",
+    dataIndex: "imgUrl",
+    scopedSlots: { customRender: "imgUrl" },
+  },
 
   {
     title: "TITLE",

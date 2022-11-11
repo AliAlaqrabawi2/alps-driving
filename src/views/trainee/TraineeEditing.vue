@@ -58,9 +58,20 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="address" label="Address" prop="address" >
+        <a-form-model-item ref="drivingLicencesNo" label="Driving Licences Number"  >
           <a-input
-              placeholder="Address"
+              placeholder="Driving Licences Number"
+              v-model="trainee.drivingLicencesNo"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="address" label="Address/street name" prop="address" >
+          <a-input
+              placeholder="Address /street name"
               v-model="trainee.address"
               @blur="
           () => {
@@ -69,6 +80,31 @@
         "
           />
         </a-form-model-item>
+        <a-form-model-item ref="county" label="County"  >
+          <a-input
+              placeholder="County"
+              v-model="trainee.county"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="city" label="City"  >
+          <a-input
+              placeholder="City"
+              v-model="trainee.city"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+
+
+
         <a-form-model-item ref="postCode" label="Post code" prop="postCode"  >
           <a-input
               placeholder="Post Code"
@@ -107,39 +143,9 @@
           />
         </a-form-model-item>
 
-        <a-form-model-item ref="county" label="County"  >
-          <a-input
-              placeholder="County"
-              v-model="trainee.county"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-          </a-form-model-item>
-          <a-form-model-item ref="city" label="City"  >
-          <a-input
-              placeholder="City"
-              v-model="trainee.city"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-        </a-form-model-item>
-        <a-form-model-item ref="streetName" label="Street Name"  >
-          <a-input
-              placeholder="Street Name"
-              v-model="trainee.streetName"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-          </a-form-model-item>
+
+
+
         <a-form-item label="Gender">
           <a-select
               v-model="trainee.gender"
@@ -160,31 +166,10 @@
           </a-select>
         </a-form-item>
 
-        <a-form-model-item ref="streetName" label="Street Name"  >
-          <a-input
-              placeholder="Street Name"
-              v-model="trainee.streetName"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-        </a-form-model-item>
 
-        <a-form-model-item ref="drivingLicencesNo" label="Driving Licences No"  >
-          <a-input
-              placeholder="Driving Licences Number"
-              v-model="trainee.drivingLicencesNo"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-        </a-form-model-item>
+
+
        
-        </a-form-model-item>
         <a-form-model-item ref="locationBased" label="Location Based"  >
           <a-input
               placeholder="Location Based"

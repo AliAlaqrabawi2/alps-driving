@@ -63,12 +63,26 @@
         </a-select>
       </a-form-item>
 
-      <a-form-item label="Address" >
+      <a-form-item label="Address /street name" >
         <a-input
-            placeholder='Address'
+            placeholder='Address /street name'
             v-decorator="['address', { rules: [{ required: true , message:'Please input Address'}] }]"
         />
       </a-form-item>
+      <a-form-item label="County" >
+        <a-input
+            placeholder='County'
+            v-decorator="['county', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="City" >
+        <a-input
+            placeholder='City'
+            v-decorator="['city', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+
+
       <a-form-item label="Post code" >
         <a-input
             placeholder='Post code'
@@ -82,25 +96,9 @@
         />
       </a-form-item>
 
-      <a-form-item label="County" >
-        <a-input
-            placeholder='County'
-            v-decorator="['county', { rules: [{ required: false }] }]"
-        />
-      </a-form-item>
-      <a-form-item label="Street Name" >
-        <a-input
-            placeholder='Street Name'
-            v-decorator="['streetName', { rules: [{ required: false }] }]"
-        />
-      </a-form-item>
 
-      <a-form-item label="City" >
-        <a-input
-            placeholder='City'
-            v-decorator="['city', { rules: [{ required: false }] }]"
-        />
-      </a-form-item>
+
+
       <a-form-item label="Location Based" >
         <a-input
             placeholder='Location Based'

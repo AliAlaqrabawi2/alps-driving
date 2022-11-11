@@ -1,7 +1,7 @@
 <template>
     <div>
     <div class="header-title ">
-      <h3 class="font-semibold title-creating">Edit Training Department</h3>
+      <h3 class="font-semibold title-creating"> Training Department Overview</h3>
     
     </div>
        

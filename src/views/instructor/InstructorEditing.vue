@@ -83,10 +83,32 @@
           </a-select-option>
         </a-select>
       </a-form-item>
-      <a-form-model-item ref="address" label="Address"  >
+      <a-form-model-item ref="drivingLicencesNo" label="Driving Licences Number"  >
         <a-input
-            placeholder="Address"
+            placeholder="driving Licences Number"
+            v-model="instructor.drivingLicencesNo"
+            @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+        />
+      </a-form-model-item>
+      <a-form-model-item ref="address" label="Address /street name"  >
+        <a-input
+            placeholder="Address /street name"
             v-model="instructor.address"
+            @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+        />
+      </a-form-model-item>
+      <a-form-model-item ref="county" label="County"  >
+        <a-input
+            placeholder="County"
+            v-model="instructor.county"
             @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -105,10 +127,11 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="streetName" label="Street Name"  >
+
+      <a-form-model-item ref="postCode" label="Post Code"  >
         <a-input
-            placeholder="Street Name"
-            v-model="instructor.streetName"
+            placeholder="Post Code"
+            v-model="instructor.postCode"
             @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -116,28 +139,9 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="county" label="County"  >
-        <a-input
-            placeholder="Street Name"
-            v-model="instructor.county"
-            @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-        />
-      </a-form-model-item>
-      <a-form-model-item ref="drivingLicencesNo" label="Driving Licences"  >
-        <a-input
-            placeholder="driving Licences Number"
-            v-model="instructor.drivingLicencesNo"
-            @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-        />
-      </a-form-model-item>
+
+
+
       <a-form-model-item ref="ADINO" label="ADI Number"  >
         <a-input
             placeholder="ADI Number"
