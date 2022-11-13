@@ -75,6 +75,25 @@
         "
           />
         </a-form-model-item>
+        <a-form-item label="Gender">
+          <a-select
+              v-model="employee.gender"
+              placeholder="Gender"
+              type="Gender"
+              v-decorator="[
+          'gender',
+          { rules: [{ required: true, message: 'Please select gender!' }] },
+        ]"
+
+          >
+            <a-select-option value=false>
+              Male
+            </a-select-option>
+            <a-select-option value=true>
+              Female
+            </a-select-option>
+          </a-select>
+        </a-form-item>
         <a-form-model-item ref="address" label="Address /street name"  prop="address" >
           <a-input
               placeholder="Address /street name"
@@ -108,11 +127,44 @@
         "
           />
         </a-form-model-item>
+        <a-form-model-item ref="locationBased" label="Location Based"  >
+          <a-input
+              placeholder="Locaiton Based"
+              v-model="employee.locationBased"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="areas" label="Areas "  >
+          <a-input
+              placeholder="Areas"
+              v-model="employee.areas"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
 
         <a-form-model-item ref="postCode" label="Post code" prop="postCode" >
           <a-input
               placeholder="Post Code"
               v-model="employee.postCode"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="dateOfBirth" label="Date Of Birth"  >
+          <a-input
+              placeholder="Date Of Birth"
+              v-model="employee.dateOfBirth"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -143,29 +195,7 @@
           />
         </a-form-model-item>
 
-        </a-form-model-item>
-        <a-form-model-item ref="locationBased" label="Location Based"  >
-          <a-input
-              placeholder="Locaiton Based"
-              v-model="employee.locationBased"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-        </a-form-model-item>
-        <a-form-model-item ref="areas" label="Areas "  >
-          <a-input
-              placeholder="Areas"
-              v-model="employee.areas"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-        </a-form-model-item>
+
         <a-form-model-item ref="jobRole" label="Job Role"  >
           <a-input
               placeholder="Job Role"
@@ -221,6 +251,17 @@
         "
           />
         </a-form-model-item>
+        <a-form-model-item ref="curriculumVitae" label="curriculum Vitae"  >
+          <a-input
+              placeholder="curriculum Vitae"
+              v-model="employee.curriculumVitae"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
         <a-form-model-item ref="shiftRota" label="Shift Rota"  >
           <a-input
               placeholder="Shift Rota"
@@ -233,7 +274,7 @@
           />
         </a-form-model-item>
         <a-form-model-item ref="referrals" label="Referrals"  >
-          <a-input
+          <a-textarea rows="5"
               placeholder="Referrals"
               v-model="employee.referrals"
               @blur="
@@ -286,7 +327,7 @@
 
 
         <a-form-model-item ref="extraQualification" label="Extra Qualification"  >
-          <a-textarea row="5"
+          <a-textarea rows="5"
               placeholder="Extra Qualification"
               v-model="employee.extraQualification"
               @blur="
@@ -307,10 +348,22 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="Complaints" label="Complaintsc"  >
+        <a-form-model-item ref="Complaints" label="Complaints"  >
           <a-input
               placeholder="Complaints"
               v-model="employee.complaints"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="probationPeriod" label="probation Period"  >
+          <a-textarea
+              rows="5" cols="50"
+              placeholder="Input probation Period"
+              v-model="employee.probationPeriod"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();

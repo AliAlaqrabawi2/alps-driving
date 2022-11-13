@@ -108,6 +108,28 @@
           "
             />
           </a-form-model-item>
+          <a-form-model-item ref="locationBased" label="Location Based"  >
+            <a-input
+                placeholder="Locaiton Based"
+                v-model="employee.locationBased"
+                @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+            />
+          </a-form-model-item>
+          <a-form-model-item ref="areas" label="Areas "  >
+            <a-input
+                placeholder="Areas"
+                v-model="employee.areas"
+                @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+            />
+          </a-form-model-item>
 
           <a-form-model-item ref="postCode" label="Post code" prop="postCode" >
             <a-input disabled

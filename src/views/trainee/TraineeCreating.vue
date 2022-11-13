@@ -88,6 +88,18 @@
             v-decorator="['city', { rules: [{ required: false }] }]"
         />
       </a-form-item>
+      <a-form-item label="Location Based" >
+        <a-input
+            placeholder='Location Based'
+            v-decorator="['locationBased', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Areas Covered" >
+        <a-input
+            placeholder='Areas Covered'
+            v-decorator="['areasCovered', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
 
       <a-form-item label="Post code" >
         <a-input
@@ -105,18 +117,7 @@
 
 
 
-      <a-form-item label="Location Based" >
-        <a-input
-            placeholder='Location Based'
-            v-decorator="['locationBased', { rules: [{ required: false }] }]"
-        />
-      </a-form-item>
-      <a-form-item label="Areas Covered" >
-        <a-input
-            placeholder='Areas Covered'
-            v-decorator="['areasCovered', { rules: [{ required: false }] }]"
-        />
-      </a-form-item>
+
       <a-form-item label="Trainer Experience" >
         <a-input
             placeholder='Trainer Experience'

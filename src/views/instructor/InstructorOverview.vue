@@ -128,6 +128,29 @@
           "
           />
         </a-form-model-item>
+        <a-form-model-item ref="locationBased" label="Location Based"  >
+          <a-input disabled
+                   placeholder="Location Based"
+                   v-model="instructor.locationBased"
+                   @blur="
+            () => {
+              $refs.lastName.onFieldBlur();
+            }
+          "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="areasCovered" label="Areas Covered"  >
+          <a-input disabled
+                   placeholder="Areas Covered"
+                   v-model="instructor.areasCovered"
+                   @blur="
+            () => {
+              $refs.lastName.onFieldBlur();
+            }
+          "
+          />
+        </a-form-model-item>
+
 
         <a-form-model-item ref="postCode" label="postCode"  >
           <a-input disabled
@@ -138,6 +161,17 @@
               $refs.lastName.onFieldBlur();
             }
           "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="dateOfBirth" label="Date Of Birth"  >
+          <a-input disabled=""
+              placeholder="Date Of Birth"
+              v-model="instructor.dateOfBirth"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
           />
         </a-form-model-item>
 
@@ -175,28 +209,7 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="locationBased" label="Location Based"  >
-          <a-input disabled
-              placeholder="Location Based"
-              v-model="instructor.locationBased"
-              @blur="
-            () => {
-              $refs.lastName.onFieldBlur();
-            }
-          "
-          />
-        </a-form-model-item>
-        <a-form-model-item ref="areasCovered" label="Areas Covered"  >
-          <a-input disabled
-              placeholder="Areas Covered"
-              v-model="instructor.areasCovered"
-              @blur="
-            () => {
-              $refs.lastName.onFieldBlur();
-            }
-          "
-          />
-        </a-form-model-item>
+
         <a-form-model-item ref="contractStartDate" label="Contract Start Date"  >
           <a-input disabled
               placeholder="Contract Start Date"

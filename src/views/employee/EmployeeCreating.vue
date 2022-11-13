@@ -81,6 +81,19 @@
             v-decorator="['city', { rules: [{ required: false }] }]"
         />
       </a-form-item>
+      <a-form-item label="Location Based" >
+        <a-input
+            placeholder='Location Based'
+            v-decorator="['locationBased', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Areas " >
+        <a-input
+            placeholder='Areas '
+            v-decorator="['areas', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+
 
 
       <a-form-item label="Post code" >
@@ -99,18 +112,6 @@
 
 
 
-      <a-form-item label="Location Based" >
-        <a-input
-            placeholder='Location Based'
-            v-decorator="['locationBased', { rules: [{ required: false }] }]"
-        />
-      </a-form-item>
-      <a-form-item label="Areas " >
-        <a-input
-            placeholder='Areas '
-            v-decorator="['areas', { rules: [{ required: false }] }]"
-        />
-      </a-form-item>
 
       <a-form-item label="National Insurance " >
         <a-input

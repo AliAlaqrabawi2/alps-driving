@@ -102,6 +102,28 @@
         "
           />
         </a-form-model-item>
+        <a-form-model-item ref="locationBased" label="Location Based"  >
+          <a-input
+              placeholder="Location Based"
+              v-model="trainee.locationBased"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="areasCovered" label="Areas Covered"  >
+          <a-input
+              placeholder="Areas Covered"
+              v-model="trainee.areasCovered"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
 
 
 
@@ -170,28 +192,7 @@
 
 
        
-        <a-form-model-item ref="locationBased" label="Location Based"  >
-          <a-input
-              placeholder="Location Based"
-              v-model="trainee.locationBased"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-        </a-form-model-item>
-        <a-form-model-item ref="areasCovered" label="Areas Covered"  >
-          <a-input
-              placeholder="Areas Covered"
-              v-model="trainee.areasCovered"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-        </a-form-model-item>
+
         <a-form-model-item ref="trainerExperience" label="Trainer Experience"  >
           <a-input
               placeholder="Trainer Experience"
