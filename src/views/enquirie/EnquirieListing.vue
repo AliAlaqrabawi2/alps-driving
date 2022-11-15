@@ -44,21 +44,21 @@
           <h6 class="m-0">{{ email }}</h6>
         </div>
       </template>
-      <template slot="rank" slot-scope="rank">
-        <a-tag v-if="rank==='Instructor Enquiries'"
+      <template slot="jobRole" slot-scope="jobRole">
+        <a-tag v-if="jobRole==='Instructor Enquiries'"
             class="tag-status bg-success text-white"
         >
-          {{rank}}
+          {{jobRole}}
         </a-tag>
-        <a-tag v-else-if="rank==='Employee Enquiries'"
+        <a-tag v-else-if="jobRole==='Employee Enquiries'"
                class="tag-status bg-warning"
         >
-          {{rank}}
+          {{jobRole}}
         </a-tag>
         <a-tag v-else
                class="tag-status bg-secondary text-white"
         >
-          {{rank}}
+          {{jobRole}}
         </a-tag>
 
       </template>
@@ -105,9 +105,9 @@ const tableHeader = [
     scopedSlots: { customRender: "email" },
   },
   {
-    title: "RANK",
-    dataIndex: "rank",
-    scopedSlots: { customRender: "rank" },
+    title: "JOBROLE",
+    dataIndex: "jobRole",
+    scopedSlots: { customRender: "jobRole" },
   },
   {
     title: "ACTION",

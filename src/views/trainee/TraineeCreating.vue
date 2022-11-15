@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <h3 class="font-semibold title-creating">Create New Trainee</h3>
+      <h3 class="font-semibold title-creating">Create New Trainer</h3>
 
     </div>
     <a-form
@@ -17,7 +17,7 @@
       <a-form-item label="Middle Name" >
         <a-input
             placeholder="Middle Name"
-            v-decorator="['middleName', { rules: [{ required: true, message: 'Please input your middle name!' }] }]"
+            v-decorator="['middleName', { rules: [{ required: false, message: 'Please input your middle name!' }] }]"
         />
       </a-form-item>
       <a-form-item label="Last Name" >
@@ -38,10 +38,10 @@
       </a-form-item>
 
 
-      <a-form-item label="Telephone" >
+      <a-form-item label="Telephone Number " >
         <a-input
-            placeholder="Phone Number"
-            v-decorator="['phoneNumber', { rules: [{ required: true, message:'Please input your phone number' }] }]"
+            placeholder="Telephone Number "
+            v-decorator="['phoneNumber', { rules: [{ required: true, message:'Please input your Telephone Number ' }] }]"
         />
       </a-form-item>
       <a-form-item label="Gender">
@@ -61,10 +61,16 @@
           </a-select-option>
         </a-select>
       </a-form-item>
-      <a-form-item label="Driving Licences Number" >
+      <a-form-item label="Driving Licence Number" >
         <a-input
-            placeholder='driving Licences Number '
+            placeholder='driving Licence Number '
             v-decorator="['drivingLicencesNo', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Post code" >
+        <a-input
+            placeholder='Post code'
+            v-decorator="['postCode', { rules: [{ required: true,message:'Please input post code' }] }]"
         />
       </a-form-item>
 
@@ -100,13 +106,14 @@
             v-decorator="['areasCovered', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-
-      <a-form-item label="Post code" >
+      <a-form-item label="ADI Licenses Starting Date " >
         <a-input
-            placeholder='Post code'
-            v-decorator="['postCode', { rules: [{ required: true,message:'Please input post code' }] }]"
+            placeholder='ADI Licenses Starting Date '
+            v-decorator="['ADILicensesStartingDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
+
+
 
       <a-form-item label="Date Of Birth" >
         <a-input
@@ -151,7 +158,7 @@
         />
       </a-form-item>
       <a-form-item label="Complaints" >
-        <a-input
+        <a-textarea rows="4"
             placeholder='Complaints'
             v-decorator="['complaints', { rules: [{ required: false }] }]"
         />
@@ -169,12 +176,7 @@
         />
       </a-form-item>
       </a-form-item>
-      <a-form-item label="ADI Licenses Starting Date " >
-        <a-input
-            placeholder='ADI Licenses Starting Date '
-            v-decorator="['ADILicensesStartingDate', { rules: [{ required: false }] }]"
-        />
-      </a-form-item>
+
       <a-form-item label="ADI NO" >
         <a-input
             placeholder='ADI Number'
@@ -184,31 +186,31 @@
       <a-form-item label="Ordit Passed Date" >
         <a-input
             placeholder='Ordit Passed Date '
-            v-decorator="['orbitPassedDate', { rules: [{ required: false }] }]"
+            v-decorator="['orditPassedDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Ordit Training Hours" >
         <a-input
             placeholder='Ordit Training Hours '
-            v-decorator="['orbitTrainingHours', { rules: [{ required: false }] }]"
+            v-decorator="['orditTrainingHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Ordit Licenses Starting Date " >
         <a-input
             placeholder='Ordit Licenses Starting Date '
-            v-decorator="['orbitLicensesStartingDate', { rules: [{ required: false }] }]"
+            v-decorator="['orditLicensesStartingDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Ordit Licenses Expire Date" >
         <a-input
             placeholder='Ordit Licenses Expire Date '
-            v-decorator="['orbitLicensesExpireDate', { rules: [{ required: false }] }]"
+            v-decorator="['orditLicensesExpireDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Job Time" >
+      <a-form-item label="Job Hours" >
         <a-input
-            placeholder='Job Time'
-            v-decorator="['jobTime', { rules: [{ required: false }] }]"
+            placeholder='Job Hours'
+            v-decorator="['jobHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Dual Controls" >
@@ -224,7 +226,7 @@
         />
       </a-form-item>
       <a-form-item label="Loans" >
-        <a-input
+        <a-textarea rows="3"
             placeholder="Loans"
             v-decorator="['loans', { rules: [{ required: false }] }]"
         />
@@ -268,9 +270,9 @@
         />
       </a-form-item>
 
-      <a-form-item label="Language Spooking" >
+      <a-form-item label="Languages spoken" >
         <a-input
-            placeholder='Language Spooking'
+            placeholder='Languages spoken'
             v-decorator="['languageSpooking', { rules: [{ required: false }] }]"
         />
       </a-form-item>

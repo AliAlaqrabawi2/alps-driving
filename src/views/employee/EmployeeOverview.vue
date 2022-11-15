@@ -64,9 +64,9 @@
             />
           </a-form-model-item>
   
-          <a-form-model-item ref="telephone" label="Telephone" prop="telephone"  >
+          <a-form-model-item ref="telephone" label="Telephone Number " prop="telephone"  >
             <a-input disabled
-                placeholder="Telephone"
+                placeholder="Telephone Number "
                 v-model="employee.telephone"
                 @blur="
             () => {
@@ -290,7 +290,7 @@
             />
           </a-form-model-item>
           <a-form-model-item ref="Loans" label="Loans"  >
-            <a-input disabled
+            <a-textarea rows="3" disabled
                 placeholder="Loans"
                 v-model="employee.loans"
                 @blur="
@@ -313,9 +313,9 @@
           "
             />
           </a-form-model-item>
-          <a-form-model-item ref="languageSpooking" label="Language Spooking"  >
+          <a-form-model-item ref="languageSpooking" label="Languages spoken"  >
             <a-input disabled
-                placeholder="Language Spooking"
+                placeholder="Languages spoken"
                 v-model="employee.languageSpoken"
                 @blur="
             () => {
@@ -325,7 +325,7 @@
             />
           </a-form-model-item>
           <a-form-model-item ref="Complaints" label="Complaintsc"  >
-            <a-input disabled
+            <a-textarea rows="4" disabled
                 placeholder="Complaints"
                 v-model="employee.complaints"
                 @blur="
@@ -357,10 +357,10 @@
           "
             />
           </a-form-model-item>
-          <a-form-model-item ref="jobTime" label="Job Time"  >
+          <a-form-model-item ref="jobHours" label="job Hours"  >
             <a-input disabled
-                placeholder="Full time Or Part time "
-                v-model="employee.jobTime"
+                placeholder="Job Hours"
+                v-model="employee.jobHours"
                 @blur="
             () => {
               $refs.lastName.onFieldBlur();
@@ -451,13 +451,13 @@
             { required: true, message: 'Please input last name', trigger: 'blur' },
           ],
           middleName: [
-            { required: true, message: 'Please input middle name', trigger: 'blur' },
+            { required: false, message: 'Please input middle name', trigger: 'blur' },
           ],
           postCode: [
             { required: true, message: 'Please input postCode', trigger: 'blur' },
           ],
           telephone: [
-            { required: true, message: 'Please input telephone', trigger: 'blur' },
+            { required: true, message: 'Please input telephone number ', trigger: 'blur' },
           ],
           address: [
             { required: true, message: 'Please input address', trigger: 'blur' },

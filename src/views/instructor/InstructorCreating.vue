@@ -17,7 +17,7 @@
       <a-form-item label="Middle Name" >
         <a-input
             placeholder="Middle Name"
-            v-decorator="['middleName', { rules: [{ required: true, message: 'Please input your last name!' }] }]"
+            v-decorator="['middleName', { rules: [{ required: false, message: 'Please input your last name!' }] }]"
         />
       </a-form-item>
       <a-form-item label="Last Name" >
@@ -37,10 +37,10 @@
       </a-form-item>
 
 
-      <a-form-item label="Telephone" >
+      <a-form-item label="Telephone Number " >
         <a-input
-            placeholder='Telephone'
-            v-decorator="['phoneNumber', { rules: [{ required: true, message:'Please input telephone' }] }]"
+            placeholder='Telephone Number '
+            v-decorator="['phoneNumber', { rules: [{ required: true, message:'Please input telephone number!' }] }]"
         />
       </a-form-item>
 
@@ -63,9 +63,9 @@
         </a-select>
       </a-form-item>
 
-      <a-form-item label="Driving Licences Number" >
+      <a-form-item label="Driving Licence Number" >
         <a-input
-            placeholder='Driving Licences Number'
+            placeholder='Driving Licence Number'
             v-decorator="['drivingLicencesNo', { rules: [{ required: false }] }]"
         />
       </a-form-item>
@@ -148,16 +148,16 @@
             v-decorator="['contractExpireDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Trainee  Starting Date" >
+      <a-form-item label="Trainer  Starting Date" >
         <a-input
-            placeholder='Trainee Licences Starting Date'
-            v-decorator="['traineeLicencesStartingDate', { rules: [{ required: false }] }]"
+            placeholder='Trainer Licences Starting Date'
+            v-decorator="['trainerLicencesStartingDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Trainee  Expire Date" >
+      <a-form-item label="Trainer  Expire Date" >
         <a-input
-            placeholder='Trainee Licences Expire Date'
-            v-decorator="['traineeLicencesExpireDate', { rules: [{ required: false }] }]"
+            placeholder='Trainer Licences Expire Date'
+            v-decorator="['trainerLicencesExpireDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Trainer Experience" >
@@ -173,7 +173,7 @@
         />
       </a-form-item>
       <a-form-item label="Complaints" >
-        <a-input
+        <a-textarea rows="4"
             placeholder='Complaints'
             v-decorator="['complaints', { rules: [{ required: false }] }]"
         />
@@ -249,16 +249,16 @@
             v-decorator="['extraQualification', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Language Spooking" >
+      <a-form-item label="Languages spoken" >
         <a-input
-            placeholder='Language Spooking'
+            placeholder='Languages spoken'
             v-decorator="['languageSpooking', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Job Time" >
+      <a-form-item label="Job Hours" >
         <a-input
-            placeholder='Full time Or Part time'
-            v-decorator="['jobTime', { rules: [{ required: false }] }]"
+            placeholder='Job Hours'
+            v-decorator="['jobHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Gaps In Between " >
@@ -281,7 +281,7 @@
         />
       </a-form-item>
       <a-form-item label="Loans" >
-        <a-input
+        <a-textarea rows="3"
             placeholder="Loans"
             v-decorator="['loans', { rules: [{ required: false }] }]"
         />

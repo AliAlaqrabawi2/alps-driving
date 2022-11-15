@@ -17,7 +17,7 @@
       <a-form-item label="Middle Name" >
         <a-input
             placeholder="Middle Name"
-            v-decorator="['middleName', { rules: [{ required: true, message: 'Please input your middle name!' }] }]"
+            v-decorator="['middleName', { rules: [{ required: false, message: 'Please input your middle name!' }] }]"
         />
       </a-form-item>
       <a-form-item label="Last Name" >
@@ -38,10 +38,10 @@
       </a-form-item>
 
 
-      <a-form-item label="Telephone" >
+      <a-form-item label="Telephone Number " >
         <a-input
-            placeholder="Telephone"
-            v-decorator="['telephone', { rules: [{ required: true, message:'Please input your phone number' }] }]"
+            placeholder="Telephone Number "
+            v-decorator="['telephone', { rules: [{ required: true, message:'Please input your Telephone Number!' }] }]"
         />
       </a-form-item>
       <a-form-item label="Gender">
@@ -189,7 +189,7 @@
         />
       </a-form-item>
       <a-form-item label="Complaints" >
-        <a-input
+        <a-textarea rows="4"
             placeholder='Complaints'
             v-decorator="['complaints', { rules: [{ required: false }] }]"
         />
@@ -220,9 +220,9 @@
     </a-upload>
      </div>
       <a-form-item label="Loans" >
-        <a-input
+        <a-textarea rows="3"
             placeholder="Loans"
-            v-decorator="['oans', { rules: [{ required: false }] }]"
+            v-decorator="['loans', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Start Payment Date" >
@@ -237,10 +237,10 @@
             v-decorator="['endPaymentDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Job Time" >
+      <a-form-item label="Job Hours" >
         <a-input
-            placeholder='Job Time'
-            v-decorator="['jobTime', { rules: [{ required: false }] }]"
+            placeholder='Job Hours'
+            v-decorator="['jobHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Private Notice" >

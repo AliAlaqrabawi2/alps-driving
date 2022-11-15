@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <h3 class="font-semibold title-creating">Create New Enquirie</h3>
+      <h3 class="font-semibold title-creating">Create New Enquiries </h3>
 
     </div>
     <a-form
@@ -17,7 +17,7 @@
       <a-form-item label="Middle Name" >
         <a-input
             placeholder="Middle Name"
-            v-decorator="['middleName', { rules: [{ required: true, message: 'Please input your middle name!' }] }]"
+            v-decorator="['middleName', { rules: [{ required: false, message: 'Please input your middle name!' }] }]"
         />
       </a-form-item>
       <a-form-item label="Last Name" >
@@ -35,26 +35,56 @@
         />
       </a-form-item>
 
-      <a-form-item label="Telephone" >
+      <a-form-item label="Telephone Number " >
         <a-input
-            placeholder='Telephone'
-            v-decorator="['phoneNumber', { rules: [{ required: true, message:'Please input Telephone' }] }]"
-        />
-      </a-form-item>
-      <a-form-item label="Job Role" >
-        <a-input
-            placeholder='Job Role'
-            v-decorator="['jobRole', { rules: [{ required: true, message:'Please input job role' }] }]"
+            placeholder='Telephone Number '
+            v-decorator="['phoneNumber', { rules: [{ required: true, message:'Please input Telephone Number! ' }] }]"
         />
       </a-form-item>
 
-      <a-form-item label="Rank">
+      <a-form-item label="Stage">
         <a-select
             v-decorator="[
-          'rank',
-          { rules: [{ required: true, message: 'Please select Rank!' }] },
+          'stage',
+          { rules: [{ required: true, message: 'Please select stage!' }] },
         ]"
-            placeholder="Select Rank"
+            placeholder="Select stage"
+
+        >
+          <a-select-option value='part one'>
+            Part one
+          </a-select-option>
+          <a-select-option value='part tow'>
+            Part two
+          </a-select-option>
+          <a-select-option value='contract signed'>
+            Contract signed
+          </a-select-option>
+          <a-select-option value='contract sent'>
+            Contract sent
+          </a-select-option>
+          <a-select-option value='no longer interested'>
+            No longer interested
+          </a-select-option>
+          <a-select-option value='left message'>
+            Left message
+          </a-select-option>
+          <a-select-option value='emailed'>
+            Emailed
+          </a-select-option>
+          <a-select-option value='Not eligible'>
+            Not eligible
+          </a-select-option>
+        </a-select>
+      </a-form-item>
+
+      <a-form-item label="job Role">
+        <a-select
+            v-decorator="[
+          'jobRole',
+          { rules: [{ required: true, message: 'Please select job role!' }] },
+        ]"
+            placeholder="Select job Role"
 
         >
           <a-select-option value='Instructor Enquiries'>

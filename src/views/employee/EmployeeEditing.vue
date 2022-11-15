@@ -64,9 +64,9 @@
           />
         </a-form-model-item>
 
-        <a-form-model-item ref="telephone" label="Telephone" prop="telephone"  >
+        <a-form-model-item ref="telephone" label="Telephone Number " prop="telephone"  >
           <a-input
-              placeholder="Telephone"
+              placeholder="Telephone Number "
               v-model="employee.telephone"
               @blur="
           () => {
@@ -314,7 +314,7 @@
     </a-upload>
     </div>
         <a-form-model-item ref="Loans" label="Loans"  >
-          <a-input
+          <a-textarea rows="3"
               placeholder="Loans"
               v-model="employee.loans"
               @blur="
@@ -337,9 +337,9 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="languageSpooking" label="Language Spooking"  >
+        <a-form-model-item ref="languageSpooking" label="Languages spoken"  >
           <a-input
-              placeholder="Language Spooking"
+              placeholder="Languages spoken"
               v-model="employee.languageSpoken"
               @blur="
           () => {
@@ -349,7 +349,7 @@
           />
         </a-form-model-item>
         <a-form-model-item ref="Complaints" label="Complaints"  >
-          <a-input
+          <a-textarea rows="4"
               placeholder="Complaints"
               v-model="employee.complaints"
               @blur="
@@ -393,10 +393,10 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="jobTime" label="Job Time"  >
+        <a-form-model-item ref="jobHours" label="Job Hours"  >
           <a-input
-              placeholder="Full time Or Part time "
-              v-model="employee.jobTime"
+              placeholder="Job Hours"
+              v-model="employee.jobHours"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -491,13 +491,13 @@ export default {
           { required: true, message: 'Please input last name', trigger: 'blur' },
         ],
         middleName: [
-          { required: true, message: 'Please input middle name', trigger: 'blur' },
+          { required: false, message: 'Please input middle name', trigger: 'blur' },
         ],
         postCode: [
           { required: true, message: 'Please input postCode', trigger: 'blur' },
         ],
         telephone: [
-          { required: true, message: 'Please input telephone', trigger: 'blur' },
+          { required: true, message: 'Please input telephone number ', trigger: 'blur' },
         ],
         address: [
           { required: true, message: 'Please input address', trigger: 'blur' },

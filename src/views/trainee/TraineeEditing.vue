@@ -2,7 +2,7 @@
   <div>
     <div>
       <div>
-        <h3 class="font-semibold title-creating">Edit Trainee</h3>
+        <h3 class="font-semibold title-creating">Edit Trainer</h3>
 
       </div>
       <a-form-model
@@ -58,10 +58,34 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="drivingLicencesNo" label="Driving Licences Number"  >
+        <a-form-model-item ref="phoneNumber" label="Telephone Number "  >
           <a-input
-              placeholder="Driving Licences Number"
+              placeholder="Telephone Number "
+              v-model="trainee.phoneNumber"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+
+
+        <a-form-model-item ref="drivingLicencesNo" label="Driving Licence Number"  >
+          <a-input
+              placeholder="Driving Licence Number"
               v-model="trainee.drivingLicencesNo"
+              @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+          />
+        </a-form-model-item>
+        <a-form-model-item ref="postCode" label="Post code" prop="postCode"  >
+          <a-input
+              placeholder="Post Code"
+              v-model="trainee.postCode"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -124,13 +148,10 @@
         "
           />
         </a-form-model-item>
-
-
-
-        <a-form-model-item ref="postCode" label="Post code" prop="postCode"  >
+        <a-form-model-item ref="ADILicensesStartingDate" label="ADI Licenses Starting Date "  >
           <a-input
-              placeholder="Post Code"
-              v-model="trainee.postCode"
+              placeholder="ADI Licenses Starting Date"
+              v-model="trainee.ADILicensesStartingDate"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -138,6 +159,9 @@
         "
           />
         </a-form-model-item>
+
+
+
         <a-form-model-item ref="dateOfBirth" label="Date Of Birth"  >
           <a-input
               placeholder="Date Of Birth"
@@ -152,18 +176,6 @@
 
 
 
-
-        <a-form-model-item ref="phoneNumber" label="Telephone"  >
-          <a-input
-              placeholder="Telephone"
-              v-model="trainee.phoneNumber"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-        </a-form-model-item>
 
 
 
@@ -204,9 +216,9 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="trainerPassRate" label="Trainer PassRate"  >
+        <a-form-model-item ref="trainerPassRate" label="Trainer Pass Rate"  >
           <a-input
-              placeholder="Trainer PassRate"
+              placeholder="Trainer Pass Rate"
               v-model="trainee.trainerPassRate"
               @blur="
           () => {
@@ -250,7 +262,7 @@
           />
         </a-form-model-item>
         <a-form-model-item ref="complaints" label="Complaints"  >
-          <a-input
+          <a-textarea rows="4"
               placeholder="Complaints"
               v-model="trainee.complaints"
               @blur="
@@ -282,17 +294,7 @@
         "
           />
         </a-form-model-item>
-          <a-form-model-item ref="ADILicensesStartingDate" label="ADI Licenses Starting Date "  >
-            <a-input
-                placeholder="ADI Licenses Starting Date"
-                v-model="trainee.ADILicensesStartingDate"
-                @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-            />
-        </a-form-model-item>
+
         <a-form-model-item ref="ADINO" label="ADI No "  >
           <a-input
               placeholder="ADI Number"
@@ -304,10 +306,10 @@
         "
           />
         </a-form-model-item>
-          <a-form-model-item ref="orbitPassedDate" label="Orbit Passed Date"  >
+          <a-form-model-item ref="orditPassedDate" label="Ordit Passed Date"  >
             <a-input
                 placeholder="Ordit Passed Date"
-                v-model="trainee.orbitPassedDate"
+                v-model="trainee.orditPassedDate"
                 @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -315,10 +317,10 @@
         "
             />
           </a-form-model-item>
-          <a-form-model-item ref="orbitTrainingHours" label="Ordit Training Hours "  >
+          <a-form-model-item ref="orditTrainingHours" label="Ordit Training Hours "  >
             <a-input
                 placeholder="Ordit Training Hours"
-                v-model="trainee.orbitTrainingHours"
+                v-model="trainee.orditTrainingHours"
                 @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -326,10 +328,10 @@
         "
             />
           </a-form-model-item>
-          <a-form-model-item ref="orbitLicensesStartingDate" label="Ordit Licenses Starting Date "  >
+          <a-form-model-item ref="orditLicensesStartingDate" label="Ordit Licenses Starting Date "  >
             <a-input
                 placeholder="Ordit Licenses Starting Date "
-                v-model="trainee.orbitLicensesStartingDate"
+                v-model="trainee.orditLicensesStartingDate"
                 @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -337,10 +339,10 @@
         "
             />
           </a-form-model-item>
-          <a-form-model-item ref="orbitLicensesExpireDate" label="Ordit Licenses Expire Date"  >
+          <a-form-model-item ref="orditLicensesExpireDate" label="Ordit Licenses Expire Date"  >
             <a-input
                 placeholder="Ordit Licenses Expire Date "
-                v-model="trainee.orbitLicensesExpireDate"
+                v-model="trainee.orditLicensesExpireDate"
                 @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -348,10 +350,10 @@
         "
             />
           </a-form-model-item>
-          <a-form-model-item ref="jobTime" label="Job Time"  >
+          <a-form-model-item ref="jobHours" label="Job Hours"  >
             <a-input
-                placeholder="Full time Or Part Time"
-                v-model="trainee.jobTime"
+                placeholder="Job Hours"
+                v-model="trainee.jobHours"
                 @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -382,7 +384,7 @@
             />
           </a-form-model-item>
           <a-form-model-item ref="loans" label="Loans"  >
-            <a-input
+            <a-textarea rows="3"
                 placeholder="Loans"
                 v-model="trainee.loans"
                 @blur="
@@ -459,9 +461,9 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="languageSpooking" label="Language Spooking"  >
+        <a-form-model-item ref="languageSpooking" label="Languages spoken"  >
           <a-input
-              placeholder="Language Spooking"
+              placeholder="Languages spoken"
               v-model="trainee.languageSpooking"
               @blur="
           () => {
@@ -557,7 +559,7 @@ export default {
           { required: true, message: 'Please input last name', trigger: 'blur' },
         ],
         middleName: [
-          { required: true, message: 'Please input middle name', trigger: 'blur' },
+          { required: false, message: 'Please input middle name', trigger: 'blur' },
         ],
         postCode: [
           { required: true, message: 'Please input post Code', trigger: 'blur' },

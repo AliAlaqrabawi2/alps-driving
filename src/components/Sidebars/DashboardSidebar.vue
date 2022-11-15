@@ -86,7 +86,7 @@
         </span>
         <h6>Need Help?</h6>
         <p>Please Contact With Us</p>
-        <h6>+9627XXXXXXX</h6>
+        <h6>00447985267502</h6>
       </div>
     </div>
     <!-- / Sidebar Footer -->

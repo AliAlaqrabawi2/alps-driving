@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <h3 class="font-semibold title-creating">Edit Enquirie</h3>
+      <h3 class="font-semibold title-creating">Edit Enquiries </h3>
 
     </div>
     <a-form-model
@@ -60,9 +60,9 @@
         />
       </a-form-model-item>
 
-      <a-form-model-item ref="phoneNumber" label="Telephone" prop="phoneNumber"  >
+      <a-form-model-item ref="phoneNumber" label="Telephone Number " prop="phoneNumber"  >
         <a-input
-            placeholder="Telephone"
+            placeholder="Telephone Number "
             v-model="enquirie.phoneNumber"
             @blur="
           () => {
@@ -71,22 +71,45 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="jobRole" label="Job Role" prop="jobRole"  >
-        <a-input
-            placeholder="Job Role"
-            v-model="enquirie.jobRole"
-            @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-        />
-      </a-form-model-item>
-
-      <a-form-item label="Rank" prop="rank">
+      <a-form-item label="Stage" prop="stage">
         <a-select
-            v-model="enquirie.rank"
-            placeholder="Select Rank"
+            v-model="enquirie.stage"
+            placeholder="Select stage"
+
+        >
+          <a-select-option value='part one'>
+            Part one
+          </a-select-option>
+          <a-select-option value='part tow'>
+            Part two
+          </a-select-option>
+          <a-select-option value='contract signed'>
+            Contract signed
+          </a-select-option>
+          <a-select-option value='contract sent'>
+            Contract sent
+          </a-select-option>
+          <a-select-option value='no longer interested'>
+            No longer interested
+          </a-select-option>
+          <a-select-option value='left message'>
+            Left message
+          </a-select-option>
+          <a-select-option value='emailed'>
+            Emailed
+          </a-select-option>
+          <a-select-option value='Not eligible'>
+            Not eligible
+          </a-select-option>
+        </a-select>
+      </a-form-item>
+
+
+
+      <a-form-item label="Job Role" prop="jobRole" ref="jobRole">
+        <a-select
+            v-model="enquirie.jobRole"
+            placeholder="Select Job Role"
 
         >
           <a-select-option value='Instructor Enquiries'>
@@ -129,19 +152,19 @@ export default {
           { required: true, message: 'Please input first name', trigger: 'blur' },
         ],
         middleName: [
-          { required: true, message: 'Please input middle name', trigger: 'blur' },
+          { required: false, message: 'Please input middle name', trigger: 'blur' },
         ],
         lastName: [
           { required: true, message: 'Please input last name', trigger: 'blur' },
         ],
         phoneNumber: [
-          { required: true, message: 'Please input telephone', trigger: 'blur' },
+          { required: true, message: 'Please input telephone number', trigger: 'blur' },
         ],
         jobRole: [
           { required: true, message: 'Please input Job Role', trigger: 'blur' },
         ],
-        rank: [
-          { required: true, message: 'Please select rank', trigger: 'blur' },
+        stage: [
+          { required: true, message: 'Please select stage', trigger: 'blur' },
         ],
 
         email: [

@@ -5,11 +5,11 @@
 
       <div class="header" style="display: flex;justify-content: space-between;align-items: center">
         <h4 class="font-semibold title-creating">Trainer Table</h4>
-        <input v-model="searchInput" @keyup="searchTrainee(searchInput)" type="text" placeholder="Search on trainees" class="search-input" />
+        <input v-model="searchInput" @keyup="searchTrainee(searchInput)" type="text" placeholder="Search on Trainer" class="search-input" />
 
         <a-button type="link" ghost>
           <router-link to="/trainee-creating">
-            Add New Trainee
+            Add New Trainer
           </router-link>
         </a-button>
       </div>

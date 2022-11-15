@@ -36,14 +36,14 @@
         />
       </a-form-item>
 
-      <a-form-item label="Telephone" >
+      <a-form-item label="Telephone Number " >
         <a-input
-            placeholder='Telephone'
-            v-decorator="['phoneNumber', { rules: [{ required: true, message:'Please input Telephone' }] }]"
+            placeholder='Telephone Number '
+            v-decorator="['phoneNumber', { rules: [{ required: true, message:'Please input Telephone Number ' }] }]"
         />
       </a-form-item>
 
-      <a-form-item label="permission">
+      <a-form-item label="Permission">
         <a-select
             v-decorator="[
           'isSupervisor',

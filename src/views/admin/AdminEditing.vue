@@ -47,9 +47,9 @@
        />
      </a-form-model-item>
 
-     <a-form-model-item ref="phoneNumber" label="Telephone"  >
+     <a-form-model-item ref="phoneNumber" label="Telephone Number "  >
        <a-input
-           placeholder="Phone Number"
+           placeholder="Telephone Number "
            v-model="admin.phoneNumber"
            @blur="
           () => {
@@ -59,7 +59,7 @@
        />
      </a-form-model-item>
 
-     <a-form-item label="permission">
+     <a-form-item label="Permission">
        <a-select
            v-model="permission"
            placeholder="Select a option and change input text above"

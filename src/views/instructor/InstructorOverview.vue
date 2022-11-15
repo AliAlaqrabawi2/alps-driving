@@ -53,9 +53,9 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="phoneNumber" label="Telephone"  >
+        <a-form-model-item ref="phoneNumber" label="Telephone Number "  >
           <a-input disabled
-              placeholder="Phone Number"
+              placeholder="Telephone Number "
               v-model="instructor.phoneNumber"
               @blur="
             () => {
@@ -232,10 +232,10 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="traineeLicencesStartingDate" label="Trainee Licences Start Date"  >
+        <a-form-model-item ref="trainerLicencesStartingDate" label="Trainer Licences Start Date"  >
           <a-input disabled
-              placeholder="Trainee Licences Starting Date"
-              v-model="instructor.traineeLicencesStartingDate"
+              placeholder="Trainer Licences Starting Date"
+              v-model="instructor.trainerLicencesStartingDate"
               @blur="
             () => {
               $refs.lastName.onFieldBlur();
@@ -243,10 +243,10 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="traineeLicencesExpireDate" label="Trainee Licences Expire Date"  >
+        <a-form-model-item ref="trainerLicencesExpireDate" label="Trainer Licences Expire Date"  >
           <a-input disabled
-              placeholder="Trainee Licences Expire Date"
-              v-model="instructor.traineeLicencesExpireDate"
+              placeholder="Trainer Licences Expire Date"
+              v-model="instructor.trainerLicencesExpireDate"
               @blur="
             () => {
               $refs.lastName.onFieldBlur();
@@ -254,9 +254,9 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="trainerExperience" label="Trainer Experience "  >
+        <a-form-model-item ref="trainerExperience" label="Trainee Experience "  >
           <a-input disabled
-              placeholder="Trainer Experience"
+              placeholder="Trainee Experience"
               v-model="instructor.trainerExperience"
               @blur="
             () => {
@@ -265,9 +265,9 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="trainerPassRate" label="Trainer PassRate "  >
+        <a-form-model-item ref="trainerPassRate" label="Trainee PassRate "  >
           <a-input disabled
-              placeholder="Trainer PassRate"
+              placeholder="Trainee PassRate"
               v-model="instructor.trainerPassRate"
               @blur="
             () => {
@@ -277,7 +277,7 @@
           />
         </a-form-model-item>
         <a-form-model-item ref="complaints" label="Complaints "  >
-          <a-input disabled
+          <a-textarea rows="4" disabled
               placeholder="Complaints"
               v-model="instructor.complaints"
               @blur="
@@ -409,9 +409,9 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="languageSpooking" label="Language Spooking"  >
+        <a-form-model-item ref="languageSpooking" label="Languages spoken"  >
           <a-input disabled
-              placeholder="Language Spooking"
+              placeholder="Languages spoken"
               v-model="instructor.languageSpooking"
               @blur="
             () => {
@@ -420,10 +420,10 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="jobTime" label="Job Time"  >
+        <a-form-model-item ref="jobHours" label="Job Hours"  >
           <a-input disabled
-              placeholder="Full Time Or Part Time"
-              v-model="instructor.jobTime"
+              placeholder="Job Hours"
+              v-model="instructor.jobHours"
               @blur="
             () => {
               $refs.lastName.onFieldBlur();
@@ -465,7 +465,7 @@
           />
         </a-form-model-item>
         <a-form-model-item ref="Loans" label="Loans"  >
-          <a-input disabled
+          <a-textarea rows="3" disabled
               placeholder="Loans"
               v-model="instructor.loans"
               @blur="
@@ -591,13 +591,13 @@ disabled               rows="5"
             { required: true, message: 'Please input first name', trigger: 'blur' },
           ],
           middleName: [
-            { required: true, message: 'Please input middle name', trigger: 'blur' },
+            { required: false, message: 'Please input middle name', trigger: 'blur' },
           ],
           lastName: [
             { required: true, message: 'Please input last name', trigger: 'blur' },
           ],
           phoneNumber: [
-            { required: true, message: 'Please input telephone', trigger: 'blur' },
+            { required: true, message: 'Please input telephone number', trigger: 'blur' },
           ],
   
           email: [
