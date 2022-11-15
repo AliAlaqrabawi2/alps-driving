@@ -254,9 +254,9 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="trainerExperience" label="Trainee Experience "  >
+        <a-form-model-item ref="trainerExperience" label="Trainer Experience "  >
           <a-input disabled
-              placeholder="Trainee Experience"
+              placeholder="Trainer Experience"
               v-model="instructor.trainerExperience"
               @blur="
             () => {
@@ -265,9 +265,9 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="trainerPassRate" label="Trainee PassRate "  >
+        <a-form-model-item ref="trainerPassRate" label="Trainer PassRate "  >
           <a-input disabled
-              placeholder="Trainee PassRate"
+              placeholder="Trainer PassRate"
               v-model="instructor.trainerPassRate"
               @blur="
             () => {

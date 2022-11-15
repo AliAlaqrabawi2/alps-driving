@@ -275,9 +275,9 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="trainerPassRate" label="Trainee PassRate "  >
+      <a-form-model-item ref="trainerPassRate" label="Trainer PassRate "  >
         <a-input
-            placeholder="Trainee PassRate"
+            placeholder="Trainer PassRate"
             v-model="instructor.trainerPassRate"
             @blur="
           () => {
