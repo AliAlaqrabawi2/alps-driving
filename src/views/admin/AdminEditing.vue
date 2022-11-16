@@ -59,9 +59,9 @@
        />
      </a-form-model-item>
 
-     <a-form-item label="Permission">
+     <a-form-item label="Position">
        <a-select
-           v-model="permission"
+           v-model="position"
            placeholder="Select a option and change input text above"
 
        >
@@ -102,7 +102,7 @@ export default {
       labelCol: { span: 14},
       wrapperCol: { span: 14 },
       admin: {},
-      permission:null,
+      position:null,
       loading:false,
       fileList: [],
       rules: {
@@ -168,8 +168,8 @@ export default {
 
    async editAdmin(){
     this.admin.id = this.$route.params.id;
-            if (this.permission==="false" ||this.permission==="true"){
-              this.admin.isSupervisor =this.permission;
+            if (this.position==="false" ||this.position==="true"){
+              this.admin.isSupervisor =this.position;
             }
       await this.$store.dispatch("updateAdmin",this.admin); 
 
@@ -206,7 +206,7 @@ Swal.fire(
  async created() {
       await this.$store.dispatch("getUniqueAdmin" ,this.$route.params.id) ;
       this.admin = this.$store.getters.getAdmin;
-      this.permission = this.admin.isSupervisor ? "SuperVisor":"Admin"
+      this.position = this.admin.isSupervisor ? "SuperVisor":"Admin"
   },
 
 

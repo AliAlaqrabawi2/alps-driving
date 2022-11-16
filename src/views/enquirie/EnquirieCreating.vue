@@ -41,6 +41,12 @@
             v-decorator="['phoneNumber', { rules: [{ required: true, message:'Please input Telephone Number! ' }] }]"
         />
       </a-form-item>
+      <a-form-item label="Area Located " >
+        <a-input
+            placeholder='Area Located '
+            v-decorator="['areaLocated', { rules: [{ required: true, message:'Please input Area Located! ' }] }]"
+        />
+      </a-form-item>
 
       <a-form-item label="Stage">
         <a-select
@@ -78,13 +84,13 @@
         </a-select>
       </a-form-item>
 
-      <a-form-item label="job Role">
+      <a-form-item label="Job Role">
         <a-select
             v-decorator="[
           'jobRole',
           { rules: [{ required: true, message: 'Please select job role!' }] },
         ]"
-            placeholder="Select job Role"
+            placeholder="Select Job Role"
 
         >
           <a-select-option value='Instructor Enquiries'>
@@ -98,6 +104,13 @@
           </a-select-option>
         </a-select>
       </a-form-item>
+      <a-form-item label="Private Notes" >
+        <a-textarea
+            rows="5"
+            placeholder='Private Notes'
+            v-decorator="['privateNotes', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
       <a-divider >
         <a-button @click="goBack()"  type="default" html-type="button" >
           Discard
@@ -107,6 +120,7 @@
         </a-button>
 
       </a-divider>
+
     </a-form>
   </div>
 </template>

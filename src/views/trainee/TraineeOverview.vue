@@ -71,28 +71,8 @@
           </a-form-model-item>
 
 
-          <a-form-model-item ref="drivingLicencesNo" label="Driving Licence Number"  >
-            <a-input disabled
-                     placeholder="Driving Licence Number"
-                     v-model="trainee.drivingLicencesNo"
-                     @blur="
-            () => {
-              $refs.lastName.onFieldBlur();
-            }
-          "
-            />
-          </a-form-model-item>
-          <a-form-model-item ref="postCode" label="Post code" prop="postCode"  >
-            <a-input disabled
-                     placeholder="Post Code"
-                     v-model="trainee.postCode"
-                     @blur="
-            () => {
-              $refs.lastName.onFieldBlur();
-            }
-          "
-            />
-          </a-form-model-item>
+
+
           <a-form-model-item ref="address" label="Address /street name" prop="address" >
             <a-input disabled
                 placeholder="Address /street name"
@@ -127,6 +107,17 @@
           "
             />
           </a-form-model-item>
+          <a-form-model-item ref="postCode" label="Post code" prop="postCode"  >
+            <a-input disabled
+                     placeholder="Post Code"
+                     v-model="trainee.postCode"
+                     @blur="
+            () => {
+              $refs.lastName.onFieldBlur();
+            }
+          "
+            />
+          </a-form-model-item>
           <a-form-model-item ref="locationBased" label="Location Based"  >
             <a-input disabled
                      placeholder="Location Based"
@@ -142,6 +133,17 @@
             <a-input disabled
                      placeholder="Areas Covered"
                      v-model="trainee.areasCovered"
+                     @blur="
+            () => {
+              $refs.lastName.onFieldBlur();
+            }
+          "
+            />
+          </a-form-model-item>
+          <a-form-model-item ref="drivingLicencesNo" label="Driving Licence Number"  >
+            <a-input disabled
+                     placeholder="Driving Licence Number"
+                     v-model="trainee.drivingLicencesNo"
                      @blur="
             () => {
               $refs.lastName.onFieldBlur();
@@ -481,12 +483,12 @@
           </a-form-model-item>
   
   
-          <a-form-item label="Private Notice" >
+          <a-form-item label="Private Notes" >
             <a-textarea disabled
-                v-model="trainee.privateNotice"
+                v-model="trainee.privateNotes"
                 rows="5" cols="50"
-                placeholder='Private Notice'
-                v-decorator="['privateNotice', { rules: [{ required: false }] }]"
+                placeholder='Private Notes'
+                v-decorator="['privateNotes', { rules: [{ required: false }] }]"
             />
           </a-form-item>
           <a-form-item label="App Progress" >

@@ -71,6 +71,17 @@
         "
         />
       </a-form-model-item>
+      <a-form-model-item ref="areaLocated" label="Area Located " prop="areaLocated"  >
+        <a-input disabled
+                 placeholder="Area Located "
+                 v-model="enquirie.areaLocated"
+                 @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+        />
+      </a-form-model-item>
       <a-form-item label="Stage" prop="stage">
         <a-select disabled
             v-model="enquirie.stage"
@@ -105,7 +116,6 @@
       </a-form-item>
 
 
-
       <a-form-item label="Job Role" prop="jobRole">
         <a-select disabled
             v-model="enquirie.jobRole"
@@ -122,6 +132,14 @@
             Trainer Enquiries
           </a-select-option>
         </a-select>
+      </a-form-item>
+      <a-form-item label="Private Notes" >
+        <a-textarea disabled=""
+                    v-model="enquirie.privateNotes"
+                    rows="5"
+                    placeholder='Private Notes'
+                    v-decorator="['privateNotes', { rules: [{ required: false }] }]"
+        />
       </a-form-item>
 
       <a-divider >

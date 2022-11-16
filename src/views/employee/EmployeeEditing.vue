@@ -126,6 +126,17 @@
           }
         "
           />
+          <a-form-model-item ref="postCode" label="Post code" prop="postCode" >
+            <a-input
+                placeholder="Post Code"
+                v-model="employee.postCode"
+                @blur="
+          () => {
+            $refs.lastName.onFieldBlur();
+          }
+        "
+            />
+          </a-form-model-item>
         </a-form-model-item>
         <a-form-model-item ref="locationBased" label="Location Based"  >
           <a-input
@@ -150,17 +161,7 @@
           />
         </a-form-model-item>
 
-        <a-form-model-item ref="postCode" label="Post code" prop="postCode" >
-          <a-input
-              placeholder="Post Code"
-              v-model="employee.postCode"
-              @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-          />
-        </a-form-model-item>
+
         <a-form-model-item ref="dateOfBirth" label="Date Of Birth"  >
           <a-input
               placeholder="Date Of Birth"
@@ -405,11 +406,11 @@
           />
           
         </a-form-model-item>
-        <a-form-model-item ref="privateNotice" label="Private Notice"  >
+        <a-form-model-item ref="privateNotes" label="Private Notes"  >
           <a-textarea
               rows="5" cols="50"
-              placeholder="Input you notice..."
-              v-model="employee.privateNotice"
+              placeholder="Input you notes..."
+              v-model="employee.privateNotes"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();

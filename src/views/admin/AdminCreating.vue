@@ -43,11 +43,11 @@
         />
       </a-form-item>
 
-      <a-form-item label="Permission">
+      <a-form-item label="Position">
         <a-select
             v-decorator="[
           'isSupervisor',
-          { rules: [{ required: true, message: 'Please select Permission!' }] },
+          { rules: [{ required: true, message: 'Please select position!' }] },
         ]"
             placeholder="Select a option and change input text above"
 

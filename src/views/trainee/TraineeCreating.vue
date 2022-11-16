@@ -61,10 +61,20 @@
           </a-select-option>
         </a-select>
       </a-form-item>
-      <a-form-item label="Driving Licence Number" >
+
+
+
+
+      <a-form-item label="County" >
         <a-input
-            placeholder='driving Licence Number '
-            v-decorator="['drivingLicencesNo', { rules: [{ required: false }] }]"
+            placeholder='County'
+            v-decorator="['county', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="City" >
+        <a-input
+            placeholder='City'
+            v-decorator="['city', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Post code" >
@@ -80,20 +90,6 @@
             v-decorator="['address', { rules: [{ required: true ,message:'please input address'}] }]"
         />
       </a-form-item>
-
-
-      <a-form-item label="County" >
-        <a-input
-            placeholder='County'
-            v-decorator="['county', { rules: [{ required: false }] }]"
-        />
-      </a-form-item>
-      <a-form-item label="City" >
-        <a-input
-            placeholder='City'
-            v-decorator="['city', { rules: [{ required: false }] }]"
-        />
-      </a-form-item>
       <a-form-item label="Location Based" >
         <a-input
             placeholder='Location Based'
@@ -104,6 +100,12 @@
         <a-input
             placeholder='Areas Covered'
             v-decorator="['areasCovered', { rules: [{ required: false }] }]"
+        />
+      </a-form-item>
+      <a-form-item label="Driving Licence Number" >
+        <a-input
+            placeholder='driving Licence Number '
+            v-decorator="['drivingLicencesNo', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="ADI Licenses Starting Date " >
@@ -282,11 +284,11 @@
             v-decorator="['gapsInBetweenLessons', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Private Notice" >
+      <a-form-item label="Private Notes" >
         <a-textarea
-            rows="5" cols="50"
-            placeholder='Private Notice'
-            v-decorator="['privateNotice', { rules: [{ required: false }] }]"
+            rows="5"
+            placeholder='Private Notes'
+            v-decorator="['privateNotes', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="App Progress" >

@@ -81,6 +81,12 @@
             v-decorator="['city', { rules: [{ required: false }] }]"
         />
       </a-form-item>
+      <a-form-item label="Post code" >
+        <a-input
+            placeholder='Post code'
+            v-decorator="['postCode', { rules: [{ required: true , message:'Please input Post code'}] }]"
+        />
+      </a-form-item>
       <a-form-item label="Location Based" >
         <a-input
             placeholder='Location Based'
@@ -96,12 +102,7 @@
 
 
 
-      <a-form-item label="Post code" >
-        <a-input
-            placeholder='Post code'
-            v-decorator="['postCode', { rules: [{ required: true , message:'Please input Post code'}] }]"
-        />
-      </a-form-item>
+
       <a-form-item label="Date Of Birth" >
         <a-input
             placeholder='Date Of Birth'
@@ -243,11 +244,11 @@
             v-decorator="['jobHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Private Notice" >
+      <a-form-item label="Private Notes" >
         <a-textarea
             rows="5" cols="50"
-            placeholder='private Notice'
-            v-decorator="['privateNotice', { rules: [{ required: false }] }]"
+            placeholder='private Notes'
+            v-decorator="['privateNotes', { rules: [{ required: false }] }]"
         />
       </a-form-item>
      
