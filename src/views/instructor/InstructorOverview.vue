@@ -83,9 +83,9 @@
             </a-select-option>
           </a-select>
         </a-form-item>
-        <a-form-model-item ref="drivingLicencesNo" label="Driving Licences Number"  >
+        <a-form-model-item ref="drivingLicencesNo" label="Driving Licence Number"  >
           <a-input disabled
-                   placeholder="driving Licences Number"
+                   placeholder="driving Licence Number"
                    v-model="instructor.drivingLicencesNo"
                    @blur="
             () => {
@@ -188,9 +188,9 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="ADILicencesStartingDate" label="ADI Licences Start Date"  >
+        <a-form-model-item ref="ADILicencesStartingDate" label="ADI Licence Start Date"  >
           <a-input disabled
-              placeholder="ADI Licences Starting Date"
+              placeholder="ADI Licence Starting Date"
               v-model="instructor.ADILicencesStartingDate"
               @blur="
             () => {
@@ -199,9 +199,9 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="ADILicencesExpiryDate" label="ADI Licences Expiry Date"  >
+        <a-form-model-item ref="ADILicencesExpiryDate" label="ADI Licence Expiry Date"  >
           <a-input disabled
-              placeholder="ADI Licences Expiry Date"
+              placeholder="ADI Licence Expiry Date"
               v-model="instructor.ADILicencesExpiryDate"
               @blur="
             () => {
@@ -222,10 +222,10 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="contractExpireDate" label="Contract Expire Date"  >
+        <a-form-model-item ref="contractExpiryDate" label="Contract Expiry Date"  >
           <a-input disabled
-              placeholder="Contract Expire Date"
-              v-model="instructor.contractExpireDate"
+              placeholder="Contract Expiry Date"
+              v-model="instructor.contractExpiryDate"
               @blur="
             () => {
               $refs.lastName.onFieldBlur();
@@ -233,9 +233,9 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="trainerLicencesStartingDate" label="Trainer Licences Start Date"  >
+        <a-form-model-item ref="trainerLicencesStartingDate" label="Trainer Licence Start Date"  >
           <a-input disabled
-              placeholder="Trainer Licences Starting Date"
+              placeholder="Trainer Licence Starting Date"
               v-model="instructor.trainerLicencesStartingDate"
               @blur="
             () => {
@@ -244,10 +244,10 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="trainerLicencesExpireDate" label="Trainer Licences Expire Date"  >
+        <a-form-model-item ref="trainerLicenceExpiryDate" label="Trainer Licence Expiry Date"  >
           <a-input disabled
-              placeholder="Trainer Licences Expire Date"
-              v-model="instructor.trainerLicencesExpireDate"
+              placeholder="Trainer Licence Expiry Date"
+              v-model="instructor.trainerLicenceExpiryDate"
               @blur="
             () => {
               $refs.lastName.onFieldBlur();
@@ -354,9 +354,9 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="p2TrainingHours" label="Part 2 Training Hourst  "  >
+        <a-form-model-item ref="p2TrainingHours" label="Part 2 Training Hours  "  >
           <a-input disabled
-              placeholder="Part 2 Pass date"
+              placeholder="Part 2 Training Hours"
               v-model="instructor.p2TrainingHours"
               @blur="
             () => {
@@ -365,9 +365,9 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="p3TrainingHours" label="Part 3 Training Hourst  "  >
+        <a-form-model-item ref="p3TrainingHours" label="Part 3 Training Hours  "  >
           <a-input disabled
-              placeholder="Part 3 Pass date"
+              placeholder="Part 3 Training Hours"
               v-model="instructor.p3TrainingHours"
               @blur="
             () => {
@@ -388,10 +388,10 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="standardCheckPassedDate" label="Standard Check Passed Date"  >
+        <a-form-model-item ref="standardCheckPassDate" label="Standard Check Pass Date"  >
           <a-input disabled
-              placeholder="Standard Check Passed Date"
-              v-model="instructor.standardCheckPassedDate"
+              placeholder="Standard Check Pass Date"
+              v-model="instructor.standardCheckPassDate"
               @blur="
             () => {
               $refs.lastName.onFieldBlur();
@@ -410,10 +410,10 @@
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="languageSpooking" label="Languages spoken"  >
+        <a-form-model-item ref="languageSpoken" label="Languages spoken"  >
           <a-input disabled
               placeholder="Languages spoken"
-              v-model="instructor.languageSpooking"
+              v-model="instructor.languageSpoken"
               @blur="
             () => {
               $refs.lastName.onFieldBlur();
@@ -512,7 +512,7 @@ disabled               rows="5"
         </a-form-model-item>
         <a-form-model-item ref="hearAboutUs" label="hear About Us"  >
           <a-input disabled
-              placeholder="How did you hear about Alps driving school ?"
+              placeholder="Where did you hear about Alps driving school ?"
               v-model="instructor.hearAboutUs"
               @blur="
             () => {

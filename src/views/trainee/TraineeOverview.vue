@@ -151,10 +151,10 @@
           "
             />
           </a-form-model-item>
-          <a-form-model-item ref="ADILicensesStartingDate" label="ADI Licenses Starting Date "  >
+          <a-form-model-item ref="ADILicenceStartingDate" label="ADI Licence Starting Date "  >
             <a-input disabled
-                     placeholder="ADI Licenses Starting Date"
-                     v-model="trainee.ADILicensesStartingDate"
+                     placeholder="ADI Licence Starting Date"
+                     v-model="trainee.ADILicenceStartingDate"
                      @blur="
             () => {
               $refs.lastName.onFieldBlur();
@@ -248,10 +248,10 @@
           "
             />
           </a-form-model-item>
-          <a-form-model-item ref="contractExpireDate" label="Contract Expire Date"  >
+          <a-form-model-item ref="contractExpiryDate" label="Contract Expiry Date"  >
             <a-input disabled
-                placeholder="Contract Expire Date"
-                v-model="trainee.contractExpireDate"
+                placeholder="Contract Expiry Date"
+                v-model="trainee.contractExpiryDate"
                 @blur="
             () => {
               $refs.lastName.onFieldBlur();
@@ -304,10 +304,10 @@
           "
             />
           </a-form-model-item>
-            <a-form-model-item ref="orditPassedDate" label="Ordit Passed Date"  >
+            <a-form-model-item ref="orditPassDate" label="Ordit Pass Date"  >
               <a-input disabled
-                  placeholder="Ordit Passed Date"
-                  v-model="trainee.orditPassedDate"
+                  placeholder="Ordit Pass Date"
+                  v-model="trainee.orditPassDate"
                   @blur="
             () => {
               $refs.lastName.onFieldBlur();
@@ -326,10 +326,10 @@
           "
               />
             </a-form-model-item>
-            <a-form-model-item ref="orditLicensesStartingDate" label="Ordit Licenses Starting Date "  >
+            <a-form-model-item ref="orditLicenceStartingDate" label="Ordit Licence Starting Date "  >
               <a-input disabled
-                  placeholder="Ordit Licenses Starting Date "
-                  v-model="trainee.orditLicensesStartingDate"
+                  placeholder="Ordit Licence Starting Date "
+                  v-model="trainee.orditLicenceStartingDate"
                   @blur="
             () => {
               $refs.lastName.onFieldBlur();
@@ -337,10 +337,10 @@
           "
               />
             </a-form-model-item>
-            <a-form-model-item ref="orditLicensesExpireDate" label="Ordit Licenses Expire Date"  >
+            <a-form-model-item ref="orditLicenceExpiryDate" label="Ordit Licence Expiry Date"  >
               <a-input disabled
-                  placeholder="Ordit Licenses Expire Date "
-                  v-model="trainee.orditLicensesExpireDate"
+                  placeholder="Ordit Licence Expiry Date "
+                  v-model="trainee.orditLicenceExpiryDate"
                   @blur="
             () => {
               $refs.lastName.onFieldBlur();
@@ -426,10 +426,10 @@
           "
             />
           </a-form-model-item>
-          <a-form-model-item ref="standardCheckPassedDate" label="Standard Check Passed Date"  >
+          <a-form-model-item ref="standardCheckPassDate" label="Standard Check Pass Date"  >
             <a-input disabled
-                placeholder="Standard Check Passed Date"
-                v-model="trainee.standardCheckPassedDate"
+                placeholder="Standard Check Pass Date"
+                v-model="trainee.standardCheckPassDate"
                 @blur="
             () => {
               $refs.lastName.onFieldBlur();
@@ -459,10 +459,10 @@
           "
             />
           </a-form-model-item>
-          <a-form-model-item ref="languageSpooking" label="Languages spoken"  >
+          <a-form-model-item ref="languageSpoken" label="Languages spoken"  >
             <a-input disabled
                 placeholder="Languages spoken"
-                v-model="trainee.languageSpooking"
+                v-model="trainee.languageSpoken"
                 @blur="
             () => {
               $refs.lastName.onFieldBlur();

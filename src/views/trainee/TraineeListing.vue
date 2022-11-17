@@ -56,9 +56,9 @@
           <h6 class="m-0">{{ email }}</h6>
         </div>
       </template>
-      <template slot="languageSpooking" slot-scope="languageSpooking">
+      <template slot="languageSpoken" slot-scope="languageSpoken">
         <div class="author-info">
-          <h6 class="m-0">{{ languageSpooking }}</h6>
+          <h6 class="m-0">{{ languageSpoken }}</h6>
         </div>
       </template>
 
@@ -114,9 +114,9 @@ const tableHeader = [
   },
 
   {
-    title: "LANGUAGESPOOKING",
-    dataIndex: "languageSpooking",
-    scopedSlots: { customRender: "languageSpooking" },
+    title: "LANGUAGESPOKEN",
+    dataIndex: "languageSpoken",
+    scopedSlots: { customRender: "languageSpoken" },
   },
   {
     title: "ACTION",

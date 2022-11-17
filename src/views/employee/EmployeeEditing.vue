@@ -298,10 +298,10 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="contractExpireDate" label="Contract Expire Date"  >
+        <a-form-model-item ref="contractExpiryDate" label="Contract Expiry Date"  >
           <a-input
-              placeholder="Contract Expire Date"
-              v-model="employee.contractExpireDate"
+              placeholder="Contract Expiry Date"
+              v-model="employee.contractExpiryDate"
               @blur="
           () => {
             $refs.lastName.onFieldBlur();
@@ -338,7 +338,7 @@
         "
           />
         </a-form-model-item>
-        <a-form-model-item ref="languageSpooking" label="Languages spoken"  >
+        <a-form-model-item ref="languageSpoken" label="Languages spoken"  >
           <a-input
               placeholder="Languages spoken"
               v-model="employee.languageSpoken"

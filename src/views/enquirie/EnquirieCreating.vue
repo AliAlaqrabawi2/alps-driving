@@ -57,25 +57,25 @@
             placeholder="Select stage"
 
         >
-          <a-select-option value='part one'>
+          <a-select-option value='Part one'>
             Part one
           </a-select-option>
-          <a-select-option value='part tow'>
+          <a-select-option value='Part tow'>
             Part two
           </a-select-option>
-          <a-select-option value='contract signed'>
+          <a-select-option value='Contract signed'>
             Contract signed
           </a-select-option>
-          <a-select-option value='contract sent'>
+          <a-select-option value='Contract sent'>
             Contract sent
           </a-select-option>
-          <a-select-option value='no longer interested'>
+          <a-select-option value='No longer interested'>
             No longer interested
           </a-select-option>
-          <a-select-option value='left message'>
+          <a-select-option value='Left message'>
             Left message
           </a-select-option>
-          <a-select-option value='emailed'>
+          <a-select-option value='Emailed'>
             Emailed
           </a-select-option>
           <a-select-option value='Not eligible'>

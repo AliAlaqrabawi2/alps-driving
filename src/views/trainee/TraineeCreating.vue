@@ -108,10 +108,10 @@
             v-decorator="['drivingLicencesNo', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="ADI Licenses Starting Date " >
+      <a-form-item label="ADI Licence Starting Date " >
         <a-input
-            placeholder='ADI Licenses Starting Date '
-            v-decorator="['ADILicensesStartingDate', { rules: [{ required: false }] }]"
+            placeholder='ADI Licence Starting Date '
+            v-decorator="['ADILicenceStartingDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
 
@@ -153,10 +153,10 @@
             v-decorator="['contractStartDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Conract Expire Date" >
+      <a-form-item label="Conract Expiry Date" >
         <a-input
-            placeholder='Contract Expire Date '
-            v-decorator="['contractExpireDate', { rules: [{ required: false }] }]"
+            placeholder='Contract Expiry Date '
+            v-decorator="['contractExpiryDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Complaints" >
@@ -185,10 +185,10 @@
             v-decorator="['ADINO', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Ordit Passed Date" >
+      <a-form-item label="Ordit Pass Date" >
         <a-input
-            placeholder='Ordit Passed Date '
-            v-decorator="['orditPassedDate', { rules: [{ required: false }] }]"
+            placeholder='Ordit Pass Date '
+            v-decorator="['orditPassDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Ordit Training Hours" >
@@ -197,16 +197,16 @@
             v-decorator="['orditTrainingHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Ordit Licenses Starting Date " >
+      <a-form-item label="Ordit Licence Starting Date " >
         <a-input
-            placeholder='Ordit Licenses Starting Date '
-            v-decorator="['orditLicensesStartingDate', { rules: [{ required: false }] }]"
+            placeholder='Ordit Licence Starting Date '
+            v-decorator="['orditLicenceStartingDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Ordit Licenses Expire Date" >
+      <a-form-item label="Ordit Licence Expiry Date" >
         <a-input
-            placeholder='Ordit Licenses Expire Date '
-            v-decorator="['orditLicensesExpireDate', { rules: [{ required: false }] }]"
+            placeholder='Ordit Licence Expiry Date '
+            v-decorator="['orditLicenceExpiryDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Job Hours" >
@@ -252,10 +252,10 @@
             v-decorator="['standardCheckTrainingHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Standard Check Passed Date" >
+      <a-form-item label="Standard Check Pass Date" >
         <a-input
-            placeholder='Standard Check Passed Date'
-            v-decorator="['standardCheckPassedDate', { rules: [{ required: false }] }]"
+            placeholder='Standard Check Pass Date'
+            v-decorator="['standardCheckPassDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="DBS Check Date" >
@@ -275,7 +275,7 @@
       <a-form-item label="Languages spoken" >
         <a-input
             placeholder='Languages spoken'
-            v-decorator="['languageSpooking', { rules: [{ required: false }] }]"
+            v-decorator="['languageSpoken', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Gaps In" >

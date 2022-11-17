@@ -279,10 +279,10 @@
           "
             />
           </a-form-model-item>
-          <a-form-model-item ref="contractExpireDate" label="Contract Expire Date"  >
+          <a-form-model-item ref="contractExpiryDate" label="Contract Expiry Date"  >
             <a-input disabled
-                placeholder="Contract Expire Date"
-                v-model="employee.contractExpireDate"
+                placeholder="Contract Expiry Date"
+                v-model="employee.contractExpiryDate"
                 @blur="
             () => {
               $refs.lastName.onFieldBlur();
@@ -314,7 +314,7 @@
           "
             />
           </a-form-model-item>
-          <a-form-model-item ref="languageSpooking" label="Languages spoken"  >
+          <a-form-model-item ref="languageSpoken" label="Languages spoken"  >
             <a-input disabled
                 placeholder="Languages spoken"
                 v-model="employee.languageSpoken"
@@ -325,7 +325,7 @@
           "
             />
           </a-form-model-item>
-          <a-form-model-item ref="Complaints" label="Complaintsc"  >
+          <a-form-model-item ref="Complaints" label="Complaints"  >
             <a-textarea rows="4" disabled
                 placeholder="Complaints"
                 v-model="employee.complaints"

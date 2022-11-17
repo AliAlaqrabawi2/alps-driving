@@ -62,7 +62,11 @@
         </a-tag>
 
       </template>
-
+      <template slot="stage" slot-scope="stage">
+        <div class="author-info">
+          <h6 class="m-0">{{stage }}</h6>
+        </div>
+      </template>
 
       <template slot="action" slot-scope="_id">
         <router-link :to="`enquiries-editing/${_id}`" tag="span">
@@ -108,6 +112,11 @@ const tableHeader = [
     title: "JOBROLE",
     dataIndex: "jobRole",
     scopedSlots: { customRender: "jobRole" },
+  },
+  {
+    title: "STAGE",
+    dataIndex: "stage",
+    scopedSlots: { customRender: "stage" },
   },
   {
     title: "ACTION",

@@ -209,10 +209,10 @@
             v-decorator="['contractStartDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Contract Expire Date" >
+      <a-form-item label="Contract Expiry Date" >
         <a-input
-            placeholder='Contract Expire Date'
-            v-decorator="['contractExpireDate', { rules: [{ required: false }] }]"
+            placeholder='Contract Expiry Date'
+            v-decorator="['contractExpiryDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
      <div style="padding:15px 0">

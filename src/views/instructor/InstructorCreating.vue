@@ -123,15 +123,15 @@
             v-decorator="['ADINo', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="ADI Licences Starting Date" >
+      <a-form-item label="ADI Licence Starting Date" >
         <a-input
-            placeholder='ADI Licences Starting Date'
+            placeholder='ADI Licence Starting Date'
             v-decorator="['ADILicencesStartingDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="ADI Licences Expiry Date" >
+      <a-form-item label="ADI Licence Expiry Date" >
         <a-input
-            placeholder='ADI Licences Expiry Date'
+            placeholder='ADI Licence Expiry Date'
             v-decorator="['ADILicencesExpiryDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
@@ -143,22 +143,22 @@
             v-decorator="['contractStartDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Contract Expire Date" >
+      <a-form-item label="Contract Expiry Date" >
         <a-input
-            placeholder='Contract Expire Date'
-            v-decorator="['contractExpireDate', { rules: [{ required: false }] }]"
+            placeholder='Contract Expiry Date'
+            v-decorator="['contractExpiryDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Trainer  Starting Date" >
+      <a-form-item label="Trainer Licence Starting Date" >
         <a-input
-            placeholder='Trainer Licences Starting Date'
+            placeholder='Trainer Licence Starting Date'
             v-decorator="['trainerLicencesStartingDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Trainer  Expire Date" >
+      <a-form-item label="Trainer Licence  Expiry Date" >
         <a-input
-            placeholder='Trainer Licences Expire Date'
-            v-decorator="['trainerLicencesExpireDate', { rules: [{ required: false }] }]"
+            placeholder='Trainer Licence Expiry Date'
+            v-decorator="['trainerLicenceExpiryDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Trainer Experience" >
@@ -237,10 +237,10 @@
             v-decorator="['standardCheckTrainingHours', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Standard Check Passed Date" >
+      <a-form-item label="Standard Check Pass Date" >
         <a-input
-            placeholder='Standard Check Passed Date'
-            v-decorator="['standardCheckPassedDate', { rules: [{ required: false }] }]"
+            placeholder='Standard Check Pass Date'
+            v-decorator="['standardCheckPassDate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Extra Qualification" >
@@ -253,7 +253,7 @@
       <a-form-item label="Languages spoken" >
         <a-input
             placeholder='Languages spoken'
-            v-decorator="['languageSpooking', { rules: [{ required: false }] }]"
+            v-decorator="['languageSpoken', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Job Hours" >
@@ -307,9 +307,9 @@
         />
       </a-form-item>
 
-      <a-form-item label="hear About Us" >
+      <a-form-item label="Were did you hear about us ?" >
         <a-input
-            placeholder='How did you hear about Alps driving school ?'
+            placeholder='Were did you hear about us ?'
             v-decorator="['hearAboutUs', { rules: [{ required: false }] }]"
         />
       </a-form-item>
