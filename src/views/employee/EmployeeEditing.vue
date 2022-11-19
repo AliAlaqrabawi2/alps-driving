@@ -221,7 +221,7 @@
         </a-form-model-item>
         <a-form-model-item ref="breakEntitlement" label="Break Entitlement"  >
           <a-input
-              placeholder="break Entitlement"
+              placeholder="Break Entitlement"
               v-model="employee.breakEntitlement"
               @blur="
           () => {

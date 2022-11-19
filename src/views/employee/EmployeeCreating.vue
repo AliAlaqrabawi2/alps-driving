@@ -133,15 +133,15 @@
             />
           </a-form-item>
 
-      <a-form-item label="holiday Entitlement" >
+      <a-form-item label="Holiday Entitlement" >
         <a-input
-            placeholder='holiday Entitlement'
+            placeholder='Holiday Entitlement'
             v-decorator="['holidayEntitlement', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="break Entitlement" >
+      <a-form-item label="Break Entitlement" >
         <a-input
-            placeholder='break Entitlement'
+            placeholder='Break Entitlement'
             v-decorator="['breakEntitlement', { rules: [{ required: false }] }]"
         />
       </a-form-item>

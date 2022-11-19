@@ -199,28 +199,8 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="locationBased" label="Location Based"  >
-        <a-input
-            placeholder="Location Based"
-            v-model="instructor.locationBased"
-            @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-        />
-      </a-form-model-item>
-      <a-form-model-item ref="areasCovered" label="Areas Covered"  >
-        <a-input
-            placeholder="Areas Covered"
-            v-model="instructor.areasCovered"
-            @blur="
-          () => {
-            $refs.lastName.onFieldBlur();
-          }
-        "
-        />
-      </a-form-model-item>
+
+
       <a-form-model-item ref="contractStartDate" label="Contract Start Date"  >
         <a-input
             placeholder="Contract Start Date"
@@ -520,9 +500,9 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="hearAboutUs" label="hear About Us"  >
+      <a-form-model-item ref="hearAboutUs" label="Where did you hear about us ?"  >
         <a-input
-            placeholder="Where did you hear about Alps driving school ?"
+            placeholder="Where did you hear about us ?"
             v-model="instructor.hearAboutUs"
             @blur="
           () => {
@@ -542,9 +522,9 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="heldUkLicense" label="How long you held the uk license?"  >
+      <a-form-model-item ref="heldUkLicense" label="How long  held the UK license?"  >
         <a-input
-            placeholder="How long you held the uk license?"
+            placeholder="How long  held the UK license?"
             v-model="instructor.heldUkLicense"
             @blur="
           () => {

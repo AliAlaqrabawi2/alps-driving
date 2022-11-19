@@ -119,8 +119,10 @@
           "
             />
           </a-form-model-item>
+
+
           <a-form-model-item ref="locationBased" label="Location Based"  >
-            <a-input
+            <a-input disabled
                 placeholder="Locaiton Based"
                 v-model="employee.locationBased"
                 @blur="
@@ -131,7 +133,7 @@
             />
           </a-form-model-item>
           <a-form-model-item ref="areas" label="Areas "  >
-            <a-input
+            <a-input disabled
                 placeholder="Areas"
                 v-model="employee.areas"
                 @blur="
@@ -165,30 +167,6 @@
           "
             />
           </a-form-model-item>
-  
-          </a-form-model-item>
-          <a-form-model-item ref="locationBased" label="Location Based"  >
-            <a-input disabled
-                placeholder="Locaiton Based"
-                v-model="employee.locationBased"
-                @blur="
-            () => {
-              $refs.lastName.onFieldBlur();
-            }
-          "
-            />
-          </a-form-model-item>
-          <a-form-model-item ref="areas" label="Areas "  >
-            <a-input disabled
-                placeholder="Areas"
-                v-model="employee.areas"
-                @blur="
-            () => {
-              $refs.lastName.onFieldBlur();
-            }
-          "
-            />
-          </a-form-model-item>
           <a-form-model-item ref="jobRole" label="Job Role"  >
             <a-input disabled
                 placeholder="Job Role"
@@ -213,7 +191,7 @@
           </a-form-model-item>
           <a-form-model-item ref="breakEntitlement" label="Break Entitlement"  >
             <a-input disabled
-                placeholder="break Entitlement"
+                placeholder="Break Entitlement"
                 v-model="employee.breakEntitlement"
                 @blur="
             () => {
@@ -358,7 +336,7 @@
           "
             />
           </a-form-model-item>
-          <a-form-model-item ref="jobHours" label="job Hours"  >
+          <a-form-model-item ref="jobHours" label="Job Hours"  >
             <a-input disabled
                 placeholder="Job Hours"
                 v-model="employee.jobHours"

@@ -287,7 +287,7 @@
             v-decorator="['loans', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="start Payment Date" >
+      <a-form-item label="Start Payment Date" >
         <a-input
             placeholder='Start Payment Date'
             v-decorator="['startPaymentDate', { rules: [{ required: false }] }]"
@@ -307,9 +307,9 @@
         />
       </a-form-item>
 
-      <a-form-item label="Were did you hear about us ?" >
+      <a-form-item label="Where did you hear about us ?" >
         <a-input
-            placeholder='Were did you hear about us ?'
+            placeholder='Where did you hear about us ?'
             v-decorator="['hearAboutUs', { rules: [{ required: false }] }]"
         />
       </a-form-item>
@@ -319,9 +319,9 @@
             v-decorator="['pointsOnLicense', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="How long you held the uk license?" >
+      <a-form-item label="How long  held the UK license?" >
         <a-input
-            placeholder='How long you held the uk license?'
+            placeholder='How long  held the UK license?'
             v-decorator="['heldUkLicense', { rules: [{ required: false }] }]"
         />
       </a-form-item>

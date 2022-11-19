@@ -510,7 +510,7 @@ disabled               rows="5"
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="hearAboutUs" label="hear About Us"  >
+        <a-form-model-item ref="hearAboutUs" label="Where did you hear about us ?"  >
           <a-input disabled
               placeholder="Where did you hear about Alps driving school ?"
               v-model="instructor.hearAboutUs"
@@ -532,9 +532,9 @@ disabled               rows="5"
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="heldUkLicense" label="How long you held the uk license?"  >
+        <a-form-model-item ref="heldUkLicense" label="How long  held the UK license?"  >
           <a-input disabled
-              placeholder="How long you held the uk license?"
+              placeholder="How long  held the UK license?"
               v-model="instructor.heldUkLicense"
               @blur="
             () => {
