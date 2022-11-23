@@ -84,9 +84,9 @@
         />
       </a-form-item>
 
-      <a-form-item label="Address / street name" >
+      <a-form-item label="Address / Street name" >
         <a-input
-            placeholder='Address /street name'
+            placeholder='Address / Street name'
             v-decorator="['address', { rules: [{ required: true ,message:'please input address'}] }]"
         />
       </a-form-item>
@@ -141,10 +141,10 @@
       </a-form-item>
 
 
-      <a-form-item label="Any Points On License?" >
+      <a-form-item label="Any Points On licence?" >
         <a-input
-            placeholder='Any Points On License ?'
-            v-decorator="['pointsOnLicense', { rules: [{ required: false }] }]"
+            placeholder='Any Points On licence ?'
+            v-decorator="['pointsOnLicence', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-form-item label="Contract Start Date" >

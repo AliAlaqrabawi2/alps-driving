@@ -94,9 +94,9 @@
             </a-select-option>
           </a-select>
         </a-form-item>
-        <a-form-model-item ref="address" label="Address /street name"  prop="address" >
+        <a-form-model-item ref="address" label="Address / Street name"  prop="address" >
           <a-input
-              placeholder="Address /street name"
+              placeholder="Address / Street name"
               v-model="employee.address"
               @blur="
           () => {

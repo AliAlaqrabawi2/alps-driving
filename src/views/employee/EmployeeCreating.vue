@@ -63,9 +63,9 @@
         </a-select>
       </a-form-item>
 
-      <a-form-item label="Address /street name" >
+      <a-form-item label="Address / Street name" >
         <a-input
-            placeholder='Address /street name'
+            placeholder='Address / Street name'
             v-decorator="['address', { rules: [{ required: true , message:'Please input Address'}] }]"
         />
       </a-form-item>

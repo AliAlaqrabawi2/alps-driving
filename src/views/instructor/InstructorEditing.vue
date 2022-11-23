@@ -94,9 +94,9 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="address" label="Address /street name"  >
+      <a-form-model-item ref="address" label="Address / Street name"  >
         <a-input
-            placeholder="Address /street name"
+            placeholder="Address / Street name"
             v-model="instructor.address"
             @blur="
           () => {
@@ -256,9 +256,9 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="trainerPassRate" label="Trainer PassRate "  >
+      <a-form-model-item ref="trainerPassRate" label="Trainer Pass Rate "  >
         <a-input
-            placeholder="Trainer PassRate"
+            placeholder="Trainer Pass Rate"
             v-model="instructor.trainerPassRate"
             @blur="
           () => {
@@ -511,20 +511,20 @@
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="pointsOnLicense" label="Any points on license?"  >
+      <a-form-model-item ref="pointsOnLicence" label="Any points on licence?"  >
         <a-input
-            placeholder="Any points on license?"
-            v-model="instructor.pointsOnLicense"
+            placeholder="Any points on licence?"
+            v-model="instructor.pointsOnLicence"
             @blur="
           () => {
-            $refs.pointsOnLicense.onFieldBlur();
+            $refs.pointsOnLicence.onFieldBlur();
           }
         "
         />
       </a-form-model-item>
-      <a-form-model-item ref="heldUkLicense" label="How long  held the UK license?"  >
+      <a-form-model-item ref="heldUkLicense" label="How long  held the UK licence?"  >
         <a-input
-            placeholder="How long  held the UK license?"
+            placeholder="How long  held the UK licence?"
             v-model="instructor.heldUkLicense"
             @blur="
           () => {

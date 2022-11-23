@@ -73,9 +73,9 @@
 
 
 
-          <a-form-model-item ref="address" label="Address /street name" prop="address" >
+          <a-form-model-item ref="address" label="Address / Street name" prop="address" >
             <a-input disabled
-                placeholder="Address /street name"
+                placeholder="Address / Street name"
                 v-model="trainee.address"
                 @blur="
             () => {
@@ -226,10 +226,10 @@
             />
           </a-form-model-item>
   
-          <a-form-model-item ref="pointsOnLicense" label="Any Points On License?"  >
+          <a-form-model-item ref="pointsOnLicence" label="Any Points On licence?"  >
             <a-input disabled
-                placeholder="Any Points on License?"
-                v-model="trainee.pointsOnLicense"
+                placeholder="Any Points on licence?"
+                v-model="trainee.pointsOnLicence"
                 @blur="
             () => {
               $refs.lastName.onFieldBlur();

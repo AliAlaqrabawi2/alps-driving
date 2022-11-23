@@ -70,9 +70,9 @@
         />
       </a-form-item>
 
-      <a-form-item label="Address /street name" >
+      <a-form-item label="Address / Street name" >
         <a-input
-            placeholder='Address /street name'
+            placeholder='Address / Street name'
             v-decorator="['address', { rules: [{ required: false }] }]"
         />
       </a-form-item>
@@ -167,9 +167,9 @@
             v-decorator="['trainerExperience', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Trainer PassRate" >
+      <a-form-item label="Trainer Pass Rate" >
         <a-input
-            placeholder='Trainer passRate'
+            placeholder='Trainer pass Rate'
             v-decorator="['trainerPassRate', { rules: [{ required: false }] }]"
         />
       </a-form-item>
@@ -313,15 +313,15 @@
             v-decorator="['hearAboutUs', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="Any points on license?" >
+      <a-form-item label="Any points on licence?" >
         <a-input
-            placeholder='Any points on license?'
-            v-decorator="['pointsOnLicense', { rules: [{ required: false }] }]"
+            placeholder='Any points on licence?'
+            v-decorator="['pointsOnLicence', { rules: [{ required: false }] }]"
         />
       </a-form-item>
-      <a-form-item label="How long  held the UK license?" >
+      <a-form-item label="How long  held the UK licence?" >
         <a-input
-            placeholder='How long  held the UK license?'
+            placeholder='How long  held the UK licence?'
             v-decorator="['heldUkLicense', { rules: [{ required: false }] }]"
         />
       </a-form-item>
