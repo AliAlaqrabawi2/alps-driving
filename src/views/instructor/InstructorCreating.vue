@@ -322,7 +322,7 @@
       <a-form-item label="How long  held the UK licence?" >
         <a-input
             placeholder='How long  held the UK licence?'
-            v-decorator="['heldUkLicense', { rules: [{ required: false }] }]"
+            v-decorator="['heldUkLicence', { rules: [{ required: false }] }]"
         />
       </a-form-item>
       <a-upload style="padding-top:10px" :file-list="fileList" :remove="handleRemove" :multiple="false" :before-upload="beforeUpload" >

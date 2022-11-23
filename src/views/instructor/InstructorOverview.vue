@@ -532,13 +532,13 @@ disabled               rows="5"
           "
           />
         </a-form-model-item>
-        <a-form-model-item ref="heldUkLicense" label="How long  held the UK licence?"  >
+        <a-form-model-item ref="heldUkLicence" label="How long  held the UK licence?"  >
           <a-input disabled
               placeholder="How long  held the UK licence?"
-              v-model="instructor.heldUkLicense"
+              v-model="instructor.heldUkLicence"
               @blur="
             () => {
-              $refs.heldUkLicense.onFieldBlur();
+              $refs.heldUkLicence.onFieldBlur();
             }
           "
           />
