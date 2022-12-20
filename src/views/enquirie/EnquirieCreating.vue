@@ -44,7 +44,7 @@
       <a-form-item label="Area Located " >
         <a-input
             placeholder='Area Located '
-            v-decorator="['areaLocated', { rules: [{ required: true, message:'Please input Area Located! ' }] }]"
+            v-decorator="['areaLocated', { rules: [{ required: false }] }]"
         />
       </a-form-item>
 
@@ -60,7 +60,7 @@
           <a-select-option value='Part one'>
             Part one
           </a-select-option>
-          <a-select-option value='Part tow'>
+          <a-select-option value='Part two'>
             Part two
           </a-select-option>
           <a-select-option value='Contract signed'>
@@ -80,6 +80,15 @@
           </a-select-option>
           <a-select-option value='Not eligible'>
             Not eligible
+          </a-select-option>
+          <a-select-option value='Awaiting DBS Check'>
+            Awaiting DBS Check
+          </a-select-option>
+          <a-select-option value='Awaiting details for Contract'>
+            Awaiting details for Contract
+          </a-select-option>
+          <a-select-option value='New Enquiry'>
+            New Enquiry
           </a-select-option>
         </a-select>
       </a-form-item>
@@ -104,6 +113,25 @@
           </a-select-option>
         </a-select>
       </a-form-item>
+      <a-form-item label="Gender">
+        <a-select
+            placeholder="Gender"
+            type="Gender"
+            v-decorator="[
+          'gender',
+          { rules: [{ required: false }] },
+        ]"
+
+        >
+          <a-select-option value=false>
+            Male
+          </a-select-option>
+          <a-select-option value=true>
+            Female
+          </a-select-option>
+        </a-select>
+      </a-form-item>
+
       <a-form-item label="Private Notes" >
         <a-textarea
             rows="5"

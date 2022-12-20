@@ -18,9 +18,13 @@
 
     <a-table :columns="tableHeader" :data-source="tableData" :pagination="false" >
 
-      <template slot="imgUrl" slot-scope="imgUrl">
-        <div class="table-avatar-info" style="cursor: pointer"  @click="$refs.overViewBtn.click()">
-          <a-avatar shape="square" src="images/profilepic.png" />
+
+      <template slot="action" slot-scope="_id">
+        <div class="table-avatar-info" style="cursor: pointer"  @click="getRefs">
+          <router-link  :to="`/enquiries-overview/${_id}`" >
+            <a-avatar shape="square" src="images/profilepic.png" />
+
+          </router-link>
         </div>
 
       </template>
@@ -39,9 +43,9 @@
       </template>
 
 
-      <template slot="email" slot-scope="email">
+      <template slot="phoneNumber" slot-scope="phoneNumber">
         <div class="author-info">
-          <h6 class="m-0">{{ email }}</h6>
+          <h6 class="m-0">{{ phoneNumber }}</h6>
         </div>
       </template>
       <template slot="jobRole" slot-scope="jobRole">
@@ -72,10 +76,8 @@
         <router-link :to="`enquiries-editing/${_id}`" tag="span">
           <a-icon type="edit" theme="outlined" style="margin-right:10px; font-size:18px ;cursor:pointer;" />
         </router-link>
-        <a :href="`enquiries-overview/${_id}`" ref="overViewBtn" v-show="false">
-          <a-icon type="search" theme="outlined" style="margin-right:10px; font-size:18px ;cursor:pointer;" />
-        </a>
         <a-icon type="delete"  @click="deleteEnquirie(_id)" theme="outlined" style="font-size:18px ;cursor:pointer;" />
+
       </template>
 
 
@@ -104,9 +106,9 @@ const tableHeader = [
     scopedSlots: { customRender: "lastName" },
   },
   {
-    title: "EMAIL",
-    dataIndex: "email",
-    scopedSlots: { customRender: "email" },
+    title: "PHONENUMBER",
+    dataIndex: "phoneNumber",
+    scopedSlots: { customRender: "phoneNumber" },
   },
   {
     title: "JOBROLE",
@@ -143,7 +145,13 @@ export default {
 
   }  ,
   methods:{
-    
+    go(id){
+      console.log(id);
+    } ,
+    getRefs(){
+      console.log(this.$refs.overViewBtn);
+      this.$refs.overViewBtn.click();
+    } ,
     searchEnquiries( input) {
       const cloneList = this.$store.getters.getEnquiries
       if (input === "") {

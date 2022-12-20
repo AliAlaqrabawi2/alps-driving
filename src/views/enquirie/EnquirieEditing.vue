@@ -112,6 +112,15 @@
           <a-select-option value='Not eligible'>
             Not eligible
           </a-select-option>
+          <a-select-option value='Awaiting DBS Check'>
+            Awaiting DBS Check
+          </a-select-option>
+          <a-select-option value='Awaiting details for Contract'>
+            Awaiting details for Contract
+          </a-select-option>
+          <a-select-option value='New Enquiry'>
+            New Enquiry
+          </a-select-option>
         </a-select>
       </a-form-item>
 
@@ -134,6 +143,26 @@
           </a-select-option>
         </a-select>
       </a-form-item>
+      <a-form-item label="Gender">
+        <a-select
+            v-model="enquirie.gender"
+            placeholder="Gender"
+            type="Gender"
+            v-decorator="[
+          'gender',
+          { rules: [{ required: false, message: 'Please select gender!' }] },
+        ]"
+
+        >
+          <a-select-option value=false>
+            Male
+          </a-select-option>
+          <a-select-option value=true>
+            Female
+          </a-select-option>
+        </a-select>
+      </a-form-item>
+
       <a-form-item label="Private Notes" >
         <a-textarea
             v-model="enquirie.privateNotes"
