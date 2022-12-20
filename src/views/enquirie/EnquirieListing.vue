@@ -19,7 +19,7 @@
     <a-table :columns="tableHeader" :data-source="tableData" :pagination="false" >
 
 
-      <template slot="action" slot-scope="_id">
+      <template slot="imgUrl" slot-scope="_id">
         <div class="table-avatar-info" style="cursor: pointer"  @click="getRefs">
           <router-link  :to="`/enquiries-overview/${_id}`" >
             <a-avatar shape="square" src="images/profilepic.png" />
@@ -92,7 +92,7 @@ const tableHeader = [
 
   {
     title: "",
-    dataIndex: "imgUrl",
+    dataIndex: "_id",
     scopedSlots: { customRender: "imgUrl" },
   },
   {
