@@ -16,12 +16,14 @@
     </template>
     <h3 class="font-regular" v-if="loading">Loading...</h3>
 
-    <a-table :columns="tableHeader" :data-source="tableData" :pagination="false" >
+    <a-table :columns="tableHeader" :data-source="tableData" :pagination="true" >
 
-      <template slot="imgUrl" slot-scope="imgUrl">
-        <div class="table-avatar-info" style="cursor: pointer"  @click="$refs.overViewBtn.click()">
-          <a-avatar shape="square" src="images/profilepic.png" />
-        </div>
+      <template slot="info" slot-scope="info">
+       <router-link :to="`employee-overview/${info.id}`">
+         <div class="table-avatar-info" style="cursor: pointer"  >
+           <a-avatar shape="square" src="images/profilepic.png" />
+         </div>
+       </router-link>
 
       </template>
 
@@ -70,8 +72,8 @@
 const tableHeader = [
   {
     title: "",
-    dataIndex: "imgUrl",
-    scopedSlots: { customRender: "imgUrl" },
+    dataIndex: "info",
+    scopedSlots: { customRender: "info" },
   },
   {
     title: "FIRSTNAME",
@@ -112,6 +114,12 @@ export default {
     await this.$store.dispatch("getAllEmployee");
     this.tableData =this.$store.getters.getEmployees
     this.loading=false;
+    this.tableData.map((data) => {
+      return data.info = {
+        id: data._id,
+        gender: data.gender,
+      }
+    })
 
   }  ,
   methods:{

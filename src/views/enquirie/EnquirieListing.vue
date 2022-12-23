@@ -16,12 +16,12 @@
     </template>
     <h3 class="font-regular" v-if="loading">Loading...</h3>
 
-    <a-table :columns="tableHeader" :data-source="tableData" :pagination="false" >
+    <a-table :columns="tableHeader" :data-source="tableData" :pagination="true" >
 
 
-      <template slot="imgUrl" slot-scope="_id">
-        <div class="table-avatar-info" style="cursor: pointer"  @click="getRefs">
-          <router-link  :to="`/enquiries-overview/${_id}`" >
+      <template slot="info" slot-scope="info">
+        <div class="table-avatar-info" style="cursor: pointer"  >
+          <router-link  :to="`/enquiries-overview/${info.id}`" >
             <a-avatar shape="square" src="images/profilepic.png" />
 
           </router-link>
@@ -67,9 +67,71 @@
 
       </template>
       <template slot="stage" slot-scope="stage">
-        <div class="author-info">
-          <h6 class="m-0">{{stage }}</h6>
-        </div>
+
+        <a-tag v-if="stage==='Part one'"
+               color="blue"
+        >
+          {{stage}}
+        </a-tag>
+        <a-tag v-else-if="stage==='Contract signed'"
+               color="turquoise"
+        >
+          {{stage}}
+        </a-tag>
+        <a-tag v-else-if="stage==='Part two'"
+               color="red"
+        >
+          {{stage}}
+        </a-tag>
+        <a-tag v-else-if="stage==='Contract sent'"
+               color="orange"
+        >
+          {{stage}}
+        </a-tag>
+        <a-tag v-else-if="stage==='No longer interested'"
+               color="black"
+        >
+          {{stage}}
+        </a-tag>
+        <a-tag v-else-if="stage==='Left message'"
+               color="purple"
+        >
+          {{stage}}
+        </a-tag>
+        <a-tag v-else-if="stage==='Emailed'"
+               color="brown"
+        >
+          {{stage}}
+        </a-tag>
+        <a-tag v-else-if="stage==='Not eligible'"
+               color="grey"
+        >
+          {{stage}}
+        </a-tag>
+        <a-tag v-else-if="stage==='Awaiting DBS Check'"
+               color="yellow"
+        >
+          {{stage}}
+        </a-tag>
+        <a-tag v-else-if="stage==='Awaiting details for Contract'"
+               color="pink"
+        >
+          {{stage}}
+        </a-tag>
+        <a-tag v-else-if="stage==='New Enquiry'"
+               color="red"
+        >
+          {{stage}}
+        </a-tag>
+        <a-tag v-else
+               color="turquoise"
+        >
+          {{stage}}
+        </a-tag>
+
+
+
+
       </template>
 
       <template slot="action" slot-scope="_id">
@@ -92,8 +154,8 @@ const tableHeader = [
 
   {
     title: "",
-    dataIndex: "_id",
-    scopedSlots: { customRender: "imgUrl" },
+    dataIndex: "info",
+    scopedSlots: { customRender: "info" },
   },
   {
     title: "FIRSTNAME",
@@ -142,8 +204,14 @@ export default {
     await this.$store.dispatch("getAllEnquirie");
     this.tableData =this.$store.getters.getEnquiries
     this.loading=false;
+    this.tableData.map((data) =>{
+          return data.info={
+            id:data._id,
+            gender: data.gender,
+          }
 
-  }  ,
+  })
+  },
   methods:{
     go(id){
       console.log(id);

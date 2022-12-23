@@ -16,7 +16,7 @@
     </template>
     <h3 class="font-regular" v-if="loading">Loading...</h3>
 
-    <a-table :columns="tableHeader" :data-source="tableData" :pagination="false" >
+    <a-table :columns="tableHeader" :data-source="tableData" :pagination="true" >
 
 
       <template slot="imgUrl" slot-scope="imgUrl">

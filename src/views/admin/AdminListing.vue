@@ -15,14 +15,16 @@
       </template>
       <h3 class="font-regular" v-if="loading">Loading...</h3>
 
-      <a-table :columns="tableHeader" :data-source="tableData" :pagination="false"  >
+      <a-table :columns="tableHeader" :data-source="tableData" :pagination="true"  >
 
 
-    <template slot="imgUrl" slot-scope="imgUrl">
-        <div class="table-avatar-info" style="cursor: pointer"  @click="$refs.overViewBtn.click()">
-          <a-avatar  :src="imgUrl" v-if="imgUrl" class="userImg" />
+    <template slot="info" slot-scope="info">
+        <router-link :to="`/admin-overview/${info.id}`">
+          <div class="table-avatar-info" style="cursor: pointer"  >
+            <a-avatar  :src="info.img" v-if="info.img" class="userImg" />
             <a-avatar shape="square" src="images/profilepic.png" v-else />
           </div>
+        </router-link>
 
     </template>
         <template slot="firstName" slot-scope="firstName">
@@ -59,10 +61,6 @@
         <router-link :to="`admin-editing/${_id}`" tag="span">
           <a-icon type="edit" theme="outlined" style="margin-right:10px; font-size:18px ;cursor:pointer;" />
         </router-link>
-
-        <a :href="`admin-overview/${_id}`"   ref="overViewBtn" v-show="false" >
-          <a-icon type="search" theme="outlined" style="margin-right:10px; font-size:18px ;cursor:pointer;" />
-        </a>
           <a-icon type="delete"  @click="deleteAdmin(_id)" theme="outlined" style="font-size:18px ;cursor:pointer;" />
         </template>
 
@@ -75,10 +73,10 @@
 <script>
 
 const tableHeader = [
-{
+  {
     title: "",
-    dataIndex: "imgUrl",
-    scopedSlots: { customRender: "imgUrl" },
+    dataIndex: "info",
+    scopedSlots: { customRender: "info" },
   },
   {
     title: "FIRSTNAME",
@@ -124,9 +122,17 @@ export default {
     this.tableData =this.$store.getters.getAdmins
     this.loading=false;
     this.user = this.$store.getters.currentUser;
+    this.tableData.map((data) =>{
+      return data.info={
+        id:data._id,
+        gender: data.gender,
+        img:data.imgUrl
+      }
+    })
 
   }  ,
   methods:{
+
     overviewPage(){
       console.log(this.$refs.overViewBtn)
     } ,

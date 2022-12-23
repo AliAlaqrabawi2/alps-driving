@@ -15,7 +15,7 @@
 				</a-col>
 			</a-row>
 		</template>
-		<a-table :columns="columns" :data-source="data" :pagination="false">
+		<a-table :columns="columns" :data-source="data" :pagination="true">
 
 			<template slot="author" slot-scope="author">
 				<div class="table-avatar-info">

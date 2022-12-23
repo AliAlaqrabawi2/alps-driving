@@ -17,19 +17,18 @@
     <h3 class="font-regular" v-if="loading">Loading...</h3>
 
     <a-table :columns="tableHeader" :data-source="tableData" :pagination="false" >
-      <template slot="imgUrl" slot-scope="imgUrl">
-        <div class="table-avatar-info" style="cursor: pointer"  @click="$refs.overViewBtn.click()">
-          <a-avatar shape="square" src="images/profilepic.png" />
+      <template slot="info" slot-scope="info">
+        <div class="table-avatar-info" style="cursor: pointer"  >
+          <router-link :to="`/trainee-overview/${info.id}`">
+            <a-avatar shape="square" src="images/profilepic.png" />
+
+
+          </router-link>
         </div>
 
       </template>
 
-      <template slot="firstName" slot-scope="firstName" >
-        <div class="author-info" >
-          <h6 class="m-0">{{ firstName }} </h6>
 
-        </div>
-      </template>
       <template slot="firstName" slot-scope="firstName">
         <div class="table-avatar-info">
           <div class="avatar-info">
@@ -68,7 +67,7 @@
         <router-link :to="`trainee-editing/${_id}`" tag="span">
           <a-icon type="edit" theme="outlined" style="margin-right:10px; font-size:18px ;cursor:pointer;" />
         </router-link>
-        <a :href="`trainee-overview/${_id}`"  ref="overViewBtn" v-show="false" >
+        <a :href="`trainee-overview/${_id}`"  ref="overViewBtn"  >
           <a-icon type="search" theme="outlined" style="margin-right:10px; font-size:18px ;cursor:pointer;" />
         </a>
         <a-icon type="delete"  @click="deleteTrainee(_id)" theme="outlined" style="font-size:18px ;cursor:pointer;" />
@@ -88,8 +87,8 @@
 const tableHeader = [
   {
     title: "",
-    dataIndex: "imgUrl",
-    scopedSlots: { customRender: "imgUrl" },
+    dataIndex: "info",
+    scopedSlots: { customRender: "info" },
   },
 
   {
@@ -141,7 +140,14 @@ export default {
     await this.$store.dispatch("getAllTrainee");
     this.tableData =this.$store.getters.getTrainers
     this.loading=false;
+    this.tableData.map((data) =>{
+       return data.info={
+          id:data._id,
+          gender: data.gender,
+        }
 
+          })
+    console.log(this.tableData);
   }  ,
   methods:{
 
@@ -150,7 +156,7 @@ export default {
       if (input === "") {
         return (this.tableData = cloneList);
       }
-      this.tableData= cloneList.filter((trainee) => {
+      this.tableData= this.tableData.filter((trainee) => {
         return trainee.firstName.toLowerCase().includes(input.toLowerCase())
       });
     },
