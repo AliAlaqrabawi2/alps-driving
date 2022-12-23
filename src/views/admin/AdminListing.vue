@@ -136,9 +136,11 @@ export default {
       if (input === "") {
         return (this.tableData = cloneList);
       }
-      this.tableData= this.tableData.filter((admin) => {
-        return admin.firstName.toLowerCase().includes(input.toLowerCase())
-      });
+      this.tableData= cloneList.filter((admin) => {
+        return (admin.firstName.toLowerCase().includes(input.toLowerCase()))});
+
+
+
     },
     
     deleteAdmin (id){

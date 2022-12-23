@@ -152,13 +152,16 @@ export default {
       console.log(this.$refs.overViewBtn);
       this.$refs.overViewBtn.click();
     } ,
-    searchEnquiries( input) {
+    searchEnquiries(input) {
       const cloneList = this.$store.getters.getEnquiries
+      console.log(input);
       if (input === "") {
         return (this.tableData = cloneList);
       }
-      this.tableData= this.tableData.filter((enquirie) => {
-        return enquirie.firstName.toLowerCase().includes(input.toLowerCase())
+      this.tableData= cloneList.filter((enquirie) => {
+        console.log('test');
+        return (enquirie.firstName.toLowerCase().includes(input.toLowerCase())) ||
+            enquirie.stage.toLowerCase().includes(input.toLowerCase())
       });
     },
     deleteEnquirie (id){

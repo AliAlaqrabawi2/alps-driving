@@ -118,7 +118,7 @@ export default {
       if (input === "") {
         return (this.tableData = cloneList);
       }
-      this.tableData= this.tableData.filter((instructor) => {
+      this.tableData= cloneList.filter((instructor) => {
         return instructor.firstName.toLowerCase().includes(input.toLowerCase())
       });
     },
