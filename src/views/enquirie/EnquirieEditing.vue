@@ -162,6 +162,15 @@
           </a-select-option>
         </a-select>
       </a-form-item>
+      <a-form-item label="Held a Full UK Licence for more than 3 Years?">
+        <a-switch v-model:checked="enquirie.heldFullUk"  />
+      </a-form-item>
+      <a-form-item label="21 years old or over?">
+        <a-switch v-model:checked="enquirie.isOverOld" />
+      </a-form-item>
+      <a-form-item label="Has Less Than 6 Points On Licence">
+        <a-switch v-model:checked="enquirie.lessThanPointLicence" />
+      </a-form-item>
 
       <a-form-item label="Private Notes" >
         <a-textarea

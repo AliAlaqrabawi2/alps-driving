@@ -114,6 +114,37 @@
           </a-select-option>
         </a-select>
       </a-form-item>
+      <a-form-model-item>
+        <a-select
+            disabled
+            v-model="enquirie.gender"
+            placeholder="Gender"
+            type="Gender"
+            v-decorator="[
+          'gender',
+          { rules: [{ required: false, message: 'Please select gender!' }] },
+        ]"
+
+        >
+          <a-select-option value=false>
+            Male
+          </a-select-option>
+          <a-select-option value=true>
+            Female
+          </a-select-option>
+        </a-select>
+      </a-form-model-item>
+
+
+      <a-form-item  label="Held a Full UK Licence for more than 3 Years?">
+        <a-switch disabled v-model:checked="enquirie.heldFullUk"  />
+      </a-form-item>
+      <a-form-item  label="21 years old or over?">
+        <a-switch disabled v-model:checked="enquirie.isOverOld" />
+      </a-form-item>
+      <a-form-item  label="Has Less Than 6 Points On Licence">
+        <a-switch disabled v-model:checked="enquirie.lessThanPointLicence" />
+      </a-form-item>
 
 
       <a-form-item label="Job Role" prop="jobRole">

@@ -131,6 +131,15 @@
           </a-select-option>
         </a-select>
       </a-form-item>
+      <a-form-item label="Held a Full UK Licence for more than 3 Years?">
+        <a-switch v-model:checked="heldFullUk"  />
+      </a-form-item>
+      <a-form-item label="21 years old or over?">
+        <a-switch v-model:checked="overOld" />
+      </a-form-item>
+      <a-form-item label="Has Less Than 6 Points On Licence">
+        <a-switch v-model:checked="lessThanPointLicence" />
+      </a-form-item>
 
       <a-form-item label="Private Notes" >
         <a-textarea
@@ -162,6 +171,9 @@ export default {
       formLayout: 'horizontal',
       loading:false,
       form: this.$form.createForm(this, { name: 'coordinated' }),
+      heldFullUk:false,
+      overOld:false,
+      lessThanPointLicence:false,
     };
   },
   methods: {
@@ -172,6 +184,9 @@ export default {
       e.preventDefault();
       this.form.validateFields(async(err, values) => {
         if (!err) {
+          values.lessThanPointLicence=this.lessThanPointLicence;
+          values.isOverOld = this.overOld;
+          values.heldFullUk = this.heldFullUk
           await this.$store.dispatch("createNewEnquirie", values);
           const error = this.$store.getters.getError;
           console.log(error);
