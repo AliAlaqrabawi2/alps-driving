@@ -80,7 +80,9 @@ created() {
 
     handleSubmit(e) {
       e.preventDefault();
+
       this.form.validateFields(async (err, values) => {
+        this.loading=true;
         await this.$store.dispatch("login", values);
         values.password=''
         const error = this.$store.getters.getError;
@@ -91,13 +93,14 @@ created() {
             title: 'Oops...',
             text: error,
           })
-
-
+          this.loading=false;
         }
         else {
+          this.loading=false;
           this.$router.push('/')
         }
       });
+
     },
   },
 })

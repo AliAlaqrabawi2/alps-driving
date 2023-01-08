@@ -67,21 +67,30 @@ export default {
         const res = await HTTP.get(`/api/admin/${id}`);
         commit("setAdmin", res.data);
       } catch (err) {
-        commit("setError", err.response.data.msg);
-        checkAuth(err.response.status);
+
       }
     },
 
     updateAdmin: async function ({ commit }, admin) {
-      await HTTP.put(`/api/admin/${admin.id}`, {
-        firstName: admin.firstName,
-        lastName: admin.lastName,
-        email: admin.email,
-        phoneNumber: admin.phoneNumber,
-        isSupervisor: admin.isSupervisor,
-        imgUrl: admin.imgUrl,
-      });
-      window.location.href = "/";
+
+      try {
+        await HTTP.put(`/api/admin/${admin.id}`, {
+          firstName: admin.firstName,
+          lastName: admin.lastName,
+          email: admin.email,
+          phoneNumber: admin.phoneNumber,
+          isSupervisor: admin.isSupervisor,
+          imgUrl: admin.imgUrl,
+        });
+        window.location.href = "/";
+
+      }
+      catch(err){
+      commit("setError", err.response.data.msg);
+      checkAuth(err.response.status);
+
+      }
+
     },
   },
 };

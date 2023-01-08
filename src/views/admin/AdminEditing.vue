@@ -94,8 +94,8 @@
 </div>
 </template>
 <script>
-import {uploadToStorage} from "../../firebase/methods/sotrage"
-
+import {uploadToStorage} from "@/firebase/methods/sotrage"
+import Swal from "sweetalert2";
 export default {
   data() {
     return {
@@ -175,25 +175,27 @@ export default {
 
 const error = this.$store.getters.getError;
 if (!error) {
-Swal.fire(
+  Swal.fire(
     'successfully Updated!',
     'You update  an Admin',
     'success'
-).then(()=>{
-  this.loading=false;
-  this.$router.push("admin-listing");
+   ).then(()=>{
+   this.loading=false;
+    this.$router.push("admin-listing");
 })
 }
 else {
 this.loading=false;
 
-Swal.fire(
+
+ Swal.fire(
     'SomeThing Wrong',
     error,
     'error'
 )
 
 }
+
 
     } ,
     resetForm() {
