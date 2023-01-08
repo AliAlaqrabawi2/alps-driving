@@ -114,9 +114,8 @@
           </a-select-option>
         </a-select>
       </a-form-item>
-      <a-form-model-item>
-        <a-select
-            disabled
+      <a-form-item label="Gender">
+        <a-select disabled
             v-model="enquirie.gender"
             placeholder="Gender"
             type="Gender"
@@ -124,16 +123,18 @@
           'gender',
           { rules: [{ required: false, message: 'Please select gender!' }] },
         ]"
-
         >
-          <a-select-option value=false>
+          <a-select-option :value="0">
             Male
           </a-select-option>
-          <a-select-option value=true>
+          <a-select-option :value="1">
             Female
           </a-select-option>
+          <a-select-option :value="2">
+            Unknown
+          </a-select-option>
         </a-select>
-      </a-form-model-item>
+      </a-form-item>
 
 
       <a-form-item  label="Held a Full UK Licence for more than 3 Years?">

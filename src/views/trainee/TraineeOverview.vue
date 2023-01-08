@@ -179,7 +179,7 @@
   
 
           <a-form-item label="Gender">
-            <a-select
+            <a-select disabled
                 v-model="trainee.gender"
                 placeholder="Gender"
                 type="Gender"
@@ -189,19 +189,18 @@
           ]"
   
             >
-              <a-select-option value=false>
+
+              <a-select-option :value="0">
                 Male
               </a-select-option>
-              <a-select-option value=true>
+              <a-select-option :value="1">
                 Female
+              </a-select-option>
+              <a-select-option :value="2">
+                Unknown
               </a-select-option>
             </a-select>
           </a-form-item>
-  
-        
-  
-
-         
 
           <a-form-model-item ref="trainerExperience" label="Trainer Experience"  >
             <a-input disabled

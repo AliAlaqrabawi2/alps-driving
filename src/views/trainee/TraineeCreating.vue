@@ -53,12 +53,16 @@
         ]"
 
         >
-          <a-select-option value=false>
+          <a-select-option value="0">
             Male
           </a-select-option>
-          <a-select-option value=true>
+          <a-select-option value="1">
             Female
           </a-select-option>
+          <a-select-option value="2">
+            UnKnown
+          </a-select-option>
+        </a-select>
         </a-select>
       </a-form-item>
 
